@@ -3,7 +3,7 @@ package interfaces;
 public interface IPosicion {
 
 	
-	
+	//TODO DOCUMENTAR
 	public int getPosicionX();
 	
 	public int getPosicionY();
