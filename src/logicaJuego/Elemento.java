@@ -3,14 +3,18 @@ package logicaJuego;
 
 import interfaces.IElemento;
 
-public class Elemento implements IElemento{
+public abstract class Elemento implements IElemento{
 	private Posicion posicion;
 	private int Velocidad;
+	private Tamanio tamanio;
+	private Escenario escenario;
 	
 	
 //	constructor
-	public Elemento(Posicion posicion) {
+	public Elemento(Posicion posicion, Tamanio tamanio, Escenario escenario) {
 		this.posicion=posicion;
+		this.tamanio=tamanio;
+		this.escenario= escenario;
 	}
 
 
@@ -28,6 +32,14 @@ public class Elemento implements IElemento{
 		
 	}
 
+	/**
+	 * Destruye un elemento del campo de juego
+	 * @param elemento
+	 */
+	public void destruir(Elemento elemento){
+		this.getEscenario().removeElemento(elemento);
+	};
+	
 
 
 	
@@ -48,6 +60,24 @@ public class Elemento implements IElemento{
 
 	public void setVelocidad(int velocidad) {
 		Velocidad = velocidad;
+	}
+
+
+
+	public Tamanio getTamanio() {
+		return tamanio;
+	}
+
+
+
+	public void setTamanio(Tamanio tamanio) {
+		this.tamanio = tamanio;
+	}
+
+
+
+	public Escenario getEscenario() {
+		return escenario;
 	}
 
 

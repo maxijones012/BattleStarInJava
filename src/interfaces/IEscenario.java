@@ -1,5 +1,7 @@
 package interfaces;
 
+import configuracion.Config;
+
 /**
  * 
  * 
@@ -8,7 +10,7 @@ package interfaces;
  */
 
 public interface IEscenario {
-	
+
 	/**
 	 * 
 	 */

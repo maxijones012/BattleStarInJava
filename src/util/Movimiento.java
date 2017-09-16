@@ -17,10 +17,10 @@ public class Movimiento{
 	 * @param movible
 	 */
 	public static void avanzarX(Movible movible){
-		movible.getPosicion().setPosicionX((int) (movible.getPosicion().getPosicionX()+ Math.cos(Math.toRadians(movible.getDireccion()))*movible.getVelocidad()));		
+		movible.getPosicion().setX((int) (movible.getPosicion().getX()+ Math.cos(Math.toRadians(movible.getDireccion()))*movible.getVelocidad()));		
 	}
 	public static void avanzarY(Movible obj){
-		obj.getPosicion().setPosicionY((int) (obj.getPosicion().getPosicionY()+ Math.sin(Math.toRadians(obj.getDireccion()))*obj.getVelocidad()));		
+		obj.getPosicion().setY((int) (obj.getPosicion().getY()+ Math.sin(Math.toRadians(obj.getDireccion()))*obj.getVelocidad()));		
 	}
 	
 }

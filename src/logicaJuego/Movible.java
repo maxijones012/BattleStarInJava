@@ -4,12 +4,13 @@ import interfaces.IMovible;
 import util.Movimiento;
 
 public class Movible extends Elemento implements IMovible {
+	private int direccion;
 	
-	public Movible(Posicion posicion) {
-		super(posicion);
+	//constructor
+	public Movible(Posicion posicion, Tamanio tamanio, Escenario escenario) {
+		super(posicion, tamanio, escenario);
 	}
 
-	private int direccion;
 
 	@Override
 	public void avanzar() {

@@ -10,5 +10,4 @@ public interface IElemento {
 	
 	public void turnos();
 	
-
 }
