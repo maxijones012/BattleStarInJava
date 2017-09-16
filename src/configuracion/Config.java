@@ -10,12 +10,19 @@ import logicaJuego.Escenario;
 public class Config {
 	public NaveConfig naveConfig;
 	private Escenario escenario;
-
+	private ConfigEscenario configEscenario;
 	
 	
 	
 	public NaveConfig getNaveConfig() {
 		return naveConfig;
+	}
+
+
+
+
+	public ConfigEscenario getConfigEscenario() {
+		return configEscenario;
 	}
 
 

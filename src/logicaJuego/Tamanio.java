@@ -6,7 +6,7 @@ public class Tamanio{
 	private int alto;
 	
 	
-//	constructor
+
 	/**
 	 * constructor de clase tamanio, genera los valor de ANCHO y ALTO
 	 * @param ancho

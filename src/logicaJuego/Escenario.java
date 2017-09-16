@@ -13,6 +13,7 @@ public class Escenario implements IEscenario{
 	
 	public Escenario(Config config) {
 		this.config=config;
+		this.tamanio= new Tamanio(config.getConfigEscenario().getAnchoEscenario(), config.getConfigEscenario().getAltoEscenario());
 	}
 
 	//TODO arreglar el iniciar juego

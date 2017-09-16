@@ -5,7 +5,6 @@ import interfaces.IElemento;
 
 public abstract class Elemento implements IElemento{
 	private Posicion posicion;
-	private int Velocidad;
 	private Tamanio tamanio;
 	private Escenario escenario;
 	
@@ -54,13 +53,6 @@ public abstract class Elemento implements IElemento{
 		this.posicion = posicion;
 	}
 
-	public int getVelocidad() {
-		return Velocidad;
-	}
-
-	public void setVelocidad(int velocidad) {
-		Velocidad = velocidad;
-	}
 
 
 

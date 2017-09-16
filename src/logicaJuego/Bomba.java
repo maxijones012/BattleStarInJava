@@ -3,7 +3,7 @@ package logicaJuego;
 public class Bomba extends Movible{
 	private Movible duenio;
 	private int nivelDanio; //TODO AGREGAR A CONFIG
-	private int alcance; //TODO AGREGAR A CONFIG
+	private int velocidadInicial; //TODO AGREGAR A CONFIG
 	
 //	constructor
 	/**
@@ -20,12 +20,18 @@ public class Bomba extends Movible{
 	}
 
 	@Override
+	/**
+	 * Clase bomba, mientras tenga un alcance, se seguira movimendo
+	 * cuando su alcance sea 0, debe explotar CON UN RADIO DE EXPANSION
+	 * @param alcance
+	 */
 	public void jugar() {
-		if (getAlcance()>0){
+		if (getVelocidadInicial()>0){
 			super.avanzar();
-			this.setAlcance(alcance-1); //TODO verificar que anda
+			this.setVelocidadInicial(velocidadInicial-1); //TODO verificar que anda
 		}
 		else{
+			//TODO HACER EXPLOTAR
 			super.destruir(this);
 		}
 		
@@ -37,12 +43,12 @@ public class Bomba extends Movible{
 	 * metodo que sirve para obtener el alcance de la bomba
 	 * @return
 	 */
-	public int getAlcance() {
-		return alcance;
+	public int getVelocidadInicial() {
+		return velocidadInicial;
 	}
 
-	public void setAlcance(int alcance) {
-		this.alcance = alcance;
+	public void setVelocidadInicial(int alcance) {
+		this.velocidadInicial = alcance;
 	}
 	
 	

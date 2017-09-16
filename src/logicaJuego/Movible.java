@@ -4,9 +4,12 @@ import interfaces.IMovible;
 import util.Movimiento;
 
 public class Movible extends Elemento implements IMovible {
-	private int direccion;
+	private int direccion; //TODO SACARLO DE CONFIG
+	private int velocidadAvance; //TODO SACARLO DE CONFIG
 	
 	//constructor
+	
+	
 	public Movible(Posicion posicion, Tamanio tamanio, Escenario escenario) {
 		super(posicion, tamanio, escenario);
 	}
@@ -26,6 +29,16 @@ public class Movible extends Elemento implements IMovible {
 
 	public void setDireccion(int direccion) {
 		this.direccion = direccion;
+	}
+
+
+	public int getVelocidadAvance() {
+		return velocidadAvance;
+	}
+
+
+	public void setVelocidadAvance(int velocidadAvance) {
+		this.velocidadAvance = velocidadAvance;
 	}
 	
 	

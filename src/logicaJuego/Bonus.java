@@ -1,5 +1,5 @@
 package logicaJuego;
 
-public class Bonus {
+public class Bonus{
 
 }
