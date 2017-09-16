@@ -12,14 +12,16 @@ public interface IEscenario {
 	/**
 	 * 
 	 */
-	public static void iniciarJuego(){};
+	public void iniciarJuego();
 
 	/**
 	 * Genera turnos por cada lapso de tiempo
 	 */
-	public static void turnos(){};
+	public void turnos();
 	
 	
+	
+	public void crearElementos();
 	
 	
 	

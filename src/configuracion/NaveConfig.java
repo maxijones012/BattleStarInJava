@@ -1,4 +1,4 @@
-package util;
+package configuracion;
 
 public class NaveConfig {
 	private int anchoNave=10;

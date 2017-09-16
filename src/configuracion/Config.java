@@ -1,7 +1,5 @@
 package configuracion;
 
-import util.NaveConfig;
-
 /**
  * Contiene todos los datos del juego
  * @author Maxi Jones

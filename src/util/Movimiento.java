@@ -12,7 +12,10 @@ public class Movimiento{
 		movible.setDireccion(dirNueva);
 	}
 	
-	
+	/**
+	 * Avanza obteniendo la posicion del objeto
+	 * @param movible
+	 */
 	public static void avanzarX(Movible movible){
 		movible.getPosicion().setPosicionX((int) (movible.getPosicion().getPosicionX()+ Math.cos(Math.toRadians(movible.getDireccion()))*movible.getVelocidad()));		
 	}

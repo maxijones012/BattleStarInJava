@@ -1,5 +1,6 @@
 package logicaJuego;
 
+
 import interfaces.IElemento;
 
 public class Elemento implements IElemento{
@@ -13,10 +14,26 @@ public class Elemento implements IElemento{
 	}
 
 
+
+	@Override
+	public void jugar() {
+		
+	}
+		
+
+
+
+	@Override
+	public void turnos() {
+		
+	}
+
+
+
 	
 	
 	
-	
+//------------------------------------------------------------	
 	public Posicion getPosicion() {
 		return posicion;
 	}
@@ -25,27 +42,13 @@ public class Elemento implements IElemento{
 		this.posicion = posicion;
 	}
 
-
-
-
-
-
 	public int getVelocidad() {
 		return Velocidad;
 	}
 
-
-
-
-
-
 	public void setVelocidad(int velocidad) {
 		Velocidad = velocidad;
 	}
-	
 
-	
-	
-	
 
 }
