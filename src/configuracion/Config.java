@@ -8,7 +8,10 @@ import logicaJuego.Escenario;
  *
  */
 public class Config {
-	public NaveConfig naveConfig;
+	private NaveConfig naveConfig;
+	private BombaConfig bombaConfig;
+	
+	
 	private Escenario escenario;
 	private ConfigEscenario configEscenario;
 	
@@ -34,6 +37,13 @@ public class Config {
 
 	public Escenario getEscenario() {
 		return escenario;
+	}
+
+
+
+
+	public BombaConfig getBombaConfig() {
+		return bombaConfig;
 	}
 
 	

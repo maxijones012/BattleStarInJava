@@ -5,7 +5,6 @@ public class Bomba extends Movible{
 	private int nivelDanio; //TODO AGREGAR A CONFIG
 	private int velocidadInicial; //TODO AGREGAR A CONFIG
 	
-//	constructor
 	/**
 	 * la bomba se crea con la posicion del duenio, donde 
 	 * duenio es quien crea la bomba
@@ -16,6 +15,7 @@ public class Bomba extends Movible{
 	public Bomba(Movible duenio, Posicion posicion, Tamanio tamanio, Escenario escenario) {
 		super(posicion, tamanio, escenario);
 		this.duenio= duenio;
+		this.nivelDanio=this.getEscenario().getConfig().getBombaConfig().getNivelDanio();
 
 	}
 

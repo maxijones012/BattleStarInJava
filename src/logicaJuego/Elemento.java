@@ -7,6 +7,7 @@ public abstract class Elemento implements IElemento{
 	private Posicion posicion;
 	private Tamanio tamanio;
 	private Escenario escenario;
+	private Boolean estaVivo;
 	
 	
 //	constructor
@@ -70,6 +71,18 @@ public abstract class Elemento implements IElemento{
 
 	public Escenario getEscenario() {
 		return escenario;
+	}
+
+
+
+	public Boolean getEstaVivo() {
+		return estaVivo;
+	}
+
+
+
+	public void setEstaVivo(Boolean estaVivo) {
+		this.estaVivo = estaVivo;
 	}
 
 

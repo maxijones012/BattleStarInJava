@@ -8,7 +8,6 @@ import interfaces.IEscenario;
 public class Escenario implements IEscenario{
 	private Tamanio tamanio;
 	ArrayList<Elemento> listaElemento = new ArrayList<>();
-	private Elemento elemento; 
 	private Config config;
 	
 	public Escenario(Config config) {
@@ -26,11 +25,12 @@ public class Escenario implements IEscenario{
 	//TODO ARREGLAR TURNOS
 	@Override
 	public void turnos() {
-		
+		util.Logica.darTurno(this);		
 	}
 
 	@Override
 	public void crearElementos() {
+		
 		//TODO crear elementos
 		
 	}
@@ -56,6 +56,12 @@ public class Escenario implements IEscenario{
 
 	public void removeElemento(Elemento elemento) {
 		this.listaElemento.remove(elemento);
+	}
+
+	public ArrayList<Elemento> getListaElemento() {
+		return listaElemento;
 	};
+	
+	
 	
 }
