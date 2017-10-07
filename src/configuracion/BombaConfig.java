@@ -3,6 +3,9 @@ package configuracion;
 public class BombaConfig {
 	private int nivelDanio;
 	private int velocidadInicial;
+	
+	
+	
 	public int getNivelDanio() {
 		return nivelDanio;
 	}

@@ -1,8 +1,12 @@
 package configuracion;
 
-public class NaveConfig {
+
+
+public abstract class NaveConfig {
+	
 	private int anchoNave=10;
 	private int altoNave=10;	
+	
 	private int posicionX=50;
 	private int posicionY=50;
 	
@@ -11,10 +15,8 @@ public class NaveConfig {
 	
 	
 	
-	
-	
-	
-	
+
+
 	public int getAnchoNave() {
 		return anchoNave;
 	}

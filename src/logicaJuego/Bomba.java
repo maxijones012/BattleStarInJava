@@ -2,7 +2,7 @@ package logicaJuego;
 
 public class Bomba extends Movible{
 	private Movible duenio;
-	private int nivelDanio; //TODO AGREGAR A CONFIG
+	private int danio; //TODO AGREGAR A CONFIG
 	private int velocidadInicial; //TODO AGREGAR A CONFIG
 	
 	/**
@@ -15,7 +15,7 @@ public class Bomba extends Movible{
 	public Bomba(Movible duenio, Posicion posicion, Tamanio tamanio, Escenario escenario) {
 		super(posicion, tamanio, escenario);
 		this.duenio= duenio;
-		this.nivelDanio=this.getEscenario().getConfig().getBombaConfig().getNivelDanio();
+		this.danio=this.getEscenario().getConfig().getBombaConfig().getNivelDanio();
 
 	}
 
@@ -49,6 +49,45 @@ public class Bomba extends Movible{
 
 	public void setVelocidadInicial(int alcance) {
 		this.velocidadInicial = alcance;
+	}
+
+	public Movible getDuenio() {
+		return duenio;
+	}
+
+	public void setDuenio(Movible duenio) {
+		this.duenio = duenio;
+	}
+
+	public int getDanio() {
+		return danio;
+	}
+
+	public void setDanio(int danio) {
+		this.danio = danio;
+	}
+
+	@Override
+	public void chocarContra(Elemento elemento) {
+		elemento.chocarContra(this);
+		
+	}
+
+	@Override
+	public void chocarContraBonusReparacion(BonusReparacion bonus) {
+		this.destruir(this);
+		
+	}
+
+	@Override
+	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {
+		this.destruir(this);
+	}
+
+	@Override
+	public void chocarContraBonusMisil(BonusMisil bonus) {
+		this.destruir(this);
+		
 	}
 	
 	

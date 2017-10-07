@@ -12,8 +12,7 @@ public class Prueba {
 		config.setEscenario(escenario);
 		
 		escenario.iniciarJuego();
-		
-		
+
 		
 	}
 

@@ -2,6 +2,10 @@ package util;
 
 import logicaJuego.Movible;
 
+import java.util.Random;
+
+import logicaJuego.Elemento;
+
 /**
  * Clase encargada UTIL de todos los movimiento de los objetos del escenario
  * @author Maxi Jones
@@ -38,4 +42,34 @@ public abstract class Movimiento{
 		obj.getPosicion().setY((int) (obj.getPosicion().getY()+ Math.sin(Math.toRadians(obj.getDireccion()))*obj.getVelocidadAvance()));		
 	}
 	
+	
+	public static int obtenerPosicionX(Elemento e) {
+		return (e.getPosicion().getX());
+	}
+
+	public static int obtenerPosicionY(Elemento e) {
+		return (e.getPosicion().getY());
+	}
+	
+	/**
+	 * Genera una posicion aleatoria en el juego base
+	 * y devuelve un X
+	 * @return X
+	 */
+	public static int posicionAleatoriaX(){
+		Random randx = new Random();
+		return (int) (randx.nextDouble());
+	}
+	
+	/**
+	 * Genera una posicion aleatoria en el en juego base 
+	 * y devuelve un Y
+	 * @return
+	 */
+	public static int posicionAleatoriaY(){
+		Random randy = new Random();
+		return (int) ( randy.nextDouble() );
+	}
+	
+
 }

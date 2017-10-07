@@ -20,17 +20,11 @@ public abstract class Elemento implements IElemento{
 
 
 	@Override
-	public void jugar() {
-		
-	}
+	public abstract void jugar();
 		
 
 
 
-	@Override
-	public void turnos() {
-		
-	}
 
 	/**
 	 * Destruye un elemento del campo de juego
@@ -85,5 +79,5 @@ public abstract class Elemento implements IElemento{
 		this.estaVivo = estaVivo;
 	}
 
-
+	
 }

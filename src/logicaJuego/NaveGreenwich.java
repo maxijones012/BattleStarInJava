@@ -1,30 +1,25 @@
 package logicaJuego;
 
-/**
- *  Se  mueve  por  el  escenario  sin  un  rumbo  fijo,  y  dispara  misiles  cada  vez  que  toca  
- *     alguno​ ​de​ ​los​ ​límites​ ​del​ ​escenario.
- * @author Maxi Jones
- *
- */
-public class NaveCrazy extends Nave{
+import util.Movimiento;
 
-	
-	
-	//constructor
-	public NaveCrazy(Posicion posicion, Tamanio tamanio, Escenario escenario) {
+public class NaveGreenwich extends Nave{
+
+	public NaveGreenwich(Posicion posicion, Tamanio tamanio, Escenario escenario) {
 		super(posicion, tamanio, escenario);
 	}
 
-
-	
 	
 	@Override
 	public void jugar() {
-		
 		super.jugar();
+		this.avanzar();
 	}
-
-
+	
+	
+	@Override
+	public void avanzar() {
+		Movimiento.avanzarY(this);		
+	}
 
 
 	@Override
@@ -33,34 +28,27 @@ public class NaveCrazy extends Nave{
 	}
 
 
-
 	@Override
 	public void chocarContraBonusReparacion(BonusReparacion bonus) {
-		// TODO obtener beneficio
+		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
 	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {
-		// TODO obtener beneficio
+		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
 	public void chocarContraBonusMisil(BonusMisil bonus) {
-		// TODO obtener beneficio
+		// TODO Auto-generated method stub
 		
 	}
-
-
-
-
-
-
-
-
 	
-
+	
+	
+	
 }

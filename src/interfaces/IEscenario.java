@@ -1,6 +1,5 @@
 package interfaces;
 
-import configuracion.Config;
 
 /**
  * 

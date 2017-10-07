@@ -3,7 +3,7 @@ package logicaJuego;
 import interfaces.IMovible;
 import util.Movimiento;
 
-public class Movible extends Elemento implements IMovible {
+public abstract class Movible extends Elemento implements IMovible {
 	private int direccion; //TODO SACARLO DE CONFIG
 	private int velocidadAvance; //TODO SACARLO DE CONFIG
 	

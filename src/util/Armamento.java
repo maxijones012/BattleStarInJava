@@ -1,7 +1,7 @@
 package util;
 
 import logicaJuego.Bomba;
-import logicaJuego.Municion;
+import logicaJuego.Misil;
 import logicaJuego.Nave;
 import logicaJuego.Posicion;
 import logicaJuego.Tamanio;
@@ -30,7 +30,7 @@ public abstract class Armamento {
 		if (nave.getCantidadMunicion()>0){
 			Posicion posicion = new Posicion(nave.getPosicion().getX(),nave.getPosicion().getY());
 			Tamanio tamanio = new Tamanio(nave.getTamanio().getAncho(), nave.getTamanio().getAlto());
-			new Municion(nave, posicion,tamanio, nave.getEscenario());
+			new Misil(nave, posicion,tamanio, nave.getEscenario());
 		}
 	}
 
