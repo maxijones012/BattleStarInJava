@@ -1,9 +1,14 @@
 package logicaJuego;
 
+import java.awt.Polygon;
+
 import util.Movimiento;
+import util.uRadar;
 
 public class Radar extends Movible{
 	private Nave duenio;
+	private int anguloApertura=20; //TODO SACAR ESTO DE CONFIG
+	private int alcance=40; //TODO SACAR ESTO DE CONFIG
 	
 	
 	
@@ -26,7 +31,13 @@ public class Radar extends Movible{
 		
 	}
 	
-	
+	/**
+	 * devuelve el un polygono
+	 * @return
+	 */
+	public Polygon getAreaCobertura(){
+		return (uRadar.getAreaCobertura(this));
+	}
 	
 	/**
 	 * gira con respecto a un  angula dado
@@ -73,6 +84,30 @@ public class Radar extends Movible{
 
 	@Override
 	public void chocarContraBonusMisil(BonusMisil bonus) {	}
+
+
+
+	@Override
+	public void chocarContraPared() {
+	}
+
+
+
+	public int getAnguloApertura() {
+		return anguloApertura;
+	}
+
+
+
+	public int getAlcance() {
+		return alcance;
+	}
+
+
+
+	public void setAnguloApertura(int anguloApertura) {
+		this.anguloApertura = anguloApertura;
+	}
 	
 	
 	

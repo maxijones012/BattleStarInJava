@@ -1,8 +1,12 @@
 package logicaJuego;
 
+import java.util.Random;
+
 import util.Movimiento;
 
 public class NaveGreenwich extends Nave{
+	private static boolean arriba=true;
+	private boolean bool=true;
 
 	public NaveGreenwich(Posicion posicion, Tamanio tamanio, Escenario escenario) {
 		super(posicion, tamanio, escenario);
@@ -12,13 +16,12 @@ public class NaveGreenwich extends Nave{
 	@Override
 	public void jugar() {
 		super.jugar();
-		this.avanzar();
+		
 	}
 	
 	
 	@Override
 	public void avanzar() {
-		Movimiento.avanzarY(this);		
 	}
 
 
@@ -46,6 +49,12 @@ public class NaveGreenwich extends Nave{
 	public void chocarContraBonusMisil(BonusMisil bonus) {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+	@Override
+	public void chocarContraPared() {
+		this.setDireccion(this.getDireccion()-90);
 	}
 	
 	

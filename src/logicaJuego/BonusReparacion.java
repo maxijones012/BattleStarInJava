@@ -1,5 +1,10 @@
 package logicaJuego;
 
+/**
+ * clase de bonus reparacion
+ * @author Maxi Jones
+ *
+ */
 public class BonusReparacion extends Bonus{
 	private static int valorReparacion=40; //TODO SACAR ESTO DE CONFIG
 	/**
@@ -8,8 +13,9 @@ public class BonusReparacion extends Bonus{
 	 * @param tamanio
 	 * @param escenario
 	 */
-	public BonusReparacion(Posicion posicion, Tamanio tamanio, Escenario escenario) {
-		super(posicion, tamanio, escenario);
+	public BonusReparacion(Posicion posicion, Tamanio tamanio, Escenario escenario, Nave nave) {
+		super(posicion, tamanio, escenario,nave);
+		
 	}
 
 
@@ -19,18 +25,14 @@ public class BonusReparacion extends Bonus{
 		
 	}
 
-	@Override
-	public void chocarContraBonusReparacion(BonusReparacion bonus) {}
-
-	@Override
-	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {
-	}
 
 	@Override
 	public void chocarContraBonusMisil(BonusMisil bonus) {
-		// TODO Auto-generated method stub
-		
+		darBeneficio(bonus.getDuenio());
 	}
+
+
+
 
 	@Override
 	public void darBeneficio(Nave nave) {
@@ -55,6 +57,16 @@ public class BonusReparacion extends Bonus{
 
 	private void darBonusReparacion(Nave nave) {
 		nave.setNivelVida(nave.getNivelVida()+valorReparacion);
+	}
+
+
+	@Override
+	public void chocarContraPared() {}
+	@Override
+	public void chocarContraBonusReparacion(BonusReparacion bonus) {}
+
+	@Override
+	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {
 	}
 
 }

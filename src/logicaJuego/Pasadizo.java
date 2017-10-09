@@ -37,5 +37,11 @@ public class Pasadizo extends Estatico{
 		
 	}
 
+	@Override
+	public void chocarContraPared() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 }

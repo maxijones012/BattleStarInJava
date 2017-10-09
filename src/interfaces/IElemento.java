@@ -25,9 +25,8 @@ public interface IElemento {
 	public abstract void chocarContra(Elemento elemento);
 //
 //	
-//	public void chocarContraPared() {}
+	public abstract void chocarContraPared();
 //	
-//	public void chocarContraMunicion(Municion municion){}
 //	
 //	public void chocarContraBomba(Bomba bomba){}
 //	

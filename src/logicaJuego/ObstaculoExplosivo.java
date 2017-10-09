@@ -56,4 +56,10 @@ public class ObstaculoExplosivo extends Estatico{
 		this.tiempoDeExplosion = tiempoDeExplosion;
 	}
 
+	@Override
+	public void chocarContraPared() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
