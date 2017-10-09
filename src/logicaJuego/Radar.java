@@ -17,6 +17,7 @@ public class Radar extends Movible{
 	//TODO HACER EL ESCANEAR
 	public void escanear(){ //TODO anda mejorar y hacer 
 		
+			System.out.println("Escanenando..." );
 	};
 	
 	@Override

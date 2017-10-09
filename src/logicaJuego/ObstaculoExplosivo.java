@@ -5,7 +5,6 @@ import java.lang.Override;
 public class ObstaculoExplosivo extends Estatico{
 	private int tiempoDeExplosion=20;
 	
-	
 //	constructor 
 	public ObstaculoExplosivo(Posicion posicion, Tamanio tamanio, Escenario escenario) {
 		super(posicion, tamanio, escenario);
