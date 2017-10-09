@@ -1,6 +1,7 @@
 package util;
 
 import logicaJuego.Movible;
+import logicaJuego.Nave;
 
 import java.util.Random;
 
@@ -70,6 +71,7 @@ public abstract class Movimiento{
 		Random randy = new Random();
 		return (int) ( randy.nextDouble() );
 	}
-	
+
+
 
 }

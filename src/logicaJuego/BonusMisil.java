@@ -9,8 +9,8 @@ public class BonusMisil extends Bonus{
 	 * @param tamanio
 	 * @param escenario
 	 */
-	public BonusMisil(Posicion posicion, Tamanio tamanio, Escenario escenario) {
-		super(posicion, tamanio, escenario);
+	public BonusMisil(Posicion posicion, Tamanio tamanio, Escenario escenario, Nave nave) {
+		super(posicion, tamanio, escenario, nave);
 	}
 
 	@Override
@@ -25,21 +25,10 @@ public class BonusMisil extends Bonus{
 		
 	}
 
-	@Override
-	public void chocarContraBonusReparacion(BonusReparacion bonus) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void chocarContraBonusMisil(BonusMisil bonus) {
-		
+		darBeneficio(bonus.getDuenio());
 	}
 	@Override
 	public void darBeneficio(Nave nave) {
@@ -53,5 +42,20 @@ public class BonusMisil extends Bonus{
 		nave.setCantidadMunicion(nave.getCantidadMunicion()+(nave.getCantidadMunicion()/2));
 	}
 
+	
+	
+	
+	//---------------------------------------------------------------------
+	
+	//                n o     d e b e n 	h a c e r 	n a  d a
+	
+	@Override
+	public void chocarContraPared() {}
+
+	@Override
+	public void chocarContraBonusReparacion(BonusReparacion bonus) {} //TODO ver si se agrega un reacomodo de posicion
+
+	@Override
+	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {}
 	
 }

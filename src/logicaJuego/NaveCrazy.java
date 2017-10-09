@@ -57,6 +57,14 @@ public class NaveCrazy extends Nave{
 
 
 
+	@Override
+	public void chocarContraPared() {
+		this.disparar(new Misil(this, null, null, null)); //TODO VERIFICAR LOS 'NULL'
+	}
+
+
+
+
 
 
 

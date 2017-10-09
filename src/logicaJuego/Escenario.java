@@ -34,7 +34,7 @@ public class Escenario implements IEscenario{
 
 	
 	private void verificarChoques() {
-		// TODO Auto-generated method stub
+		UEscenario.verficarChoques(this);
 		
 	}
 

@@ -8,8 +8,8 @@ public class BonusInmunidad extends Bonus{
 	 * @param tamanio
 	 * @param escenario
 	 */
-	public BonusInmunidad(Posicion posicion, Tamanio tamanio, Escenario escenario) {
-		super(posicion, tamanio, escenario);
+	public BonusInmunidad(Posicion posicion, Tamanio tamanio, Escenario escenario, Nave nave) {
+		super(posicion, tamanio, escenario, nave);
 	}
 
 	@Override
@@ -36,8 +36,7 @@ public class BonusInmunidad extends Bonus{
 
 	@Override
 	public void chocarContraBonusMisil(BonusMisil bonus) {
-		// TODO Auto-generated method stub
-		
+		darBeneficio(bonus.getDuenio());
 	}
 
 	@Override
@@ -51,6 +50,12 @@ public class BonusInmunidad extends Bonus{
 	
 	private void darBonusInmunidad(Nave nave) {
 		nave.setInmunidad(true);
+	}
+
+	@Override
+	public void chocarContraPared() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

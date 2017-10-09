@@ -1,13 +1,13 @@
 package logicaJuego;
 
-import java.awt.Robot;
 
 public abstract class Bonus extends Estatico{
 	private int tiempoVida;
-	
+	private Nave duenio;
 //	constructor
-	public Bonus(Posicion posicion, Tamanio tamanio, Escenario escenario) {
+	public Bonus(Posicion posicion, Tamanio tamanio, Escenario escenario, Nave duenio) {
 		super(posicion, tamanio, escenario);
+		this.duenio=duenio;
 	}
 
 	@Override
@@ -29,5 +29,9 @@ public abstract class Bonus extends Estatico{
 	}
 
 
-	public abstract  void darBeneficio(Nave nave);	
+	public abstract  void darBeneficio(Nave nave);
+
+	public Nave getDuenio() {
+		return duenio;
+	}	
 }

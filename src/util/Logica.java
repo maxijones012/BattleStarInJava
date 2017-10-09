@@ -1,11 +1,8 @@
 package util;
 
-import java.util.Random;
 
 import logicaJuego.Elemento;
 import logicaJuego.Escenario;
-import logicaJuego.NaveCrazy;
-import logicaJuego.Posicion;
 
 
 public class Logica{
