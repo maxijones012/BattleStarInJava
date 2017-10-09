@@ -8,6 +8,7 @@ public abstract class Elemento implements IElemento{
 	private Tamanio tamanio;
 	private Escenario escenario;
 	private Boolean estaVivo;
+	private int nivelVida=100; //TODO sacar de config
 	
 	
 //	constructor
@@ -20,7 +21,12 @@ public abstract class Elemento implements IElemento{
 
 
 	@Override
-	public abstract void jugar();
+	public void jugar(){
+		if (getNivelVida()>0){
+			
+		}else{ destruir(this);}
+		
+	};
 		
 
 
@@ -77,6 +83,18 @@ public abstract class Elemento implements IElemento{
 
 	public void setEstaVivo(Boolean estaVivo) {
 		this.estaVivo = estaVivo;
+	}
+
+
+
+	public int getNivelVida() {
+		return nivelVida;
+	}
+
+
+
+	public void setNivelVida(int nivelVida) {
+		this.nivelVida = nivelVida;
 	}
 
 	

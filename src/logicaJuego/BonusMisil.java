@@ -57,5 +57,10 @@ public class BonusMisil extends Bonus{
 
 	@Override
 	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {}
+
+	@Override
+	public void chocarContraBomba(Bomba bomba) {
+		darBeneficio(bomba.getDuenio());
+	}
 	
 }

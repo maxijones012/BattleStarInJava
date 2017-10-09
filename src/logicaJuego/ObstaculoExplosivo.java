@@ -12,8 +12,7 @@ public class ObstaculoExplosivo extends Estatico{
 
 	@Override
 	public void jugar() {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -60,6 +59,11 @@ public class ObstaculoExplosivo extends Estatico{
 	public void chocarContraPared() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void chocarContraBomba(Bomba bomba) {
+		this.setNivelVida(getNivelVida()-bomba.getDanioBomba());
 	}
 
 }

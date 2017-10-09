@@ -14,7 +14,7 @@ import logicaJuego.NaveCrazy;
 import logicaJuego.Posicion;
 import logicaJuego.Tamanio;
 
-public class UEscenario {
+public abstract class UEscenario {
 	/**
 	 * da los turno a cada elemento del juego 
 	 * @param escenario

@@ -108,7 +108,11 @@ public class Radar extends Movible{
 	public void setAnguloApertura(int anguloApertura) {
 		this.anguloApertura = anguloApertura;
 	}
-	
+
+
+
+	@Override
+	public void chocarContraBomba(Bomba bomba) {}
 	
 	
 	

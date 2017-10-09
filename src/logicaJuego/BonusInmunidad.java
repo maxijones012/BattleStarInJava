@@ -58,4 +58,9 @@ public class BonusInmunidad extends Bonus{
 		
 	}
 
+	@Override
+	public void chocarContraBomba(Bomba bomba) {
+		darBeneficio(bomba.getDuenio());
+	}
+
 }

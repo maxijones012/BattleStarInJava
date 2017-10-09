@@ -188,5 +188,10 @@ public abstract class Nave extends Movible implements INave{
 		this.nivelVida = nivelVida;
 	}
 
+	@Override
+	public void chocarContraBomba(Bomba bomba) {
+		this.setNivelVida(getNivelVida()-bomba.getDanioBomba());	// TODO Auto-generated method stub
+		
+	}
 	
 }

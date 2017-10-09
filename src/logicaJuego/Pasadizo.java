@@ -43,5 +43,10 @@ public class Pasadizo extends Estatico{
 		
 	}
 
+	@Override
+	public void chocarContraBomba(Bomba bomba) {
+		this.setNivelVida(getNivelVida()-bomba.getDanioBomba());
+	}
+
 	
 }

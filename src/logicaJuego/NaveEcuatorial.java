@@ -80,13 +80,6 @@ public class NaveEcuatorial extends Nave{
 	public int getCantidadAvanceVertical() {
 		return cantidadAvanceVertical;
 	}
-
-	
-
-	
-	
-	
-	
 	
 	
 	

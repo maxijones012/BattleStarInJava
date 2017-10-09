@@ -78,6 +78,12 @@ public class Misil extends Movible{
 	public void chocarContraPared() {
 		this.destruir(this);
 	}
+
+
+	@Override
+	public void chocarContraBomba(Bomba bomba) {
+		this.destruir(this);
+	}
 	
 	
 

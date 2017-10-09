@@ -5,7 +5,7 @@ import java.awt.Polygon;
 import logicaJuego.Nave;
 import logicaJuego.Radar;
 
-public class uRadar {
+public abstract class uRadar {
 
 	public static Polygon getAreaCobertura(Radar radar) {
 

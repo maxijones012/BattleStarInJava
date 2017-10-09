@@ -69,6 +69,7 @@ public class NaveCrazy extends Nave{
 
 
 
+
 	
 
 }

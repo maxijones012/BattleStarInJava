@@ -1,5 +1,6 @@
 package interfaces;
 
+import logicaJuego.Bomba;
 import logicaJuego.BonusInmunidad;
 import logicaJuego.BonusMisil;
 import logicaJuego.BonusReparacion;
@@ -28,13 +29,10 @@ public interface IElemento {
 	public abstract void chocarContraPared();
 //	
 //	
-//	public void chocarContraBomba(Bomba bomba){}
-//	
-//	public void chocarContraBonus(){}
-//
-//
+	public abstract void chocarContraBomba(Bomba bomba);
+
 	public abstract void chocarContraBonusReparacion (BonusReparacion bonus);
-//
+
 	public abstract void chocarContraBonusInmunidad(BonusInmunidad bonus);
 	
 	public abstract void chocarContraBonusMisil(BonusMisil bonus);

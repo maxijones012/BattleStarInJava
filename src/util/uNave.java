@@ -4,7 +4,7 @@ import logicaJuego.Bomba;
 import logicaJuego.Misil;
 import logicaJuego.Nave;
 
-public class uNave {
+public abstract class uNave {
 	public static void disminuirEscudo(Nave nave, Bomba bomba) {
 		if (nave.equals(bomba.getDuenio())){
 			nave.setNivelCombustible(nave.getNivelEscudo()- bomba.getDanioBomba());
