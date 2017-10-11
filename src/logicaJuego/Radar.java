@@ -4,11 +4,12 @@ import java.awt.Polygon;
 
 import util.Movimiento;
 import util.uRadar;
-
+	
 public class Radar extends Movible{
 	private Nave duenio;
-	private int anguloApertura=20; //TODO SACAR ESTO DE CONFIG
-	private int alcance=40; //TODO SACAR ESTO DE CONFIG
+	private int alcanceMaximo=25;
+	private int anguloAperturaRadar=this.getEscenario().getConfig().getAnguloAperturaRadar(); 
+	private int alcanceRadar=this.getEscenario().getConfig().getAlcanceRadar(); 
 	
 	
 	
@@ -23,6 +24,7 @@ public class Radar extends Movible{
 	public void escanear(){ //TODO anda mejorar y hacer 
 		
 			System.out.println("Escanenando..." );
+			
 	};
 	
 	@Override
@@ -94,25 +96,46 @@ public class Radar extends Movible{
 
 
 	public int getAnguloApertura() {
-		return anguloApertura;
+		return anguloAperturaRadar;
 	}
 
 
 
 	public int getAlcance() {
-		return alcance;
+		return alcanceRadar;
 	}
 
 
 
 	public void setAnguloApertura(int anguloApertura) {
-		this.anguloApertura = anguloApertura;
+		this.anguloAperturaRadar = anguloApertura;
+		double angulo=(double)(anguloApertura);
+		this.alcanceRadar=(int)(this.alcanceRadar - (this.alcanceMaximo*(angulo/360)));
+	
+	}
+
+	public int getAnguloAperturaRadar() {
+		return anguloAperturaRadar;
+	}
+
+
+
+	public int getAlcanceRadar() {
+		return alcanceRadar;
 	}
 
 
 
 	@Override
 	public void chocarContraBomba(Bomba bomba) {}
+
+
+
+	@Override
+	public void chocarContraNave(Nave nave) {
+		// TODO verificar que tiene que hacer
+		
+	}
 	
 	
 	

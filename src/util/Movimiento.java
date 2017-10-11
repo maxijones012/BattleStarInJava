@@ -1,10 +1,7 @@
 package util;
 
 import logicaJuego.Movible;
-import logicaJuego.Nave;
-
 import java.util.Random;
-
 import logicaJuego.Elemento;
 
 /**

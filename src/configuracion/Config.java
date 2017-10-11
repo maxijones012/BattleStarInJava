@@ -10,11 +10,15 @@ import logicaJuego.Escenario;
 public class Config {
 	private Escenario escenario;
 	
+	private int nivelVida=100;
+	
 	private int anchoNave=20;
 	private int altoNave=20;
 	
 	private int posicionXNave=20;
 	private int posicionYNave=20;
+	
+	private int cantidadMunicionNave=20;
 	
 	private int anchoEscenario=800;
 	private int altoEscenario=600;
@@ -26,6 +30,23 @@ public class Config {
 	
 	private int anchoBonus=30;
 	private int altoBonus=30;
+	
+	private int direccionMovible=10;
+
+	private int velocidadInicialBomba=60;
+	private int nivelDanioMisil=30;
+	private int valorReparacionBonus=40;
+	
+	private int velocidadAvanceMovible=20;
+	
+	private int tiempoInmunidad=25;
+	private int alcanceRadar=25;
+	private int anguloAperturaRadar=13;
+	
+	
+	private int quitarNivelCombustible=20;
+	
+	
 	
 	public int getAnchoNave() {
 		return anchoNave;
@@ -67,6 +88,39 @@ public class Config {
 	}
 	public Escenario getEscenario() {
 		return escenario;
+	}
+	public int getVelocidadInicialBomba() {
+		return velocidadInicialBomba;
+	}
+	public int getNivelVida() {
+		return nivelVida;
+	}
+	public int getNivelDanioMisil() {
+		return nivelDanioMisil;
+	}
+	public int getCantidadMunicionNave() {
+		return cantidadMunicionNave;
+	}
+	public int getTiempoInmunidad() {
+		return tiempoInmunidad;
+	}
+	public int getAlcanceRadar() {
+		return alcanceRadar;
+	}
+	public int getAnguloAperturaRadar() {
+		return anguloAperturaRadar;
+	}
+	public int getValorReparacionBonus() {
+		return valorReparacionBonus;
+	}
+	public int getVelocidadAvanceMovible() {
+		return velocidadAvanceMovible;
+	}
+	public int getDireccionMovible() {
+		return direccionMovible;
+	}
+	public int getQuitarNivelCombustible() {
+		return quitarNivelCombustible;
 	}
 	
 	

@@ -1,9 +1,11 @@
 package logicaJuego;
 
 public class Bomba extends Movible{
-	private Nave duenio;
+	private int velocidadInicial=this.getEscenario().getConfig().getVelocidadInicialBomba(); 
 	private int danioBomba=this.getEscenario().getConfig().getNivelDanioBomba(); 
-	private int velocidadInicial; //TODO AGREGAR A CONFIG
+	private Nave duenio;
+	private int tiempoDeExposicion=10; //TODO SACAR ESTO DE CONFIG
+	private boolean estaExplotando=false;
 	
 	/**
 	 * la bomba se crea con la posicion del duenio, donde 
@@ -28,17 +30,29 @@ public class Bomba extends Movible{
 	public void jugar() {
 		if (getVelocidadInicial()>0){
 			super.avanzar();
+			verificarExplosion();
 			this.setVelocidadInicial(velocidadInicial-1); //TODO verificar que anda
 		}
 		else{
-			//TODO HACER EXPLOTAR
 			super.destruir(this);
 		}
 		
 	}
 
 	
-	
+	/**
+	 * Verifica si la bomba esta explotando
+	 */
+	private void verificarExplosion() {
+		if (isEstaExplotando()){
+			this.setTiempoDeExposicion(this.getTiempoDeExposicion()-1);
+			if (this.getTiempoDeExposicion()==0){
+				this.setEstaExplotando(false);
+			}
+		}
+		
+	}
+
 	/**
 	 * metodo que sirve para obtener el alcance de la bomba
 	 * @return
@@ -98,13 +112,33 @@ public class Bomba extends Movible{
 	}
 
 	@Override
-	public void chocarContraBomba(Bomba bomba) {
-		// TODO Auto-generated method stub
-		
+	public void chocarContraBomba(Bomba bomba) {this.destruir(this);}
+
+	@Override
+	public void chocarContraNave(Nave nave) {
+		this.destruir(this);
 	}
 	
 	
-	
+	public void explotar(){
+		util.Armamento.explotar(this);
+	}
+
+	public int getTiempoDeExposicion() {
+		return tiempoDeExposicion;
+	}
+
+	public void setTiempoDeExposicion(int tiempoDeExposicion) {
+		this.tiempoDeExposicion = tiempoDeExposicion;
+	}
+
+	public boolean isEstaExplotando() {
+		return estaExplotando;
+	}
+
+	public void setEstaExplotando(boolean estaExplotando) {
+		this.estaExplotando = estaExplotando;
+	}
 	
 
 }

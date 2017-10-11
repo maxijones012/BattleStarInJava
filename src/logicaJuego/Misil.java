@@ -1,9 +1,8 @@
 package logicaJuego;
 
 public class Misil extends Movible{
-	private int nivelDanio; //TODO AGREGAR A CONFIG
+	private int nivelDanioMisil=getEscenario().getConfig().getNivelDanioMisil();
 	private Nave duenio;
-	private int danio; //TODO sacar esto de config
 	
 	/**
 	 * Constructor de la clase municion
@@ -32,20 +31,9 @@ public class Misil extends Movible{
 	}
 
 	public int getNivelDanio() {
-		return nivelDanio;
+		return nivelDanioMisil;
 	}
 
-	public void setNivelDanio(int nivelDanio) {
-		this.nivelDanio = nivelDanio;
-	}
-
-	public int getDanio() {
-		return danio;
-	}
-
-	public void setDanio(int danio) {
-		this.danio = danio;
-	}
 
 
 	@Override
@@ -82,6 +70,12 @@ public class Misil extends Movible{
 
 	@Override
 	public void chocarContraBomba(Bomba bomba) {
+		this.destruir(this);
+	}
+
+
+	@Override
+	public void chocarContraNave(Nave nave) {
 		this.destruir(this);
 	}
 	

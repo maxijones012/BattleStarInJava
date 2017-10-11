@@ -22,16 +22,10 @@ public class ObstaculoExplosivo extends Estatico{
 	}
 
 	@Override
-	public void chocarContraBonusReparacion(BonusReparacion bonus) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void chocarContraBonusReparacion(BonusReparacion bonus) {}
 
 	@Override
-	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {}
 
 	@Override
 	public void chocarContraBonusMisil(BonusMisil bonus) {	
@@ -65,5 +59,8 @@ public class ObstaculoExplosivo extends Estatico{
 	public void chocarContraBomba(Bomba bomba) {
 		this.setNivelVida(getNivelVida()-bomba.getDanioBomba());
 	}
+
+	@Override
+	public void chocarContraNave(Nave nave) {}
 
 }

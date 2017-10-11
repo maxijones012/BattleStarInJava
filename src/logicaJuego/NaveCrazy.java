@@ -7,7 +7,7 @@ package logicaJuego;
  *
  */
 public class NaveCrazy extends Nave{
-
+	
 	
 	
 	//constructor
@@ -33,34 +33,15 @@ public class NaveCrazy extends Nave{
 	}
 
 
-
-	@Override
-	public void chocarContraBonusReparacion(BonusReparacion bonus) {
-		// TODO obtener beneficio
-		
-	}
-
-
-	@Override
-	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {
-		// TODO obtener beneficio
-		
-	}
-
-
-	@Override
-	public void chocarContraBonusMisil(BonusMisil bonus) {
-		// TODO obtener beneficio
-		
-	}
-
-
-
-
 	@Override
 	public void chocarContraPared() {
+		super.girar(-90); //TODO CAPAZ QUE HAY QUE CAMBIARLO A 90
 		this.disparar(new Misil(this, null, null, null)); //TODO VERIFICAR LOS 'NULL'
 	}
+
+
+
+
 
 
 

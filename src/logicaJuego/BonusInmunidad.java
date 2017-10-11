@@ -60,7 +60,12 @@ public class BonusInmunidad extends Bonus{
 
 	@Override
 	public void chocarContraBomba(Bomba bomba) {
-		darBeneficio(bomba.getDuenio());
+		this.destruir(this);
+	}
+
+	@Override
+	public void chocarContraNave(Nave nave) {
+		this.destruir(this);
 	}
 
 }

@@ -5,6 +5,7 @@ import logicaJuego.BonusInmunidad;
 import logicaJuego.BonusMisil;
 import logicaJuego.BonusReparacion;
 import logicaJuego.Elemento;
+import logicaJuego.Nave;
 
 public interface IElemento {
 	
@@ -37,7 +38,7 @@ public interface IElemento {
 	
 	public abstract void chocarContraBonusMisil(BonusMisil bonus);
 //
-//	public void chocarContraNave(Nave nave){}
+	public abstract void chocarContraNave(Nave nave);
 //	
 //		
 	

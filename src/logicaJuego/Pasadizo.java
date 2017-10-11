@@ -1,11 +1,20 @@
+
 package logicaJuego;
 
+/**
+ * Clase Pasadizo del juego
+ * @author Maxi Jones
+ *
+ */
 public class Pasadizo extends Estatico{
-//	private pasadizo 
+	private Posicion pasadizoSalida;
+	private int quitarNivelCombustible=this.getEscenario().getConfig().getQuitarNivelCombustible();
+		
 	
 //	Constructor
-	public Pasadizo(Posicion posicion, Tamanio tamanio, Escenario escenario) {
+	public Pasadizo(Posicion posicion, Tamanio tamanio, Escenario escenario, Posicion pasadizoSalida) {
 		super(posicion, tamanio, escenario);
+		this.pasadizoSalida=pasadizoSalida;
 	}
 
 	@Override
@@ -19,29 +28,6 @@ public class Pasadizo extends Estatico{
 		
 	}
 
-	@Override
-	public void chocarContraBonusReparacion(BonusReparacion bonus) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void chocarContraBonusMisil(BonusMisil bonus) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void chocarContraPared() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void chocarContraBomba(Bomba bomba) {
@@ -49,4 +35,38 @@ public class Pasadizo extends Estatico{
 	}
 
 	
+	@Override
+	public void chocarContraNave(Nave nave) {
+		diminuirNivelCombustible(nave);
+		this.setPosicion(getPasadizoSalida());
+	}
+
+	/**
+	 * disminuye en nivel de combustible de una nave
+	 * @param nave
+	 */
+	public void diminuirNivelCombustible(Nave nave){
+		nave.setNivelCombustible(nave.getNivelCombustible()-getQuitarNivelCombustible());
+	};
+
+	
+	public Posicion getPasadizoSalida() {
+		return pasadizoSalida;
+	}
+	
+	@Override
+	public void chocarContraBonusReparacion(BonusReparacion bonus) {}
+	@Override
+	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {}
+	@Override
+	public void chocarContraBonusMisil(BonusMisil bonus) {}
+	@Override
+	public void chocarContraPared() {}
+
+	public int getQuitarNivelCombustible() {
+		return quitarNivelCombustible;
+	}
+	
+	
 }
+

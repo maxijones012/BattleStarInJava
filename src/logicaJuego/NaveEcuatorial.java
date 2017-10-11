@@ -13,7 +13,7 @@ public class NaveEcuatorial extends Nave{
 	
 	@Override
 	public void avanzar() {
-		super.avanzar(); //TODO CONTROLAR EL AVANCE HACIA ARRIBA, REHACER
+		avanzarEcuatorial();
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class NaveEcuatorial extends Nave{
 
 	@Override
 	public void chocarContraPared() {
-		avanzarEnVertical(); //este avanzar
+		avanzarEcuatorial(); //este avanzar
 		this.setDireccion(this.getDireccion()-90); //TODO verificar si la media vuelta es igual a -90 
 		
 		
@@ -50,11 +50,8 @@ public class NaveEcuatorial extends Nave{
 	/**
 	 * controla el avance en vertical de la Nave 
 	 */
-	private void avanzarEnVertical() {
-		if (this.isVerticalArriba()){ //pensar bien
-			Movimiento.avanzarY(this);		
-			
-		}
+	private void avanzarEcuatorial() {
+		this.setDireccion(90);
 	}
 
 	
@@ -80,7 +77,8 @@ public class NaveEcuatorial extends Nave{
 	public int getCantidadAvanceVertical() {
 		return cantidadAvanceVertical;
 	}
-	
+
+
 	
 	
 }

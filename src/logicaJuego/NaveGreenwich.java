@@ -2,11 +2,7 @@ package logicaJuego;
 
 import java.util.Random;
 
-import util.Movimiento;
-
 public class NaveGreenwich extends Nave{
-	private static boolean arriba=true;
-	private boolean bool=true;
 
 	public NaveGreenwich(Posicion posicion, Tamanio tamanio, Escenario escenario) {
 		super(posicion, tamanio, escenario);
@@ -16,12 +12,22 @@ public class NaveGreenwich extends Nave{
 	@Override
 	public void jugar() {
 		super.jugar();
-		
 	}
 	
 	
 	@Override
 	public void avanzar() {
+		avanzarGrenwich();
+		System.out.println("Grenwich:"+"x: "+this.getPosicion().getX()+"y: "+this.getPosicion().getY());
+	}
+
+
+	private void avanzarGrenwich() {
+		Random random = new Random();
+		Boolean valorLogico=random.nextBoolean();
+		
+		this.setDireccion(180); //avanza hacia arriba
+		
 	}
 
 
@@ -56,8 +62,9 @@ public class NaveGreenwich extends Nave{
 	public void chocarContraPared() {
 		this.setDireccion(this.getDireccion()-90);
 	}
-	
-	
+
+
+
 	
 	
 }

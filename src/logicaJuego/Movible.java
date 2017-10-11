@@ -4,12 +4,16 @@ import interfaces.IMovible;
 import util.Movimiento;
 
 public abstract class Movible extends Elemento implements IMovible {
-	private int direccion; //TODO SACARLO DE CONFIG
-	private int velocidadAvance; //TODO SACARLO DE CONFIG
-	
-	//constructor
+	private int direccion=this.getEscenario().getConfig().getDireccionMovible(); 
+	private int velocidadAvance=this.getEscenario().getConfig().getVelocidadAvanceMovible(); 
 	
 	
+	/**
+	 * Constructor de la clase Movible
+	 * @param posicion
+	 * @param tamanio
+	 * @param escenario
+	 */
 	public Movible(Posicion posicion, Tamanio tamanio, Escenario escenario) {
 		super(posicion, tamanio, escenario);
 	}
@@ -20,7 +24,6 @@ public abstract class Movible extends Elemento implements IMovible {
 		Movimiento.avanzarX(this);
 		Movimiento.avanzarY(this);
 	}
-
 
 	
 	public int getDireccion() {

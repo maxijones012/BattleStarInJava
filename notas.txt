@@ -1,0 +1,32 @@
+
+notas
+
+
+
+    en los CHOCAR CONTRA usamos la directiva de que cada elemento 
+     se afecta si mismo, y no al otro
+
+
+
+
+
+
+
+
+
+  //--------------------------------------------------------------------
+  -Bonus misil
+      
+      
+      .public void chocarContraBonusReparacion(BonusReparacion bonus) {} 
+            //TODO ver si se agrega un reacomodo de posicion
+            para que los bonus no esten ENCIMADOS
+            
+      .      
+      
+      
+      
+   //------------------------------------------------------------------      
+   -Bomba
+   
+       .pensar como hacer el explotar!

@@ -6,7 +6,8 @@ package logicaJuego;
  *
  */
 public class BonusReparacion extends Bonus{
-	private static int valorReparacion=40; //TODO SACAR ESTO DE CONFIG
+	private int valorReparacion=this.getEscenario().getConfig().getValorReparacionBonus(); 
+	
 	/**
 	 * Constructor de la clase bonus reparacion
 	 * @param posicion
@@ -15,7 +16,6 @@ public class BonusReparacion extends Bonus{
 	 */
 	public BonusReparacion(Posicion posicion, Tamanio tamanio, Escenario escenario, Nave nave) {
 		super(posicion, tamanio, escenario,nave);
-		
 	}
 
 
@@ -73,6 +73,12 @@ public class BonusReparacion extends Bonus{
 	@Override
 	public void chocarContraBomba(Bomba bomba) {
 		darBeneficio(bomba.getDuenio());
+	}
+
+
+	@Override
+	public void chocarContraNave(Nave nave) {
+		this.destruir(this);
 	}
 
 }

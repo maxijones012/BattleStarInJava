@@ -46,6 +46,8 @@ public abstract class UEscenario {
 	public static void crearElementos(Escenario escenario) {
 		NaveCrazy naveCrazy = new NaveCrazy(new Posicion(40, 40), new Tamanio(30, 30), escenario);
 		escenario.getListaElemento().add(naveCrazy);
+		
+		
 	}
 	
 	

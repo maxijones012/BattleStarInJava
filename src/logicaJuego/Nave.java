@@ -2,17 +2,19 @@ package logicaJuego;
 
 import interfaces.INave;
 import util.Armamento;
+import util.Movimiento;
 
 public abstract class Nave extends Movible implements INave{
-	private int cantidadMunicion; //TODO QUE LA MUNICION LA SETEE DESDE CONFIG
+	private int cantidadMunicion=this.getEscenario().getConfig().getCantidadMunicionNave();
 	private int cantidadBomba;
 	private int nivelCombustible;
 	private Radar radar;
 	private int nivelEscudo;
 	private int contadorInumidad=0;
+	protected static int danioNave=10;
 	private Boolean RadarOn=true;
 	private Boolean inmunidad=false;
-	private static int tiempoInmunidad=25; //TODO SACAR ESTO DE CONFIG
+	private int tiempoInmunidad=this.getEscenario().getConfig().getTiempoInmunidad(); 
 	private int nivelVida=100;
 	
 //	constructor
@@ -72,8 +74,13 @@ public abstract class Nave extends Movible implements INave{
 		dispararMunicion();
 	}
 	
-	
-	
+	/**
+	 * Girar de la clase Nave
+	 * @param direccion
+	 */
+	public void girar(int direccion) {
+		Movimiento.girar(this, direccion);
+	}
 	
 	
 	
@@ -86,7 +93,7 @@ public abstract class Nave extends Movible implements INave{
 	 * dispara una municion en una direccion
 	 */
 	private void dispararMunicion() {
-		Armamento.dispararMunicion(this);
+		Armamento.dispararMisil(this);
 	}
 
 	
@@ -155,10 +162,15 @@ public abstract class Nave extends Movible implements INave{
 	
 	@Override
 	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {
-		
+		bonus.darBeneficio(this);
 	}
 
-
+	@Override
+	public void chocarContraBonusMisil(BonusMisil bonus) {
+		
+	}
+	
+	
 	public Boolean getInmunidad() {
 		return inmunidad;
 	}
@@ -194,4 +206,15 @@ public abstract class Nave extends Movible implements INave{
 		
 	}
 	
+	@Override
+	public void chocarContraBonusReparacion(BonusReparacion bonus) {
+		bonus.darBeneficio(this);
+	}
+	
+	
+	@Override
+	public void chocarContraNave(Nave nave) {
+		this.setNivelEscudo(this.getNivelEscudo()-danioNave);
+	}
+
 }

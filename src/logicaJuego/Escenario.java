@@ -24,7 +24,7 @@ public class Escenario implements IEscenario{
 		crearElementos();
 		
 		while (true){
-			//crearBonus();
+			crearBonus();
 			
 			turnos();
 			

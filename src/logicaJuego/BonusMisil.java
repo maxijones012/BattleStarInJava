@@ -62,5 +62,10 @@ public class BonusMisil extends Bonus{
 	public void chocarContraBomba(Bomba bomba) {
 		darBeneficio(bomba.getDuenio());
 	}
+
+	@Override
+	public void chocarContraNave(Nave nave) {
+		this.destruir(this);
+	}
 	
 }

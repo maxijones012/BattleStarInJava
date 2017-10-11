@@ -3,6 +3,7 @@ package util;
 import logicaJuego.Bomba;
 import logicaJuego.Misil;
 import logicaJuego.Nave;
+import logicaJuego.NaveEcuatorial;
 
 public abstract class uNave {
 	public static void disminuirEscudo(Nave nave, Bomba bomba) {
@@ -12,9 +13,9 @@ public abstract class uNave {
 	}
 
 
-	public static void disminuirEscudo(Nave robot, Misil municion) {
-		if (robot.equals(municion.getDuenio())){
-			robot.setNivelEscudo(robot.getNivelEscudo()- municion.getDanio());			
+	public static void disminuirEscudo(Nave robot, Misil misil) {
+		if (robot.equals(misil.getDuenio())){
+			robot.setNivelEscudo(robot.getNivelEscudo()- misil.getNivelDanio());			
 		}		
 	}
 	
@@ -35,5 +36,7 @@ public abstract class uNave {
 			nave.setRadarOn(true);
 		}
 	}
+	
+	
 	
 }
