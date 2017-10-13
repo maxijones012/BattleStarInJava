@@ -6,7 +6,7 @@ package logicaJuego;
  *
  */
 public class BonusReparacion extends Bonus{
-	private int valorReparacion=this.getEscenario().getConfig().getValorReparacionBonus(); 
+	private int valorReparacion=this.getAdministradorJuego().getConfig().getValorReparacionBonus(); 
 	
 	/**
 	 * Constructor de la clase bonus reparacion
@@ -14,7 +14,7 @@ public class BonusReparacion extends Bonus{
 	 * @param tamanio
 	 * @param escenario
 	 */
-	public BonusReparacion(Posicion posicion, Tamanio tamanio, Escenario escenario, Nave nave) {
+	public BonusReparacion(Posicion posicion, Tamanio tamanio, AdministradorJuego escenario, Nave nave) {
 		super(posicion, tamanio, escenario,nave);
 	}
 

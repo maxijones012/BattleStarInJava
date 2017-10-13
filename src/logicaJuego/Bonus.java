@@ -5,8 +5,8 @@ public abstract class Bonus extends Estatico{
 	private int tiempoVida;
 	private Nave duenio;
 //	constructor
-	public Bonus(Posicion posicion, Tamanio tamanio, Escenario escenario, Nave duenio) {
-		super(posicion, tamanio, escenario);
+	public Bonus(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego, Nave duenio) {
+		super(posicion, tamanio, administradorJuego);
 		this.duenio=duenio;
 	}
 

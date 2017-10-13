@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class NaveGreenwich extends Nave{
 
-	public NaveGreenwich(Posicion posicion, Tamanio tamanio, Escenario escenario) {
+	public NaveGreenwich(Posicion posicion, Tamanio tamanio, AdministradorJuego escenario) {
 		super(posicion, tamanio, escenario);
 	}
 

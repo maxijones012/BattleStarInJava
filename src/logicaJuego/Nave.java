@@ -1,11 +1,11 @@
 package logicaJuego;
 
 import interfaces.INave;
+import interfaces.IRadarListener;
 import util.Armamento;
 import util.Movimiento;
-
-public abstract class Nave extends Movible implements INave{
-	private int cantidadMunicion=this.getEscenario().getConfig().getCantidadMunicionNave();
+public abstract class Nave extends Movible implements INave,IRadarListener{
+	private int cantidadMunicion=this.getAdministradorJuego().getConfig().getCantidadMunicionNave();
 	private int cantidadBomba;
 	private int nivelCombustible;
 	private Radar radar;
@@ -14,11 +14,11 @@ public abstract class Nave extends Movible implements INave{
 	protected static int danioNave=10;
 	private Boolean RadarOn=true;
 	private Boolean inmunidad=false;
-	private int tiempoInmunidad=this.getEscenario().getConfig().getTiempoInmunidad(); 
+	private int tiempoInmunidad=this.getAdministradorJuego().getConfig().getTiempoInmunidad(); 
 	private int nivelVida=100;
 	
 //	constructor
-	public Nave(Posicion posicion, Tamanio tamanio, Escenario escenario) {
+	public Nave(Posicion posicion, Tamanio tamanio, AdministradorJuego escenario) {
 		super(posicion, tamanio,escenario);
 		this.radar=new Radar(posicion, tamanio, escenario, this);
 	}

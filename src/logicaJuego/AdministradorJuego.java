@@ -2,18 +2,18 @@ package logicaJuego;
 
 import java.util.ArrayList;
 
-import configuracion.Config;
-import interfaces.IEscenario;
-import util.UEscenario;
+import configuracion.ConfiguracionInicial;
+import interfaces.IAdministradorJuego;
+import util.UAdministradorJuego;
 
-public class Escenario implements IEscenario{
+public class AdministradorJuego implements IAdministradorJuego{
 	private Tamanio tamanio;
 	ArrayList<Elemento> listaElemento = new ArrayList<>();
-	private Config config;
+	private ConfiguracionInicial config;
 	private int bonusContador = 0;
 	private Boolean bonusAleatorio=true;
 	
-	public Escenario(Config config) {
+	public AdministradorJuego(ConfiguracionInicial config) {
 		this.config=config;
 		this.tamanio= new Tamanio(800, 600);
 	}
@@ -34,12 +34,12 @@ public class Escenario implements IEscenario{
 
 	
 	private void verificarChoques() {
-		UEscenario.verficarChoques(this);
+		UAdministradorJuego.verficarChoques(this);
 		
 	}
 
 	private void crearBonus() {
-		UEscenario.crearBonus(this);
+		UAdministradorJuego.crearBonus(this);
 		
 	}
 
@@ -51,12 +51,12 @@ public class Escenario implements IEscenario{
 
 	@Override
 	public void crearElementos() {
-		UEscenario.crearElementos(this);
+		UAdministradorJuego.crearElementos(this);
 		//TODO crear elementos
 		
 	}
 
-	public Config getConfig() {
+	public ConfiguracionInicial getConfig() {
 		return config;
 	}
 

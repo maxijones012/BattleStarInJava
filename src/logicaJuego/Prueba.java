@@ -1,17 +1,17 @@
 package logicaJuego;
 
-import configuracion.Config;
+import configuracion.ConfiguracionInicial;
 
 public class Prueba {
 
 	public static void main(String[] args) {
 		
-		Config config = new Config();
-		Escenario escenario = new Escenario(config);
+		ConfiguracionInicial config = new ConfiguracionInicial();
+		AdministradorJuego administradorJuego = new AdministradorJuego(config);
 		
-		config.setEscenario(escenario);
+		config.setEscenario(administradorJuego);
 		
-		escenario.iniciarJuego();
+		administradorJuego.iniciarJuego();
 
 		
 	}

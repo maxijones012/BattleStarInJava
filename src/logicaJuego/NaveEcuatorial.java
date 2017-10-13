@@ -5,9 +5,9 @@ import util.Movimiento;
 public class NaveEcuatorial extends Nave{
 	private boolean verticalArriba=true;
 	private int contadorAvanceVertical=0;
-	private int cantidadAvanceVertical=this.getEscenario().getConfig().getCantidadAvanceHaciaArriba();
+	private int cantidadAvanceVertical=this.getAdministradorJuego().getConfig().getCantidadAvanceHaciaArriba();
 	
-	public NaveEcuatorial(Posicion posicion, Tamanio tamanio, Escenario escenario) {
+	public NaveEcuatorial(Posicion posicion, Tamanio tamanio, AdministradorJuego escenario) {
 		super(posicion, tamanio, escenario);
 	}
 	

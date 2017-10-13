@@ -1,14 +1,14 @@
 package configuracion;
 
-import logicaJuego.Escenario;
+import logicaJuego.AdministradorJuego;
 
 /**
  * Contiene todos los datos del juego
  * @author Maxi Jones
  *
  */
-public class Config {
-	private Escenario escenario;
+public class ConfiguracionInicial {
+	private AdministradorJuego administradorJuego;
 	
 	private int nivelVida=100;
 	
@@ -45,7 +45,7 @@ public class Config {
 	
 	
 	private int quitarNivelCombustible=20;
-	
+	private int tiempoExposicion=10;
 	
 	
 	public int getAnchoNave() {
@@ -68,8 +68,8 @@ public class Config {
 		return danioMisil;
 	}
 
-	public void setEscenario(Escenario escenario) {
-		this.escenario = escenario;
+	public void setEscenario(AdministradorJuego escenario) {
+		this.administradorJuego = escenario;
 	}
 	public int getCantidadAvanceHaciaArriba() {
 		return cantidadAvanceHaciaArriba;
@@ -86,8 +86,8 @@ public class Config {
 	public int getAltoBonus() {
 		return altoBonus;
 	}
-	public Escenario getEscenario() {
-		return escenario;
+	public AdministradorJuego getEscenario() {
+		return administradorJuego;
 	}
 	public int getVelocidadInicialBomba() {
 		return velocidadInicialBomba;
@@ -121,6 +121,12 @@ public class Config {
 	}
 	public int getQuitarNivelCombustible() {
 		return quitarNivelCombustible;
+	}
+	public AdministradorJuego getAdministradorJuego() {
+		return administradorJuego;
+	}
+	public int getTiempoExposicion() {
+		return tiempoExposicion;
 	}
 	
 	

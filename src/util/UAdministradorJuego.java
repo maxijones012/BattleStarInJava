@@ -9,17 +9,17 @@ import logicaJuego.BonusInmunidad;
 import logicaJuego.BonusMisil;
 import logicaJuego.BonusReparacion;
 import logicaJuego.Elemento;
-import logicaJuego.Escenario;
+import logicaJuego.AdministradorJuego;
 import logicaJuego.NaveCrazy;
 import logicaJuego.Posicion;
 import logicaJuego.Tamanio;
 
-public abstract class UEscenario {
+public abstract class UAdministradorJuego {
 	/**
 	 * da los turno a cada elemento del juego 
 	 * @param escenario
 	 */
-	public static void darTurno(Escenario escenario){
+	public static void darTurno(AdministradorJuego escenario){
 		for(int i=0; i<escenario.getListaElemento().size(); i++){
 			Elemento elemento = escenario.getListaElemento().get(i);			
 			elemento.jugar();
@@ -31,7 +31,7 @@ public abstract class UEscenario {
 	 * Elimina los elementos de la lista
 	 * @param escenario
 	 */
-	public static void eliminarElementos(Escenario escenario){
+	public static void eliminarElementos(AdministradorJuego escenario){
 		
 		for(int i=0; i<escenario.getListaElemento().size();i++){
 			if (!escenario.getListaElemento().get(i).getEstaVivo())
@@ -43,7 +43,7 @@ public abstract class UEscenario {
 
 
 	//TODO HACER LOS CREAR ELEMENTOS
-	public static void crearElementos(Escenario escenario) {
+	public static void crearElementos(AdministradorJuego escenario) {
 		NaveCrazy naveCrazy = new NaveCrazy(new Posicion(40, 40), new Tamanio(30, 30), escenario);
 		escenario.getListaElemento().add(naveCrazy);
 		
@@ -51,7 +51,7 @@ public abstract class UEscenario {
 	}
 	
 	
-	public static void crearBonus(Escenario escenario) {
+	public static void crearBonus(AdministradorJuego escenario) {
 		  Random timeRandom = new Random();
 		  int tiempoRandom = (int)(timeRandom.nextDouble()*10);  //3000
 		  escenario.setBonusContador(escenario.getBonusContador()+1);
@@ -97,7 +97,7 @@ public abstract class UEscenario {
 	/**
 	 * controla si un elemento se choco con otro elemento dentro del escenario
 	 */
-	public static void verficarChoques(Escenario escenario) {
+	public static void verficarChoques(AdministradorJuego escenario) {
 		
 		for(int i=0; i<escenario.getListaElemento().size();i++){
 			
