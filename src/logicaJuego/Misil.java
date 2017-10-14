@@ -1,7 +1,7 @@
 package logicaJuego;
 
 public class Misil extends Movible{
-	private int nivelDanioMisil=getEscenario().getConfig().getNivelDanioMisil();
+	private int nivelDanioMisil=getAministradorJuego().getConfig().getNivelDanioMisil();
 	private Nave duenio;
 	
 	/**
@@ -9,10 +9,10 @@ public class Misil extends Movible{
 	 * @param nave
 	 * @param posicion
 	 * @param tamanio
-	 * @param escenario
+	 * @param administradorJuego
 	 */
-	public Misil(Nave duenio, Posicion posicion, Tamanio tamanio, Escenario escenario) {
-		super(posicion, tamanio, escenario);
+	public Misil(Nave duenio, Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
+		super(posicion, tamanio, administradorJuego);
 		this.duenio= duenio;
 	}
 

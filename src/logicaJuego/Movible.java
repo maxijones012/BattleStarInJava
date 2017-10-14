@@ -4,18 +4,20 @@ import interfaces.IMovible;
 import util.Movimiento;
 
 public abstract class Movible extends Elemento implements IMovible {
-	private int direccion=this.getEscenario().getConfig().getDireccionMovible(); 
-	private int velocidadAvance=this.getEscenario().getConfig().getVelocidadAvanceMovible(); 
+	private int direccion; 
+	private int velocidadAvance; 
 	
 	
 	/**
 	 * Constructor de la clase Movible
 	 * @param posicion
 	 * @param tamanio
-	 * @param escenario
+	 * @param administradorJuego
 	 */
-	public Movible(Posicion posicion, Tamanio tamanio, Escenario escenario) {
-		super(posicion, tamanio, escenario);
+	public Movible(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
+		super(posicion, tamanio, administradorJuego);
+		this.direccion=this.getAministradorJuego().getConfig().getVelocidadAvanceMovible();
+		this.velocidadAvance=this.getAministradorJuego().getConfig().getVelocidadAvanceMovible();
 	}
 
 
@@ -44,6 +46,8 @@ public abstract class Movible extends Elemento implements IMovible {
 		this.velocidadAvance = velocidadAvance;
 	}
 	
-	
+	public void girar(int direccion) {
+		util.Movimiento.girar(this, direccion);
+	}
 	
 }

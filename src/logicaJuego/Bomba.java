@@ -1,8 +1,8 @@
 package logicaJuego;
 
 public class Bomba extends Movible{
-	private int velocidadInicial=this.getEscenario().getConfig().getVelocidadInicialBomba(); 
-	private int danioBomba=this.getEscenario().getConfig().getNivelDanioBomba(); 
+	private int velocidadInicial; 
+	private int danioBomba; 
 	private Nave duenio;
 	private int tiempoDeExposicion=10; //TODO SACAR ESTO DE CONFIG
 	private boolean estaExplotando=false;
@@ -14,9 +14,11 @@ public class Bomba extends Movible{
 	 * @param posicion
 	 * @param tamanio
 	 */
-	public Bomba(Nave duenio, Posicion posicion, Tamanio tamanio, Escenario escenario) {
-		super(posicion, tamanio, escenario);
+	public Bomba(Nave duenio, Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
+		super(posicion, tamanio, administradorJuego);
 		this.duenio= duenio;
+		this. velocidadInicial=this.getAministradorJuego().getConfig().getVelocidadInicialBomba();
+		this.danioBomba=this.getAministradorJuego().getConfig().getNivelDanioBomba();
 		
 
 	}
@@ -139,6 +141,7 @@ public class Bomba extends Movible{
 	public void setEstaExplotando(boolean estaExplotando) {
 		this.estaExplotando = estaExplotando;
 	}
-	
+
+
 
 }

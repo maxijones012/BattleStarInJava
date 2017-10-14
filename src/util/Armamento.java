@@ -1,6 +1,5 @@
 package util;
 
-import java.awt.Polygon;
 
 import logicaJuego.Bomba;
 import logicaJuego.Misil;
@@ -37,7 +36,7 @@ public abstract class Armamento {
 		if (nave.getCantidadBomba()>0){
 			Posicion posicion = new Posicion(nave.getPosicion().getX(),nave.getPosicion().getY());
 			Tamanio tamanio = new Tamanio(nave.getTamanio().getAncho(), nave.getTamanio().getAlto());
-			new Bomba(nave, posicion,tamanio, nave.getEscenario());
+			new Bomba(nave, posicion,tamanio, nave.getAministradorJuego());
 		}
 	}
 
@@ -50,7 +49,7 @@ public abstract class Armamento {
 		if (nave.getCantidadMunicion()>0){
 			Posicion posicion = new Posicion(nave.getPosicion().getX(),nave.getPosicion().getY());
 			Tamanio tamanio = new Tamanio(nave.getTamanio().getAncho(), nave.getTamanio().getAlto());
-			new Misil(nave, posicion,tamanio, nave.getEscenario());
+			new Misil(nave, posicion,tamanio, nave.getAministradorJuego());
 		}
 	}
 

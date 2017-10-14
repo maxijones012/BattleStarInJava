@@ -6,10 +6,10 @@ public class BonusInmunidad extends Bonus{
 	 * Constructor de la clase bonus Inmunidad
 	 * @param posicion
 	 * @param tamanio
-	 * @param escenario
+	 * @param administradorJuego
 	 */
-	public BonusInmunidad(Posicion posicion, Tamanio tamanio, Escenario escenario, Nave nave) {
-		super(posicion, tamanio, escenario, nave);
+	public BonusInmunidad(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego, Nave nave) {
+		super(posicion, tamanio, administradorJuego, nave);
 	}
 
 	@Override

@@ -2,10 +2,11 @@ package logicaJuego;
 
 import interfaces.INave;
 import util.Armamento;
+import util.DebugConsola;
 import util.Movimiento;
 
 public abstract class Nave extends Movible implements INave{
-	private int cantidadMunicion=this.getEscenario().getConfig().getCantidadMunicionNave();
+	private int cantidadMunicion=this.getAministradorJuego().getConfig().getCantidadMunicionNave();
 	private int cantidadBomba;
 	private int nivelCombustible;
 	private Radar radar;
@@ -14,13 +15,13 @@ public abstract class Nave extends Movible implements INave{
 	protected static int danioNave=10;
 	private Boolean RadarOn=true;
 	private Boolean inmunidad=false;
-	private int tiempoInmunidad=this.getEscenario().getConfig().getTiempoInmunidad(); 
+	private int tiempoInmunidad=this.getAministradorJuego().getConfig().getTiempoInmunidad(); 
 	private int nivelVida=100;
 	
 //	constructor
-	public Nave(Posicion posicion, Tamanio tamanio, Escenario escenario) {
-		super(posicion, tamanio,escenario);
-		this.radar=new Radar(posicion, tamanio, escenario, this);
+	public Nave(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
+		super(posicion, tamanio,administradorJuego);
+		this.radar=new Radar(posicion, tamanio, administradorJuego, this);
 	}
 
 	
@@ -36,6 +37,7 @@ public abstract class Nave extends Movible implements INave{
 			super.avanzar();
 			this.setNivelCombustible(this.getNivelCombustible()-1);
 		}
+		
 	}
 	
 	
@@ -45,12 +47,14 @@ public abstract class Nave extends Movible implements INave{
 		//tengo escudo
 		
 		if (this.getNivelEscudo()>=0){	
-			this.getRadar().escanear();				
+			this.getRadar().escanear();	
+			super.avanzar();
 		}
 		//sino se rompio escudo
 		else{
 			if (this.getInmunidad()==false){destruir(this);}
-		}		
+		}
+		DebugConsola.posicion(this);
 	}
 
 	

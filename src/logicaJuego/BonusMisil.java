@@ -7,10 +7,10 @@ public class BonusMisil extends Bonus{
 	 * Constructor de la clase bonus misil
 	 * @param posicion
 	 * @param tamanio
-	 * @param escenario
+	 * @param administradorJuego
 	 */
-	public BonusMisil(Posicion posicion, Tamanio tamanio, Escenario escenario, Nave nave) {
-		super(posicion, tamanio, escenario, nave);
+	public BonusMisil(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego, Nave nave) {
+		super(posicion, tamanio, administradorJuego, nave);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class BonusMisil extends Bonus{
 	
 	
 	private void darBonusMisil(Nave nave) { //TODO VERFICIAR QUE TOME LA MITAD
-		nave.setCantidadMunicion(nave.getCantidadMunicion()+(nave.getCantidadMunicion()/2));
+		if (nave!=null){nave.setCantidadMunicion(nave.getCantidadMunicion()+(nave.getCantidadMunicion()/2));}
 	}
 
 	

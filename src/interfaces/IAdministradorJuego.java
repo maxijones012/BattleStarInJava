@@ -8,7 +8,7 @@ package interfaces;
  *
  */
 
-public interface IEscenario {
+public interface IAdministradorJuego {
 
 	/**
 	 * 

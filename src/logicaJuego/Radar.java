@@ -7,15 +7,17 @@ import util.uRadar;
 	
 public class Radar extends Movible{
 	private Nave duenio;
+	private int direccion;
 	private int alcanceMaximo=25;
-	private int anguloAperturaRadar=this.getEscenario().getConfig().getAnguloAperturaRadar(); 
-	private int alcanceRadar=this.getEscenario().getConfig().getAlcanceRadar(); 
+	private int anguloAperturaRadar=this.getAministradorJuego().getConfig().getAnguloAperturaRadar(); 
+	private int alcanceRadar=this.getAministradorJuego().getConfig().getAlcanceRadar(); 
 	
 	
 	
-	public Radar(Posicion posicion, Tamanio tamanio, Escenario escenario, Nave nave) {
-		super(posicion, tamanio, escenario);
+	public Radar(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego, Nave nave) {
+		super(posicion, tamanio, administradorJuego);
 		this.duenio=nave;
+		this.getAministradorJuego().getConfig().getDireccionMovible();
 	}
 	
 	
@@ -23,7 +25,7 @@ public class Radar extends Movible{
 	//TODO HACER EL ESCANEAR
 	public void escanear(){ //TODO anda mejorar y hacer 
 		
-			System.out.println("Escanenando..." );
+//			System.out.println("Escanenando..." );
 			
 	};
 	
@@ -135,6 +137,18 @@ public class Radar extends Movible{
 	public void chocarContraNave(Nave nave) {
 		// TODO verificar que tiene que hacer
 		
+	}
+
+
+
+	public int getDireccion() {
+		return direccion;
+	}
+
+
+
+	public void setDireccion(int direccion) {
+		this.direccion = direccion;
 	}
 	
 	

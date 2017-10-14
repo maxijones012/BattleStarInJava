@@ -3,7 +3,6 @@ package util;
 import logicaJuego.Bomba;
 import logicaJuego.Misil;
 import logicaJuego.Nave;
-import logicaJuego.NaveEcuatorial;
 
 public abstract class uNave {
 	public static void disminuirEscudo(Nave nave, Bomba bomba) {

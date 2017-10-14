@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class NaveGreenwich extends Nave{
 
-	public NaveGreenwich(Posicion posicion, Tamanio tamanio, Escenario escenario) {
-		super(posicion, tamanio, escenario);
+	public NaveGreenwich(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
+		super(posicion, tamanio, administradorJuego);
 	}
 
 	
@@ -26,7 +26,7 @@ public class NaveGreenwich extends Nave{
 		Random random = new Random();
 		Boolean valorLogico=random.nextBoolean();
 		
-		this.setDireccion(180); //avanza hacia arriba
+		girar(180); //avanza hacia arriba
 		
 	}
 
@@ -60,7 +60,7 @@ public class NaveGreenwich extends Nave{
 
 	@Override
 	public void chocarContraPared() {
-		this.setDireccion(this.getDireccion()-90);
+		girar(this.getDireccion()-90);
 	}
 
 

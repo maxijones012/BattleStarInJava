@@ -8,19 +8,5 @@ public interface IMovible {
 	 */
 	public void avanzar();
 	
-	/**
-	 * devuelve la direccion de un objeto
-	 * @return
-	 */
-			
-	public int getDireccion();
 
-	
-	/**
-	 * setea la direccion de un objeto
-	 * @param direccion
-	 */
-	public void setDireccion(int direccion) ;	
-	
-	
 }

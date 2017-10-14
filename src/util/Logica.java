@@ -2,7 +2,7 @@ package util;
 
 
 import logicaJuego.Elemento;
-import logicaJuego.Escenario;
+import logicaJuego.AdministradorJuego;
 
 
 public abstract class Logica{
@@ -10,11 +10,11 @@ public abstract class Logica{
 	
 	/**
 	 * da los turno a cada elemento del juego 
-	 * @param escenario
+	 * @param administradorJuego
 	 */
-	public static void darTurno(Escenario escenario){
-		for(int i=0; i<escenario.getListaElemento().size(); i++){
-			Elemento elemento = escenario.getListaElemento().get(i);			
+	public static void darTurno(AdministradorJuego administradorJuego){
+		for(int i=0; i<administradorJuego.getListaElemento().size(); i++){
+			Elemento elemento = administradorJuego.getListaElemento().get(i);			
 			elemento.jugar();
 		}
 	}

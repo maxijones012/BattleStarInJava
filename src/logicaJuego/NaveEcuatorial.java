@@ -1,14 +1,13 @@
 package logicaJuego;
 
-import util.Movimiento;
 
 public class NaveEcuatorial extends Nave{
 	private boolean verticalArriba=true;
 	private int contadorAvanceVertical=0;
-	private int cantidadAvanceVertical=this.getEscenario().getConfig().getCantidadAvanceHaciaArriba();
+	private int cantidadAvanceVertical=this.getAministradorJuego().getConfig().getCantidadAvanceHaciaArriba();
 	
-	public NaveEcuatorial(Posicion posicion, Tamanio tamanio, Escenario escenario) {
-		super(posicion, tamanio, escenario);
+	public NaveEcuatorial(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
+		super(posicion, tamanio, administradorJuego);
 	}
 	
 	@Override
@@ -42,7 +41,7 @@ public class NaveEcuatorial extends Nave{
 	@Override
 	public void chocarContraPared() {
 		avanzarEcuatorial(); //este avanzar
-		this.setDireccion(this.getDireccion()-90); //TODO verificar si la media vuelta es igual a -90 
+		this.girar(-90); //TODO verificar si la media vuelta es igual a -90 
 		
 		
 	}
@@ -51,7 +50,7 @@ public class NaveEcuatorial extends Nave{
 	 * controla el avance en vertical de la Nave 
 	 */
 	private void avanzarEcuatorial() {
-		this.setDireccion(90);
+		this.girar(90);
 	}
 
 	
