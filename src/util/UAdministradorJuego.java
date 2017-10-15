@@ -17,11 +17,11 @@ import logicaJuego.Tamanio;
 public abstract class UAdministradorJuego {
 	/**
 	 * da los turno a cada elemento del juego 
-	 * @param administradorJuego
+	 * @param escenario
 	 */
-	public static void darTurno(AdministradorJuego administradorJuego){
-		for(int i=0; i<administradorJuego.getListaElemento().size(); i++){
-			Elemento elemento = administradorJuego.getListaElemento().get(i);			
+	public static void darTurno(AdministradorJuego escenario){
+		for(int i=0; i<escenario.getListaElemento().size(); i++){
+			Elemento elemento = escenario.getListaElemento().get(i);			
 			elemento.jugar();
 		}
 	}
@@ -29,13 +29,13 @@ public abstract class UAdministradorJuego {
 
 	/**
 	 * Elimina los elementos de la lista
-	 * @param administradorJuego
+	 * @param escenario
 	 */
-	public static void eliminarElementos(AdministradorJuego administradorJuego){
+	public static void eliminarElementos(AdministradorJuego escenario){
 		
-		for(int i=0; i<administradorJuego.getListaElemento().size();i++){
-			if (!administradorJuego.getListaElemento().get(i).getEstaVivo())
-				administradorJuego.getListaElemento().remove(i);
+		for(int i=0; i<escenario.getListaElemento().size();i++){
+			if (!escenario.getListaElemento().get(i).getEstaVivo())
+				escenario.getListaElemento().remove(i);
 		}
 		
 		
@@ -43,45 +43,45 @@ public abstract class UAdministradorJuego {
 
 
 	//TODO HACER LOS CREAR ELEMENTOS
-	public static void crearElementos(AdministradorJuego administradorJuego) {
-		NaveCrazy naveCrazy = new NaveCrazy(new Posicion(40, 40), new Tamanio(30, 30), administradorJuego);
-		administradorJuego.getListaElemento().add(naveCrazy);
+	public static void crearElementos(AdministradorJuego escenario) {
+		NaveCrazy naveCrazy = new NaveCrazy(new Posicion(40, 40), new Tamanio(30, 30), escenario);
+		escenario.getListaElemento().add(naveCrazy);
 		
 		
 	}
 	
 	
-	public static void crearBonus(AdministradorJuego administradorJuego) {
+	public static void crearBonus(AdministradorJuego escenario) {
 		  Random timeRandom = new Random();
 		  int tiempoRandom = (int)(timeRandom.nextDouble()*10);  //3000
-		  administradorJuego.setBonusContador(administradorJuego.getBonusContador()+1);
-		  if (administradorJuego.getBonusContador()>=tiempoRandom){
-			  administradorJuego.setBonusAleatorio(true);
-			  administradorJuego.setBonusContador(0);
+		  escenario.setBonusContador(escenario.getBonusContador()+1);
+		  if (escenario.getBonusContador()>=tiempoRandom){
+			  escenario.setBonusAleatorio(true);
+			  escenario.setBonusContador(0);
 		  }
 		  Bonus bonus= null;
 		  Random tipoRandom = new Random();
 		  int tipoBonus = (int)(tipoRandom.nextDouble()*2+1);
-		  if(administradorJuego.getBonusAleatorio()==true){				  
-			  int x = (int) (Movimiento.posicionAleatoriaX()*administradorJuego.getConfig().getAnchoEscenario());
-			  int y = (int) (Movimiento.posicionAleatoriaY()*administradorJuego.getConfig().getAltoEscenario());
+		  if(escenario.getBonusAleatorio()==true){				  
+			  int x = (int) (Movimiento.posicionAleatoriaX()*escenario.getConfiguracionInicial().getAnchoEscenario());
+			  int y = (int) (Movimiento.posicionAleatoriaY()*escenario.getConfiguracionInicial().getAltoEscenario());
 			switch (tipoBonus) {
 				case 1:	
-						bonus = new BonusMisil(new Posicion(x,y),new Tamanio(administradorJuego.getConfig().getAnchoBonus(), administradorJuego.getConfig().getAltoBonus()),administradorJuego, null); 
+						bonus = new BonusMisil(new Posicion(x,y),new Tamanio(escenario.getConfiguracionInicial().getAnchoBonus(), escenario.getConfiguracionInicial().getAltoBonus()),escenario, null); 
 						break;
 		
-				case 2:	bonus = new BonusInmunidad(new Posicion(x,y),new Tamanio(administradorJuego.getConfig().getAnchoBonus(), administradorJuego.getConfig().getAltoBonus()),administradorJuego,null);
+				case 2:	bonus = new BonusInmunidad(new Posicion(x,y),new Tamanio(escenario.getConfiguracionInicial().getAnchoBonus(), escenario.getConfiguracionInicial().getAltoBonus()),escenario,null);
 						break;
-				case 3: bonus = new BonusReparacion(new Posicion(x,y),new Tamanio(administradorJuego.getConfig().getAnchoBonus(), administradorJuego.getConfig().getAltoBonus()),administradorJuego,null);
+				case 3: bonus = new BonusReparacion(new Posicion(x,y),new Tamanio(escenario.getConfiguracionInicial().getAnchoBonus(), escenario.getConfiguracionInicial().getAltoBonus()),escenario,null);
 			}
-			bonus.getTamanio().setAlto(administradorJuego.getConfig().getAltoBonus());
-			bonus.getTamanio().setAncho(administradorJuego.getConfig().getAnchoBonus());
+			bonus.getTamanio().setAlto(escenario.getConfiguracionInicial().getAltoBonus());
+			bonus.getTamanio().setAncho(escenario.getConfiguracionInicial().getAnchoBonus());
 			
 			bonus.setTiempoVida(99);
 
 			
-			administradorJuego.getListaElemento().add(bonus);
-			administradorJuego.setBonusAleatorio(false);
+			escenario.getListaElemento().add(bonus);
+			escenario.setBonusAleatorio(false);
 		  }		
 
 	}
@@ -95,13 +95,13 @@ public abstract class UAdministradorJuego {
 	
 	
 	/**
-	 * controla si un elemento se choco con otro elemento dentro del administradorJuego
+	 * controla si un elemento se choco con otro elemento dentro del escenario
 	 */
-	public static void verficarChoques(AdministradorJuego administradorJuego) {
+	public static void verficarChoques(AdministradorJuego escenario) {
 		
-		for(int i=0; i<administradorJuego.getListaElemento().size();i++){
+		for(int i=0; i<escenario.getListaElemento().size();i++){
 			
-			Elemento e1 = administradorJuego.getListaElemento().get(i);
+			Elemento e1 = escenario.getListaElemento().get(i);
 			
 			//guaramos las coordenadas para verificar si choco contra el tablero
 			int coord1 = Movimiento.obtenerPosicionX(e1);
@@ -111,10 +111,10 @@ public abstract class UAdministradorJuego {
 			Rectangle r1 = new Rectangle(e1.getPosicion().getX(),e1.getPosicion().getY(),
 										e1.getTamanio().getAncho(),e1.getTamanio().getAlto());
 			
-			for(int j=i+1; j<administradorJuego.getListaElemento().size(); j++){
+			for(int j=i+1; j<escenario.getListaElemento().size(); j++){
 				
 				//Creamos el rectangulo
-				Elemento e2 = administradorJuego.getListaElemento().get(j);
+				Elemento e2 = escenario.getListaElemento().get(j);
 				Rectangle r2 = new Rectangle(e2.getPosicion().getX(),
 						e2.getPosicion().getY(),
 						e2.getTamanio().getAncho(),
@@ -129,7 +129,7 @@ public abstract class UAdministradorJuego {
 			
 			// estaContenidoDentro, hace referencia si no se paso del tope del tablero
 			// esta contenidoposito, se fija si las posiciones son positivas 
-			boolean estaContenidoDentro = ( (coord1 >= administradorJuego.getConfig().getAnchoEscenario()) || (coord2 >= administradorJuego.getConfig().getAltoEscenario()) ); 
+			boolean estaContenidoDentro = ( (coord1 >= escenario.getConfiguracionInicial().getAnchoEscenario()) || (coord2 >= escenario.getConfiguracionInicial().getAltoEscenario()) ); 
 			boolean estaContenidoPositivo= (coord1<= 0) || (coord2 <= 0 ); 
 			if(estaContenidoPositivo || estaContenidoDentro){
 				e1.chocarContraPared();

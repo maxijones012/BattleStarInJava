@@ -37,6 +37,7 @@ public abstract class Armamento {
 			Posicion posicion = new Posicion(nave.getPosicion().getX(),nave.getPosicion().getY());
 			Tamanio tamanio = new Tamanio(nave.getTamanio().getAncho(), nave.getTamanio().getAlto());
 			new Bomba(nave, posicion,tamanio, nave.getAministradorJuego());
+			new Bomba(nave, posicion,tamanio, nave.getAdministradorJuego());
 		}
 	}
 
@@ -50,6 +51,7 @@ public abstract class Armamento {
 			Posicion posicion = new Posicion(nave.getPosicion().getX(),nave.getPosicion().getY());
 			Tamanio tamanio = new Tamanio(nave.getTamanio().getAncho(), nave.getTamanio().getAlto());
 			new Misil(nave, posicion,tamanio, nave.getAministradorJuego());
+			new Misil(nave, posicion,tamanio, nave.getAdministradorJuego());
 		}
 	}
 
@@ -67,5 +69,6 @@ public abstract class Armamento {
 	};
 	
 	
-	
+	//TODO se podria hacer un 
+//	public void estrategiaDeDisparo();
 }

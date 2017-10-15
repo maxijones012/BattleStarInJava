@@ -14,9 +14,9 @@ public abstract class Logica{
 	 */
 	public static void darTurno(AdministradorJuego administradorJuego){
 		for(int i=0; i<administradorJuego.getListaElemento().size(); i++){
-			Elemento elemento = administradorJuego.getListaElemento().get(i);			
-			elemento.jugar();
-		}
+			Elemento elemento = administradorJuego.getListaElemento().get(i);
+			}			
+
 	}
 	
 

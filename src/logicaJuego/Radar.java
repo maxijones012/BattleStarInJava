@@ -1,7 +1,9 @@
 package logicaJuego;
 
 import java.awt.Polygon;
+import java.util.ArrayList;
 
+import interfaces.IRadarListener;
 import util.Movimiento;
 import util.uRadar;
 	
@@ -9,24 +11,32 @@ public class Radar extends Movible{
 	private Nave duenio;
 	private int direccion;
 	private int alcanceMaximo=25;
-	private int anguloAperturaRadar=this.getAministradorJuego().getConfig().getAnguloAperturaRadar(); 
-	private int alcanceRadar=this.getAministradorJuego().getConfig().getAlcanceRadar(); 
-	
-	
+	private int anguloAperturaRadar=this.getAdministradorJuego().getConfiguracionInicial().getAnguloAperturaRadar(); 
+	private int alcanceRadar=this.getAdministradorJuego().getConfiguracionInicial().getAlcanceRadar(); 
+	private ArrayList<IRadarListener> listeners;
 	
 	public Radar(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego, Nave nave) {
 		super(posicion, tamanio, administradorJuego);
 		this.duenio=nave;
-		this.getAministradorJuego().getConfig().getDireccionMovible();
+		this.listeners=  listeners; //TODO VERFICAR ESTO
+	}
+	
+	public void addRadarListener(IRadarListener listeners) {
+		this.listeners.add(listeners);
+		
+	}
+	public void removeRadarListener(IRadarListener listeners) {
+		
+		this.listeners.remove(listeners);		
 	}
 	
 	
 	
 	//TODO HACER EL ESCANEAR
 	public void escanear(){ //TODO anda mejorar y hacer 
-		
-//			System.out.println("Escanenando..." );
-			
+			for (IRadarListener listener : this.listeners)
+				
+			System.out.println("Escanenando..." );
 	};
 	
 	@Override

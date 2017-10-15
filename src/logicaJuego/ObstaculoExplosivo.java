@@ -6,8 +6,8 @@ public class ObstaculoExplosivo extends Estatico{
 	private int tiempoDeExplosion=20;
 	
 //	constructor 
-	public ObstaculoExplosivo(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
-		super(posicion, tamanio, administradorJuego);
+	public ObstaculoExplosivo(Posicion posicion, Tamanio tamanio, AdministradorJuego escenario) {
+		super(posicion, tamanio, escenario);
 	}
 
 	@Override

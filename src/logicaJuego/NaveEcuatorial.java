@@ -2,12 +2,11 @@ package logicaJuego;
 
 
 public class NaveEcuatorial extends Nave{
-	private boolean verticalArriba=true;
-	private int contadorAvanceVertical=0;
-	private int cantidadAvanceVertical=this.getAministradorJuego().getConfig().getCantidadAvanceHaciaArriba();
+	private int cantidadAvanceVertical=this.getAministradorJuego().getConfiguracionInicial().getCantidadAvanceHaciaArriba();
 	
-	public NaveEcuatorial(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
-		super(posicion, tamanio, administradorJuego);
+	
+	public NaveEcuatorial(Posicion posicion, Tamanio tamanio, AdministradorJuego escenario) {
+		super(posicion, tamanio, escenario);
 	}
 	
 	@Override
@@ -55,27 +54,6 @@ public class NaveEcuatorial extends Nave{
 
 	
 	
-	public boolean isVerticalArriba() {
-		return verticalArriba;
-	}
-
-	
-	
-	public void setVerticalArriba(boolean verticalArriba) {
-		this.verticalArriba = verticalArriba;
-	}
-
-	public int getContadorAvanceVertical() {
-		return contadorAvanceVertical;
-	}
-
-	public void setContadorAvanceVertical(int contadorAvanceVertical) {
-		this.contadorAvanceVertical = contadorAvanceVertical;
-	}
-
-	public int getCantidadAvanceVertical() {
-		return cantidadAvanceVertical;
-	}
 
 
 	

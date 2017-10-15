@@ -13,8 +13,8 @@ public abstract class Estatico extends Elemento{
 	 * @param tamanio
 	 * @param administradorJuego
 	 */
-	public Estatico(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
-		super(posicion, tamanio, administradorJuego);
+	public Estatico(Posicion posicion, Tamanio tamanio, AdministradorJuego AdministradorJuego) {
+		super(posicion, tamanio, AdministradorJuego);
 		this.setPosicion(getPosicionAleatoria());
 	}
 

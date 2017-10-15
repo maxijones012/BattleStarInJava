@@ -7,7 +7,6 @@ public class NaveGreenwich extends Nave{
 	public NaveGreenwich(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
 		super(posicion, tamanio, administradorJuego);
 	}
-
 	
 	@Override
 	public void jugar() {

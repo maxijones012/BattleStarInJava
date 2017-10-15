@@ -9,8 +9,8 @@ public class BonusMisil extends Bonus{
 	 * @param tamanio
 	 * @param administradorJuego
 	 */
-	public BonusMisil(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego, Nave nave) {
-		super(posicion, tamanio, administradorJuego, nave);
+	public BonusMisil(Posicion posicion, Tamanio tamanio, AdministradorJuego escenario, Nave nave) {
+		super(posicion, tamanio, escenario, nave);
 	}
 
 	@Override

@@ -9,19 +9,17 @@ import util.UAdministradorJuego;
 public class AdministradorJuego implements IAdministradorJuego{
 	private Tamanio tamanio;
 	ArrayList<Elemento> listaElemento = new ArrayList<>();
-	private ConfiguracionInicial config;
+	private ConfiguracionInicial configuracionInicial;
 	private int bonusContador = 0;
 	private Boolean bonusAleatorio=true;
-	private int ancho=this.getConfig().getAnchoEscenario();
-	private int alto=this.getConfig().getAltoEscenario();
+	private int ancho=this.getConfiguracionInicial().getAnchoEscenario();
+	private int alto=this.getConfiguracionInicial().getAltoEscenario();
 	
 	
-	public AdministradorJuego(ConfiguracionInicial administradorJuego) {
-		this.config=administradorJuego;
+	public AdministradorJuego(ConfiguracionInicial configuracionInicial) {
+		this.configuracionInicial=configuracionInicial;
 		this.tamanio= new Tamanio(ancho, alto);
-		
 	}
-
 	//TODO arreglar el iniciar juego
 	@Override
 	public void iniciarJuego() {
@@ -60,9 +58,7 @@ public class AdministradorJuego implements IAdministradorJuego{
 		
 	}
 
-	public ConfiguracionInicial getConfig() {
-		return config;
-	}
+
 
 
 	public Tamanio getTamanio() {
@@ -101,6 +97,9 @@ public class AdministradorJuego implements IAdministradorJuego{
 
 	public void setBonusAleatorio(Boolean bonusAleatorio) {
 		this.bonusAleatorio = bonusAleatorio;
+	}
+	public ConfiguracionInicial getConfiguracionInicial() {
+		return configuracionInicial;
 	};
 	
 	

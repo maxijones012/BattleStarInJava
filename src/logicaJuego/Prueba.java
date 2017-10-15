@@ -10,6 +10,7 @@ public class Prueba {
 		AdministradorJuego administradorJuego = new AdministradorJuego(config);
 		
 		config.setAdministradorJuego(administradorJuego);
+		config.setEscenario(administradorJuego);
 		
 		administradorJuego.iniciarJuego();
 

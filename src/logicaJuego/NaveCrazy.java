@@ -11,8 +11,8 @@ public class NaveCrazy extends Nave{
 	
 	
 	//constructor
-	public NaveCrazy(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
-		super(posicion, tamanio, administradorJuego);
+	public NaveCrazy(Posicion posicion, Tamanio tamanio, AdministradorJuego escenario) {
+		super(posicion, tamanio, escenario);
 	}
 
 

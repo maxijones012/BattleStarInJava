@@ -4,7 +4,7 @@ package logicaJuego;
 import interfaces.IElemento;
 
 public abstract class Elemento implements IElemento{
-	private int nivelVida; 
+	private int nivelVida=this.getAdministradorJuego().getConfiguracionInicial().getNivelVida(); 
 	private Posicion posicion;
 	private Tamanio tamanio;
 	private AdministradorJuego administradorJuego;
@@ -16,9 +16,8 @@ public abstract class Elemento implements IElemento{
 		this.posicion=posicion;
 		this.tamanio=tamanio;
 		this.administradorJuego= adminstradorJuego;
-		this.nivelVida=adminstradorJuego.getConfig().getNivelVida();
+		this.nivelVida=adminstradorJuego.getConfiguracionInicial().getNivelVida();
 	}
-
 
 
 	@Override
@@ -39,6 +38,7 @@ public abstract class Elemento implements IElemento{
 	 */
 	public void destruir(Elemento elemento){
 		this.getAministradorJuego().removeElemento(elemento);
+		this.getAdministradorJuego().removeElemento(elemento);
 	};
 	
 
@@ -79,6 +79,12 @@ public abstract class Elemento implements IElemento{
 	}
 	public void setNivelVida(int nivelVida) {
 		this.nivelVida = nivelVida;
+	}
+
+
+
+	public AdministradorJuego getAdministradorJuego() {
+		return administradorJuego;
 	}
 
 	

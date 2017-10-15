@@ -8,12 +8,12 @@ package logicaJuego;
  */
 public class Pasadizo extends Estatico{
 	private Posicion pasadizoSalida;
-	private int quitarNivelCombustible=this.getAministradorJuego().getConfig().getQuitarNivelCombustible();
+	private int quitarNivelCombustible=this.getAdministradorJuego().getConfiguracionInicial().getQuitarNivelCombustible();
 		
 	
 //	Constructor
-	public Pasadizo(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego, Posicion pasadizoSalida) {
-		super(posicion, tamanio, administradorJuego);
+	public Pasadizo(Posicion posicion, Tamanio tamanio, AdministradorJuego escenario, Posicion pasadizoSalida) {
+		super(posicion, tamanio, escenario);
 		this.pasadizoSalida=pasadizoSalida;
 	}
 

@@ -45,7 +45,7 @@ public class ConfiguracionInicial {
 	
 	
 	private int quitarNivelCombustible=20;
-	
+	private int tiempoExposicion=10;
 	
 	public int getAnchoNave() {
 		return anchoNave;
@@ -67,8 +67,8 @@ public class ConfiguracionInicial {
 		return danioMisil;
 	}
 
-	public void setAdministradorJuego(AdministradorJuego administradorJuego) {
-		this.administradorJuego = administradorJuego;
+	public void setEscenario(AdministradorJuego escenario) {
+		this.administradorJuego = escenario;
 	}
 	public int getCantidadAvanceHaciaArriba() {
 		return cantidadAvanceHaciaArriba;
@@ -85,7 +85,7 @@ public class ConfiguracionInicial {
 	public int getAltoBonus() {
 		return altoBonus;
 	}
-	public AdministradorJuego getAdministradorJuego() {
+	public AdministradorJuego getEscenario() {
 		return administradorJuego;
 	}
 	public int getVelocidadInicialBomba() {
@@ -120,6 +120,15 @@ public class ConfiguracionInicial {
 	}
 	public int getQuitarNivelCombustible() {
 		return quitarNivelCombustible;
+	}
+	public AdministradorJuego getAdministradorJuego() {
+		return administradorJuego;
+	}
+	public void setAdministradorJuego(AdministradorJuego administradorJuego) {
+		this.administradorJuego = administradorJuego;
+	}
+	public int getTiempoExposicion() {
+		return tiempoExposicion;
 	}
 	
 	
