@@ -21,11 +21,11 @@ public abstract class Estatico extends Elemento{
 	
 	
 	/**
-	 * Devuelve una posicion aleatoria con X>=,Y>0 
+	 * Devuelve una {@link Posicion posicion} posicion aleatoria con X>=,Y>0 
 	 * @return Posicion(X,Y)
 	 */
 	private Posicion getPosicionAleatoria(){
-		return (new Posicion( util.Movimiento.posicionAleatoriaX(), util.Movimiento.posicionAleatoriaY() ) );
+		return (new Posicion( util.uMovimiento.posicionAleatoriaX(), util.uMovimiento.posicionAleatoriaY() ) );
 	}
 
 

@@ -11,6 +11,7 @@ import logicaJuego.BonusReparacion;
 import logicaJuego.Elemento;
 import logicaJuego.AdministradorJuego;
 import logicaJuego.NaveCrazy;
+import logicaJuego.NaveEcuatorial;
 import logicaJuego.Posicion;
 import logicaJuego.Tamanio;
 
@@ -47,6 +48,8 @@ public abstract class UAdministradorJuego {
 		NaveCrazy naveCrazy = new NaveCrazy(new Posicion(40, 40), new Tamanio(30, 30), escenario);
 		escenario.getListaElemento().add(naveCrazy);
 		
+		NaveEcuatorial naveEcutaorial = new NaveEcuatorial(new Posicion(255, 255), new Tamanio(30, 30), escenario);
+		escenario.getListaElemento().add(naveEcutaorial);
 		
 	}
 	
@@ -63,8 +66,8 @@ public abstract class UAdministradorJuego {
 		  Random tipoRandom = new Random();
 		  int tipoBonus = (int)(tipoRandom.nextDouble()*2+1);
 		  if(escenario.getBonusAleatorio()==true){				  
-			  int x = (int) (Movimiento.posicionAleatoriaX()*escenario.getConfiguracionInicial().getAnchoEscenario());
-			  int y = (int) (Movimiento.posicionAleatoriaY()*escenario.getConfiguracionInicial().getAltoEscenario());
+			  int x = (int) (uMovimiento.posicionAleatoriaX()*escenario.getConfiguracionInicial().getAnchoEscenario());
+			  int y = (int) (uMovimiento.posicionAleatoriaY()*escenario.getConfiguracionInicial().getAltoEscenario());
 			switch (tipoBonus) {
 				case 1:	
 						bonus = new BonusMisil(new Posicion(x,y),new Tamanio(escenario.getConfiguracionInicial().getAnchoBonus(), escenario.getConfiguracionInicial().getAltoBonus()),escenario, null); 
@@ -104,8 +107,8 @@ public abstract class UAdministradorJuego {
 			Elemento e1 = escenario.getListaElemento().get(i);
 			
 			//guaramos las coordenadas para verificar si choco contra el tablero
-			int coord1 = Movimiento.obtenerPosicionX(e1);
-			int coord2 = Movimiento.obtenerPosicionY(e1);
+			int coord1 = uMovimiento.obtenerPosicionX(e1);
+			int coord2 = uMovimiento.obtenerPosicionY(e1);
 
 			//Creamos el rectangulo
 			Rectangle r1 = new Rectangle(e1.getPosicion().getX(),e1.getPosicion().getY(),
@@ -122,7 +125,9 @@ public abstract class UAdministradorJuego {
 				
 				if(r1.intersects(r2)){
 					e1.chocarContra(e2);
+					uDebugConsola.posicion(e2); //TODO 
 					e2.chocarContra(e1);
+					uDebugConsola.posicion(e2);
 				}
 			}
 			

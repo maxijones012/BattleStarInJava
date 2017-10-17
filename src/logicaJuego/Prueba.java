@@ -6,11 +6,11 @@ public class Prueba {
 
 	public static void main(String[] args) {
 		
-		ConfiguracionInicial config = new ConfiguracionInicial();
-		AdministradorJuego administradorJuego = new AdministradorJuego(config);
+		ConfiguracionInicial configuracionInicial = new ConfiguracionInicial();
+		AdministradorJuego administradorJuego = new AdministradorJuego(configuracionInicial);
 		
-		config.setAdministradorJuego(administradorJuego);
-		config.setEscenario(administradorJuego);
+		configuracionInicial.setAdministradorJuego(administradorJuego);
+		configuracionInicial.setEscenario(administradorJuego);
 		
 		administradorJuego.iniciarJuego();
 

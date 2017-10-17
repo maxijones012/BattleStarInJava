@@ -12,13 +12,15 @@ public class AdministradorJuego implements IAdministradorJuego{
 	private ConfiguracionInicial configuracionInicial;
 	private int bonusContador = 0;
 	private Boolean bonusAleatorio=true;
-	private int ancho=this.getConfiguracionInicial().getAnchoEscenario();
-	private int alto=this.getConfiguracionInicial().getAltoEscenario();
+	private int ancho;
+	private int alto;
 	
 	
 	public AdministradorJuego(ConfiguracionInicial configuracionInicial) {
 		this.configuracionInicial=configuracionInicial;
 		this.tamanio= new Tamanio(ancho, alto);
+		this.ancho=this.getConfiguracionInicial().getAnchoEscenario();
+		this.alto=this.getConfiguracionInicial().getAltoEscenario();
 	}
 	//TODO arreglar el iniciar juego
 	@Override
@@ -48,7 +50,7 @@ public class AdministradorJuego implements IAdministradorJuego{
 	//TODO ARREGLAR TURNOS
 	@Override
 	public void turnos() {
-		util.Logica.darTurno(this);		
+		util.uLogica.darTurno(this);		
 	}
 
 	@Override

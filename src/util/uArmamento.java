@@ -13,7 +13,7 @@ import logicaJuego.Tamanio;
  * @author Maxi Jones
  *
  */
-public abstract class Armamento {
+public abstract class uArmamento {
 	static class Circulo {
 	    public double x, y;
 	    public double radio;
@@ -43,8 +43,8 @@ public abstract class Armamento {
 
 	
 	/**
-	 * Crea un MISIL, apartir de la posicion de la nave
-	 * @param nave
+	 * Crea un {@link Misil misil}, apartir de la posicion de la {@link Nave nave}
+	 * @param nave que es la que crea el Misil
 	 */
 	public static void dispararMisil(Nave nave) {
 		if (nave.getCantidadMunicion()>0){

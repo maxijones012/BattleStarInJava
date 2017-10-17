@@ -1,5 +1,6 @@
 package logicaJuego;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class NaveGreenwich extends Nave{
@@ -60,6 +61,12 @@ public class NaveGreenwich extends Nave{
 	@Override
 	public void chocarContraPared() {
 		girar(this.getDireccion()-90);
+	}
+
+	@Override
+	public void elementosVistos(ArrayList<Elemento> elementos) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

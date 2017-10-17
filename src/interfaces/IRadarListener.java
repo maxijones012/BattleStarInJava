@@ -1,9 +1,10 @@
 package interfaces;
 
+import java.util.ArrayList;
+import logicaJuego.Elemento;
+
 public interface IRadarListener {
 	
-//	ssi quieren escuchar a radar tiene que implementarme
-//	void elementosDectados(ArrayList<Elemento>);
-//	TODO mejorar elementos detetados
+	void elementosVistos(ArrayList<Elemento> elementos);
 
 }

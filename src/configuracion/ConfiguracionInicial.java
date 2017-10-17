@@ -11,6 +11,8 @@ public class ConfiguracionInicial {
 	private AdministradorJuego administradorJuego;
 	
 	private int nivelVida=100;
+	private int tiempoDeExplosion=20;
+	private int nivelCombustible=100;
 	
 	private int anchoNave=20;
 	private int altoNave=20;
@@ -47,6 +49,8 @@ public class ConfiguracionInicial {
 	private int quitarNivelCombustible=20;
 	private int tiempoExposicion=10;
 	
+	private int tiempoVidaBonus=10;
+	
 	public int getAnchoNave() {
 		return anchoNave;
 	}
@@ -67,6 +71,12 @@ public class ConfiguracionInicial {
 		return danioMisil;
 	}
 
+	public int getNivelCombustible() {
+		return nivelCombustible;
+	}
+	public int getTiempoDeExplosion() {
+		return tiempoDeExplosion;
+	}
 	public void setEscenario(AdministradorJuego escenario) {
 		this.administradorJuego = escenario;
 	}
@@ -129,6 +139,9 @@ public class ConfiguracionInicial {
 	}
 	public int getTiempoExposicion() {
 		return tiempoExposicion;
+	}
+	public int getTiempoVidaBonus() {
+		return tiempoVidaBonus;
 	}
 	
 	

@@ -27,6 +27,9 @@ public interface IElemento {
 	public abstract void chocarContra(Elemento elemento);
 //
 //	
+	/**
+	 * Cuando un {@link Movible movible} choca contra una pared debera invertir su direccion
+	 */
 	public abstract void chocarContraPared();
 //	
 //	

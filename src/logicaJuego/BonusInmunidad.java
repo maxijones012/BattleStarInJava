@@ -49,14 +49,13 @@ public class BonusInmunidad extends Bonus{
 	
 	
 	private void darBonusInmunidad(Nave nave) {
-		nave.setInmunidad(true);
+		if (nave != null){
+			nave.setInmunidad(true);			
+		}
 	}
 
 	@Override
-	public void chocarContraPared() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void chocarContraPared() {}
 
 	@Override
 	public void chocarContraBomba(Bomba bomba) {

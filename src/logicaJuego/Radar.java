@@ -3,21 +3,24 @@ package logicaJuego;
 import java.awt.Polygon;
 import java.util.ArrayList;
 
+import interfaces.IRadar;
 import interfaces.IRadarListener;
-import util.Movimiento;
+import util.uMovimiento;
 import util.uRadar;
 	
-public class Radar extends Movible{
+public class Radar extends Movible implements IRadar{
 	private Nave duenio;
 	private int direccion;
 	private int alcanceMaximo=25;
-	private int anguloAperturaRadar=this.getAdministradorJuego().getConfiguracionInicial().getAnguloAperturaRadar(); 
-	private int alcanceRadar=this.getAdministradorJuego().getConfiguracionInicial().getAlcanceRadar(); 
+	private int anguloAperturaRadar; 
+	private int alcanceRadar; 
 	private ArrayList<IRadarListener> listeners;
 	
 	public Radar(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego, Nave nave) {
 		super(posicion, tamanio, administradorJuego);
 		this.duenio=nave;
+		this.alcanceRadar=this.getAdministradorJuego().getConfiguracionInicial().getAlcanceRadar();
+		this.anguloAperturaRadar=this.getAdministradorJuego().getConfiguracionInicial().getAnguloAperturaRadar();
 		this.listeners=  listeners; //TODO VERFICAR ESTO
 	}
 	
@@ -58,14 +61,14 @@ public class Radar extends Movible{
 	 * @param angulo
 	 */
 	public void girar (int angulo){
-		Movimiento.girar(this, angulo);
+		uMovimiento.girar(this, angulo);
 	}
 
 
 	@Override
 	public void avanzar() {
-		Movimiento.avanzarX(duenio);
-		Movimiento.avanzarY(duenio);
+		uMovimiento.avanzarX(duenio);
+		uMovimiento.avanzarY(duenio);
 		super.avanzar();
 	}
 

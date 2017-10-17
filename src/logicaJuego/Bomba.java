@@ -1,10 +1,11 @@
 package logicaJuego;
 
+import util.uArmamento;
 public class Bomba extends Movible{
-	private int velocidadInicial=this.getAdministradorJuego().getConfiguracionInicial().getVelocidadInicialBomba(); 
-	private int danioBomba=this.getAdministradorJuego().getConfiguracionInicial().getNivelDanioBomba(); 
+	private int velocidadInicial; 
+	private int danioBomba; 
 	private Nave duenio;
-	private int tiempoDeExposicion=this.getAdministradorJuego().getConfiguracionInicial().getTiempoExposicion(); 
+	private int tiempoDeExposicion; 
 	private boolean estaExplotando=false;
 	
 	/**
@@ -19,6 +20,7 @@ public class Bomba extends Movible{
 		this.duenio= duenio;
 		this. velocidadInicial=this.getAministradorJuego().getConfiguracionInicial().getVelocidadInicialBomba();
 		this.danioBomba=this.getAministradorJuego().getConfiguracionInicial().getNivelDanioBomba();
+		this.tiempoDeExposicion=this.getAdministradorJuego().getConfiguracionInicial().getTiempoExposicion();
 		
 
 	}
@@ -123,7 +125,7 @@ public class Bomba extends Movible{
 	
 	
 	public void explotar(){
-		util.Armamento.explotar(this);
+		uArmamento.explotar(this);
 	}
 
 	public int getTiempoDeExposicion() {

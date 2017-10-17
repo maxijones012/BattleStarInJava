@@ -9,12 +9,13 @@ import logicaJuego.Elemento;
  * @author Maxi Jones
  *
  */
-public abstract class Movimiento{
+public abstract class uMovimiento{
 	
 	/**
-	 * Gira los elementos del juego, segun una direccion
-	 * @param movible
-	 * @param direccion
+	 * Gira la dirección del canion en un determinado angulo
+	 * 
+	 * @param angulo Ángulo que se desea girar. Si el canion tiene un angulo actual de 100º y se gira 30º, el resultado 
+	 * debera ser un angulo final de 130º
 	 */
 	public static void girar(Movible movible, int direccion){
 		int dirNueva = movible.getDireccion() + direccion;
@@ -40,11 +41,20 @@ public abstract class Movimiento{
 		obj.getPosicion().setY((int) (obj.getPosicion().getY()+ Math.sin(Math.toRadians(obj.getDireccion()))*obj.getVelocidadAvance()));		
 	}
 	
-	
+	/**
+	 * Obtiene la posicion de un elemento
+	 * @param e
+	 * @return posicionX
+	 */
 	public static int obtenerPosicionX(Elemento e) {
 		return (e.getPosicion().getX());
 	}
 
+	/**
+	 * Obtiene la posicion de un elemento
+	 * @param e
+	 * @return posicionY
+	 */
 	public static int obtenerPosicionY(Elemento e) {
 		return (e.getPosicion().getY());
 	}

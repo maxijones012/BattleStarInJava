@@ -1,12 +1,14 @@
 package logicaJuego;
 
+import java.util.ArrayList;
 
 public class NaveEcuatorial extends Nave{
-	private int cantidadAvanceVertical=this.getAministradorJuego().getConfiguracionInicial().getCantidadAvanceHaciaArriba();
+	private int cantidadAvanceVertical;
 	
 	
 	public NaveEcuatorial(Posicion posicion, Tamanio tamanio, AdministradorJuego escenario) {
 		super(posicion, tamanio, escenario);
+		this.cantidadAvanceVertical=this.getAministradorJuego().getConfiguracionInicial().getCantidadAvanceHaciaArriba();
 	}
 	
 	@Override
@@ -50,6 +52,12 @@ public class NaveEcuatorial extends Nave{
 	 */
 	private void avanzarEcuatorial() {
 		this.girar(90);
+	}
+
+	@Override
+	public void elementosVistos(ArrayList<Elemento> elementos) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

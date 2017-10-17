@@ -4,7 +4,7 @@ package logicaJuego;
 import interfaces.IElemento;
 
 public abstract class Elemento implements IElemento{
-	private int nivelVida=this.getAdministradorJuego().getConfiguracionInicial().getNivelVida(); 
+	private int nivelVida; 
 	private Posicion posicion;
 	private Tamanio tamanio;
 	private AdministradorJuego administradorJuego;

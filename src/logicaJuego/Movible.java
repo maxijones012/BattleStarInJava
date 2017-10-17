@@ -1,11 +1,11 @@
 package logicaJuego;
 
 import interfaces.IMovible;
-import util.Movimiento;
+import util.uMovimiento;
 
 public abstract class Movible extends Elemento implements IMovible {
-	private int direccion=this.getAdministradorJuego().getConfiguracionInicial().getDireccionMovible(); 
-	private int velocidadAvance=this.getAdministradorJuego().getConfiguracionInicial().getVelocidadAvanceMovible(); 
+	private int direccion; 
+	private int velocidadAvance; 
 	
 	
 	/**
@@ -22,8 +22,8 @@ public abstract class Movible extends Elemento implements IMovible {
 
 	@Override
 	public void avanzar() {
-		Movimiento.avanzarX(this);
-		Movimiento.avanzarY(this);
+		uMovimiento.avanzarX(this);
+		uMovimiento.avanzarY(this);
 	}
 
 	
@@ -46,7 +46,7 @@ public abstract class Movible extends Elemento implements IMovible {
 	}
 	
 	public void girar(int direccion) {
-		util.Movimiento.girar(this, direccion);
+		util.uMovimiento.girar(this, direccion);
 	}
 	
 }

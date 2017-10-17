@@ -5,7 +5,7 @@ import logicaJuego.Elemento;
 import logicaJuego.AdministradorJuego;
 
 
-public abstract class Logica{
+public abstract class uLogica{
 	
 	
 	/**

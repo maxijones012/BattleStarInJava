@@ -3,11 +3,12 @@ package logicaJuego;
 import java.lang.Override;
 
 public class ObstaculoExplosivo extends Estatico{
-	private int tiempoDeExplosion=20;
+	private int tiempoDeExplosion;
 	
 //	constructor 
 	public ObstaculoExplosivo(Posicion posicion, Tamanio tamanio, AdministradorJuego escenario) {
 		super(posicion, tamanio, escenario);
+		this.tiempoDeExplosion=this.getAdministradorJuego().getConfiguracionInicial().getTiempoDeExplosion();
 	}
 
 	@Override
