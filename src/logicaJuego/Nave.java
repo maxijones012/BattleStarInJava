@@ -53,14 +53,14 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 		//tengo escudo
 		
 		if (this.getNivelEscudo()>=0){	
-			this.getRadar().escanear();	
 			super.avanzar();
+			this.getRadar().escanear();	
 		}
 		//sino se rompio escudo
 		else{
 			if (this.getInmunidad()==false){destruir(this);}
 		}
-		uDebugConsola.posicion(this);
+//		uDebugConsola.posicion(this);
 	}
 
 	

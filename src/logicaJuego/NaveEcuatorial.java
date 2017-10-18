@@ -12,7 +12,14 @@ public class NaveEcuatorial extends Nave{
 	}
 	
 	@Override
+	public void jugar() {
+		super.jugar();
+		avanzar();
+	}
+	
+	@Override
 	public void avanzar() {
+		super.avanzar();
 		avanzarEcuatorial();
 	}
 

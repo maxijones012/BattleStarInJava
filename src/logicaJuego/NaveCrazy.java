@@ -51,7 +51,7 @@ public class NaveCrazy extends Nave{
 
 	@Override
 	public void elementosVistos(ArrayList<Elemento> elementos) {
-		// TODO Auto-generated method stub
+		// TODO preguntar que deberia hacer
 		
 	}
 
