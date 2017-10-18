@@ -36,7 +36,9 @@ public class AdministradorJuego implements IAdministradorJuego{
 		}
 	}
 
-	
+	/**
+	 * TODO verificar si los poligonos de los elmentos que chocan estan superpuestos
+	 */
 	private void verificarChoques() {
 		UAdministradorJuego.verficarChoques(this);
 		

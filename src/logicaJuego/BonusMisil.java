@@ -20,6 +20,9 @@ public class BonusMisil extends Bonus{
 	}
 
 	@Override
+	/**
+	 * 
+	 */
 	public void chocarContra(Elemento elemento) {
 		elemento.chocarContraBonusMisil(this);
 		

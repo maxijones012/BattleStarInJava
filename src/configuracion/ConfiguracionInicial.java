@@ -4,6 +4,7 @@ import logicaJuego.AdministradorJuego;
 
 /**
  * Contiene todos los datos del juego
+ * configuracion inicial por defecto
  * @author Maxi Jones
  *
  */

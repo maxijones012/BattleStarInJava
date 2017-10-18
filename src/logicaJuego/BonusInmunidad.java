@@ -18,28 +18,37 @@ public class BonusInmunidad extends Bonus{
 	}
 
 	@Override
+	/**
+	 * llamao al metod del elemento que chocaContraBonusInmunidad ()
+	 * @param elemento
+	 */
+	 
 	public void chocarContra(Elemento elemento) {
 		elemento.chocarContraBonusInmunidad(this);
 	}
 
 	@Override
+	/**
+	 * TODO METODO VACIO SI UN BONUS CHOCA CONTRA OTRO NO HAGO NADA
+	 */
 	public void chocarContraBonusReparacion(BonusReparacion bonus) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
+	/**
+	 * Otorgo el bonus de misil a la nave
+	 */
 	public void chocarContraBonusMisil(BonusMisil bonus) {
 		darBeneficio(bonus.getDuenio());
 	}
 
 	@Override
+	/** se otroga el benefico de inmunidad a la nave 
+	 * @param nave
+	 */
 	public void darBeneficio(Nave nave) {
 		darBonusInmunidad(nave);
 		
@@ -66,5 +75,8 @@ public class BonusInmunidad extends Bonus{
 	public void chocarContraNave(Nave nave) {
 		this.destruir(this);
 	}
+
+	@Override
+	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {} //TODO VER SI ESTO ESTA BIEN
 
 }
