@@ -6,8 +6,8 @@ public class ObstaculoExplosivo extends Estatico{
 	private int tiempoDeExplosion;
 	
 //	constructor 
-	public ObstaculoExplosivo(Posicion posicion, Tamanio tamanio, AdministradorJuego escenario) {
-		super(posicion, tamanio, escenario);
+	public ObstaculoExplosivo(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
+		super(posicion, tamanio, administradorJuego);
 		this.tiempoDeExplosion=this.getAdministradorJuego().getConfiguracionInicial().getTiempoDeExplosion();
 	}
 

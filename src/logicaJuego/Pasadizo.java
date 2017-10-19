@@ -15,11 +15,11 @@ public class Pasadizo extends Estatico{
 	 * Constructor de la clase Pasadizo
 	 * @param posicion
 	 * @param tamanio
-	 * @param escenario
+	 * @param administradorJuego
 	 * @param pasadizoSalida
 	 */
-	public Pasadizo(Posicion posicion, Tamanio tamanio, AdministradorJuego escenario, Posicion pasadizoSalida) {
-		super(posicion, tamanio, escenario);
+	public Pasadizo(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego, Posicion pasadizoSalida) {
+		super(posicion, tamanio, administradorJuego);
 		this.pasadizoSalida=pasadizoSalida;
 		this.quitarNivelCombustible=this.getAdministradorJuego().getConfiguracionInicial().getQuitarNivelCombustible();
 	}

@@ -44,12 +44,12 @@ public abstract class UAdministradorJuego {
 
 
 	//TODO HACER LOS CREAR ELEMENTOS
-	public static void crearElementos(AdministradorJuego escenario) {
-		NaveCrazy naveCrazy = new NaveCrazy(new Posicion(40, 40), new Tamanio(30, 30), escenario);
-		escenario.getListaElemento().add(naveCrazy);
+	public static void crearElementos(AdministradorJuego administradorJuego) {
+		NaveCrazy naveCrazy = new NaveCrazy(new Posicion(40, 40), new Tamanio(30, 30), administradorJuego);
+		administradorJuego.getListaElemento().add(naveCrazy);
 		
-		NaveEcuatorial naveEcutaorial = new NaveEcuatorial(new Posicion(255, 255), new Tamanio(30, 30), escenario);
-		escenario.getListaElemento().add(naveEcutaorial);
+		NaveEcuatorial naveEcutaorial = new NaveEcuatorial(new Posicion(255, 255), new Tamanio(30, 30), administradorJuego);
+		administradorJuego.getListaElemento().add(naveEcutaorial);
 		
 	}
 	

@@ -5,19 +5,18 @@ public class Misil extends Movible{
 	private Nave duenio;
 	
 	/**
-	 * Constructor de la clase municion
+	 * Constructor de la clase Misil donde toma la posicion de la {@link Nave nave}
 	 * @param nave
 	 * @param posicion
 	 * @param tamanio
 	 * @param administradorJuego
 	 */
-	public Misil(Nave duenio, Posicion posicion, Tamanio tamanio, AdministradorJuego escenario) {
-		super(posicion, tamanio, escenario);
+	public Misil(Nave duenio, Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
+		super(posicion, new Tamanio(39, 39), administradorJuego);
 		this.duenio= duenio;
 		this.nivelDanioMisil=getAministradorJuego().getConfiguracionInicial().getNivelDanioMisil();
 	}
 
-	
 	@Override
 	public void jugar() {
 		// TODO Auto-generated method stub

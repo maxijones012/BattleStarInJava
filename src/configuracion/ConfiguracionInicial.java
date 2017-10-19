@@ -51,6 +51,65 @@ public class ConfiguracionInicial {
 	
 	private int tiempoVidaBonus=10;
 	
+	
+	private boolean arriba;
+	private boolean abajo;
+	private boolean izquierda;
+	private boolean derecha;
+	private boolean disMunicion;
+	private boolean disBomba;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public boolean isDisMunicion() {
+		return disMunicion;
+	}
+	public void setDisMunicion(boolean disMunicion) {
+		this.disMunicion = disMunicion;
+	}
+	public boolean isDisBomba() {
+		return disBomba;
+	}
+	public void setDisBomba(boolean disBomba) {
+		this.disBomba = disBomba;
+	}
+	public boolean isArriba() {
+		return arriba;
+	}
+	public void setArriba(boolean arriba) {
+		this.arriba = arriba;
+	}
+	public boolean isAbajo() {
+		return abajo;
+	}
+	public void setAbajo(boolean abajo) {
+		this.abajo = abajo;
+	}
+	public boolean isIzquierda() {
+		return izquierda;
+	}
+	public void setIzquierda(boolean izquierda) {
+		this.izquierda = izquierda;
+	}
+	public boolean isDerecha() {
+		return derecha;
+	}
+	public void setDerecha(boolean derecha) {
+		this.derecha = derecha;
+	}
 	public int getAnchoNave() {
 		return anchoNave;
 	}

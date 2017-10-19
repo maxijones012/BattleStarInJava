@@ -63,7 +63,21 @@ public class NaveEcuatorial extends Nave{
 
 	@Override
 	public void elementosVistos(ArrayList<Elemento> elementos) {
+//		 Dispara misiles  cuando  detecta  una  nave  en  el  radar.  Si  por  el  contrario  
+//		detecta  a  más  de  3  naves,  dispara​ ​una​ ​bomba.
 		// TODO Auto-generated method stub
+		int contadorInternoNave=0;
+		for (int i = 0; i < elementos.size(); i++) {
+			
+			 Elemento e = elementos.get(i);
+			if (e instanceof Nave){
+				if (contadorInternoNave<=3) {
+					disparar(new Bomba(this, null, null, this.getAdministradorJuego()));
+				}
+				disparar(new Misil(this, null, null, this.getAdministradorJuego()));
+				contadorInternoNave++;
+			}
+		}
 		
 	}
 

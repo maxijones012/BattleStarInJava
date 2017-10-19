@@ -12,6 +12,7 @@ public class NaveGreenwich extends Nave{
 	@Override
 	public void jugar() {
 		super.jugar();
+		avanzar();
 	}
 	
 	
@@ -65,7 +66,15 @@ public class NaveGreenwich extends Nave{
 
 	@Override
 	public void elementosVistos(ArrayList<Elemento> elementos) {
-		// TODO Auto-generated method stub
+		//TODO VERIFICAR LA DISTANCIA OPTIMA
+		
+		/*TODO
+		 * IF (LA DISTANCIA ES OPTIMA){
+		 * }
+		 * */
+		
+		disparar(new Misil(this,null, null, this.getAdministradorJuego()));
+
 		
 	}
 

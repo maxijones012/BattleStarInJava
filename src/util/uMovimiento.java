@@ -12,7 +12,7 @@ import logicaJuego.Elemento;
 public abstract class uMovimiento{
 	
 	/**
-	 * Gira la dirección del canion en un determinado angulo
+	 * Gira la dirección del canion en un determinado angulo {@link Movible movible}
 	 * 
 	 * @param angulo Ángulo que se desea girar. Si el canion tiene un angulo actual de 100º y se gira 30º, el resultado 
 	 * debera ser un angulo final de 130º
@@ -26,7 +26,7 @@ public abstract class uMovimiento{
 	}
 	
 	/**
-	 * Avanza obteniendo la posicion del objeto en X
+	 * Avanza obteniendo la posicion del objeto {@link Moible movible} en X
 	 * @param movible
 	 */
 	public static void avanzarX(Movible movible){
@@ -34,7 +34,7 @@ public abstract class uMovimiento{
 	}
 	
 	/**
-	 * Avanza obteniendo la posicion del objeto en Y
+	 * Avanza obteniendo la posicion del objeto {@link Moible movible} en Y
 	 * @param movible
 	 */
 	public static void avanzarY(Movible obj){
@@ -42,7 +42,7 @@ public abstract class uMovimiento{
 	}
 	
 	/**
-	 * Obtiene la posicion de un elemento
+	 * Obtiene la posicion de un {@link Elemento elemento}
 	 * @param e
 	 * @return posicionX
 	 */
@@ -51,7 +51,7 @@ public abstract class uMovimiento{
 	}
 
 	/**
-	 * Obtiene la posicion de un elemento
+	 * Obtiene la posicion de un {@link Elemento elemento}
 	 * @param e
 	 * @return posicionY
 	 */

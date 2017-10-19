@@ -14,8 +14,8 @@ public class BonusReparacion extends Bonus{
 	 * @param tamanio
 	 * @param administradorJuego
 	 */
-	public BonusReparacion(Posicion posicion, Tamanio tamanio, AdministradorJuego escenario, Nave nave) {
-		super(posicion, tamanio, escenario,nave);
+	public BonusReparacion(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego, Nave nave) {
+		super(posicion, tamanio, administradorJuego,nave);
 		this.valorReparacion=this.getAdministradorJuego().getConfiguracionInicial().getValorReparacionBonus();
 	}
 

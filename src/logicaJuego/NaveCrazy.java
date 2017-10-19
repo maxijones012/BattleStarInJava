@@ -26,9 +26,9 @@ public class NaveCrazy extends Nave{
 	
 	
 	@Override
-	public void jugar() {
-		
+	public void jugar() {		
 		super.jugar();
+		avanzar();
 	}
 
 

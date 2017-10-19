@@ -20,13 +20,13 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	private int nivelVida;
 	
 //	constructor
-	public Nave(Posicion posicion, Tamanio tamanio, AdministradorJuego escenario) {
-		super(posicion, tamanio,escenario);
+	public Nave(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
+		super(posicion, tamanio,administradorJuego);
 		this.nivelVida=this.getAministradorJuego().getConfiguracionInicial().getNivelVida();
 		this.cantidadMunicion=this.getAdministradorJuego().getConfiguracionInicial().getCantidadMunicionNave();
 		this.tiempoInmunidad=this.getAministradorJuego().getConfiguracionInicial().getTiempoInmunidad();
 		this.nivelCombustible=this.getAministradorJuego().getConfiguracionInicial().getNivelCombustible();
-		this.radar=new Radar(posicion, tamanio, escenario, this);
+		this.radar=new Radar(posicion, tamanio, administradorJuego, this);
 		
 	}
 
