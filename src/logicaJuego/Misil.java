@@ -38,6 +38,11 @@ public class Misil extends Movible{
 
 
 	@Override
+	/**
+	 * llamo al chocar contra del elemeto que choca con el misil
+	 * @param elemento
+	 * TODO cualquier elemento que choca con el misl
+	 */
 	public void chocarContra(Elemento elemento) {
 		elemento.chocarContra(this);
 		
@@ -45,18 +50,31 @@ public class Misil extends Movible{
 
 
 	@Override
+	/**
+	 *Se invoca el metodo destruir del bonus de reparacion
+	 *@param bonus
+	 */
 	public void chocarContraBonusReparacion(BonusReparacion bonus) {
 		this.destruir(this);
 	}
 
 
 	@Override
+	/**
+	 * se llama al destruir del bonus
+	 * @param bonus
+	 */
 	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {
 		this.destruir(this);		
 	}
 
 
 	@Override
+	/**
+	 * se destruye el bonus
+	 * @author carlos
+	 * @param bonus
+	 */
 	public void chocarContraBonusMisil(BonusMisil bonus) {
 		this.destruir(this);
 		
@@ -64,18 +82,30 @@ public class Misil extends Movible{
 
 
 	@Override
+	/**
+	 * se destruye el misl 
+	 * si el misl se pasa de rango se destruye 
+	 */
 	public void chocarContraPared() {
 		this.destruir(this);
 	}
 
 
 	@Override
+	/**
+	 * llamo al metodo destruir de bomba 
+	 * @param bomba 
+	 */
 	public void chocarContraBomba(Bomba bomba) {
 		this.destruir(this);
 	}
 
 
 	@Override
+	/**
+	 * llamo al metodo destruir de nave
+	 * @param nave
+	 */
 	public void chocarContraNave(Nave nave) {
 		this.destruir(this);
 	}

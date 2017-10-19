@@ -53,14 +53,14 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 		//tengo escudo
 		
 		if (this.getNivelEscudo()>=0){	
-			this.getRadar().escanear();	
 			super.avanzar();
+			this.getRadar().escanear();	
 		}
 		//sino se rompio escudo
 		else{
 			if (this.getInmunidad()==false){destruir(this);}
 		}
-		uDebugConsola.posicion(this);
+//		uDebugConsola.posicion(this);
 	}
 
 	
@@ -166,16 +166,28 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	}
 	
 	@Override
+	/**
+	 * invoco el chocar contra del elemento
+	 * TODO el tipo de elemento que se intersecta con la nave 
+	 */
 	public void chocarContra(Elemento elemento) {
 		elemento.chocarContra(this);
 	}
 	
 	@Override
+	/**
+	 * otorga el beneficio de inmunidad a la nave que choca con el bonus
+	 * TODO durante una cierta cantidad de tiempo el flag de inmunidad esta en true
+	 */
 	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {
 		bonus.darBeneficio(this);
 	}
 
 	@Override
+	/**
+	 * otorga el beneficio de misil a la naver
+	 * TODO Se Setea el nivel de misiles por defaul
+	 */
 	public void chocarContraBonusMisil(BonusMisil bonus) {
 		bonus.darBeneficio(this);
 	}
@@ -211,18 +223,29 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	}
 
 	@Override
+	/**
+	 * reduzco el nivel de vida de la nave 
+	 * @param bomba
+	 */
 	public void chocarContraBomba(Bomba bomba) {
 		this.setNivelVida(getNivelVida()-bomba.getDanioBomba());	// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
+	/**
+	 * el nivel de combustible vuelve al valor por defecto
+	 * aumenta el nivel de vida de vida de la nave 
+	 */
 	public void chocarContraBonusReparacion(BonusReparacion bonus) {
 		bonus.darBeneficio(this);
 	}
 	
 	
 	@Override
+	/**
+	 * reduzco el nivel de escudo de la nave 
+	 */
 	public void chocarContraNave(Nave nave) {
 		this.setNivelEscudo(this.getNivelEscudo()-danioNave);
 	}

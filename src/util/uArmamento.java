@@ -14,6 +14,7 @@ import logicaJuego.Tamanio;
  *
  */
 public abstract class uArmamento {
+	
 	static class Circulo {
 	    public double x, y;
 	    public double radio;
@@ -55,6 +56,11 @@ public abstract class uArmamento {
 		}
 	}
 
+	/**
+	 * Crea un radio de explosion que afecta a aquellos elementos que esten dentro de ese
+	 * area de cobertura
+	 * @param bomba
+	 */
 	public static void explotar(Bomba bomba){
 		//TODO mejorar y controla que haga bien el circulo
 		if (bomba!= null){

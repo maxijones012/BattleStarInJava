@@ -15,6 +15,7 @@ public interface IAdministradorJuego {
 	 */
 	public void iniciarJuego();
 
+
 	/**
 	 * Genera turnos por cada lapso de tiempo
 	 * TODO se considera  un turno cuando todos los elementos terminan de  jugar  

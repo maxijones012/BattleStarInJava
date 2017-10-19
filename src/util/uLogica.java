@@ -15,6 +15,7 @@ public abstract class uLogica{
 	public static void darTurno(AdministradorJuego administradorJuego){
 		for(int i=0; i<administradorJuego.getListaElemento().size(); i++){
 			Elemento elemento = administradorJuego.getListaElemento().get(i);
+			elemento.jugar();
 			}			
 
 	}

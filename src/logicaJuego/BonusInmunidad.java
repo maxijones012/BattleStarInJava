@@ -40,6 +40,7 @@ public class BonusInmunidad extends Bonus{
 	@Override
 	/**
 	 * Otorgo el bonus de misil a la nave
+	 * @param bonus
 	 */
 	public void chocarContraBonusMisil(BonusMisil bonus) {
 		darBeneficio(bonus.getDuenio());
@@ -48,6 +49,7 @@ public class BonusInmunidad extends Bonus{
 	@Override
 	/** se otroga el benefico de inmunidad a la nave 
 	 * @param nave
+	 * @param beneficio
 	 */
 	public void darBeneficio(Nave nave) {
 		darBonusInmunidad(nave);

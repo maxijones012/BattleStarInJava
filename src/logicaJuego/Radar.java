@@ -37,7 +37,7 @@ public class Radar extends Movible implements IRadar{
 	
 	//TODO HACER EL ESCANEAR
 	public void escanear(){ //TODO anda mejorar y hacer 
-			for (IRadarListener listener : this.listeners)
+//			for (IRadarListener listener : this.listeners)
 				
 			System.out.println("Escanenando..." );
 	};

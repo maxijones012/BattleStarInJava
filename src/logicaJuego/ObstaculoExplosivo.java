@@ -5,7 +5,12 @@ import java.lang.Override;
 public class ObstaculoExplosivo extends Estatico{
 	private int tiempoDeExplosion;
 	
-//	constructor 
+	/**
+	 * constructor  clase ObstaculoExplosivo
+	 * @param posicion
+	 * @param tamanio
+	 * @param escenario
+	 */
 	public ObstaculoExplosivo(Posicion posicion, Tamanio tamanio, AdministradorJuego escenario) {
 		super(posicion, tamanio, escenario);
 		this.tiempoDeExplosion=this.getAdministradorJuego().getConfiguracionInicial().getTiempoDeExplosion();

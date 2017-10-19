@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class NaveGreenwich extends Nave{
-
+/**
+ * constructor de la clase  NaveGreenwich
+ * @param posicion
+ * @param tamanio
+ * @param administradorJuego
+ */
 	public NaveGreenwich(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
 		super(posicion, tamanio, administradorJuego);
 	}
@@ -16,6 +21,7 @@ public class NaveGreenwich extends Nave{
 	
 	
 	@Override
+	//TODO preguntar por el giro en un angulo x 
 	public void avanzar() {
 		avanzarGrenwich();
 		System.out.println("Grenwich:"+"x: "+this.getPosicion().getX()+"y: "+this.getPosicion().getY());
@@ -32,12 +38,18 @@ public class NaveGreenwich extends Nave{
 
 
 	@Override
+	/**
+	 * llamo al  metodo de chocarContra del elemento que choca con la nave
+	 */
 	public void chocarContra(Elemento elemento) {
 		elemento.chocarContra(this);
 	}
 
 
 	@Override
+	/**
+	 *TODO VER EL CHOCAR CONTRA  DE BonusReparacion 
+	 */
 	public void chocarContraBonusReparacion(BonusReparacion bonus) {
 		// TODO Auto-generated method stub
 		
@@ -45,6 +57,9 @@ public class NaveGreenwich extends Nave{
 
 
 	@Override
+	/**
+	 * 
+	 */
 	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {
 		// TODO Auto-generated method stub
 		
@@ -52,6 +67,9 @@ public class NaveGreenwich extends Nave{
 
 
 	@Override
+	/**
+	 * 
+	 */
 	public void chocarContraBonusMisil(BonusMisil bonus) {
 		// TODO Auto-generated method stub
 		
@@ -59,6 +77,9 @@ public class NaveGreenwich extends Nave{
 
 
 	@Override
+	/**
+	 * INVIERTO LA DIRECCION DE LA NAVE 
+	 */
 	public void chocarContraPared() {
 		girar(this.getDireccion()-90);
 	}
@@ -69,8 +90,4 @@ public class NaveGreenwich extends Nave{
 		
 	}
 
-
-
-	
-	
 }
