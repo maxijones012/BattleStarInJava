@@ -49,8 +49,8 @@ public class NaveManual extends Nave{
 
 	@Override
 	public void chocarContraPared() {
-		// TODO Auto-generated method stub
-		
+		this.girar(180);
+		super.avanzar();
 	}
 
 

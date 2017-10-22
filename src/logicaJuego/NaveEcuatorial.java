@@ -1,12 +1,15 @@
 package logicaJuego;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import util.uArmamento;
 import util.uEstrategia;
 
 public class NaveEcuatorial extends Nave{
 	private int cantidadAvanceVertical;
+	private int turno=10;
+	private boolean chocoPared=true;
 	
 	
 	public NaveEcuatorial(Posicion posicion, Tamanio tamanio, AdministradorJuego escenario) {
@@ -17,32 +20,43 @@ public class NaveEcuatorial extends Nave{
 	
 	@Override
 	public void jugar() {
-		super.dispararBomba(this);
 		super.jugar();
-		avanzar();
+		if (chocoPared==true){			
+			avanzar();
+			this.turno--;
+			if (turno == 0){
+				chocoPared=false;
+			}
+		}
+		this.avanzar();
 	}
 	
 	@Override
 	public void avanzar() {
 		super.avanzar();
-		avanzarEcuatorial();
 	}
 
 
 
 	@Override
 	public void chocarContraPared() {
-		avanzarEcuatorial(); //este avanzar
-		this.girar(-90); //TODO verificar si la media vuelta es igual a -90 
-		
-		
+		this.girar(90);
+		this.avanzar();
+		chocoPared=true;		
+		calcularDesplazamiento();
 	}
 
-	/**
-	 * controla el avance en vertical de la Nave 
-	 */
-	private void avanzarEcuatorial() {
-		this.girar(90);
+	private void calcularDesplazamiento() {
+
+		Random randx = new Random();
+		boolean aleatorio = randx.nextBoolean();
+		
+		if (aleatorio==true){ //vaya ARRIBA
+			girar(90);
+		}else{
+			girar(-90);
+		}
+		
 	}
 
 	@Override

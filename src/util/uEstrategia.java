@@ -21,7 +21,6 @@ public class uEstrategia {
 
 	public static void inteligencia(ArrayList<Elemento> elementos, Nave nave) {
 		for (int i = 0; i < elementos.size(); i++) {
-			nave.dispararMunicion(nave);
 			Elemento e = elementos.get(i);
 			if ((e instanceof Misil) || (e instanceof Bomba)){
 				uEstrategia.eludir(nave);
@@ -36,6 +35,18 @@ public class uEstrategia {
 	};
 	
 	
+	public static void inteligenciaGreenwich(ArrayList<Elemento> elementos, Nave nave) {
+		for (int i = 0; i < elementos.size(); i++) {
+//			nave.dispararMunicion(nave);
+			Elemento e = elementos.get(i);
+			if (e instanceof Nave){
+				if (e != nave){
+					nave.dispararMunicion(nave);
+				}
+			}
+		}
+		
+	};
 	/**
 	 * Mueve el radar en grados ( ° ) tomando como angulo de vision
 	 * @param tope como referencia.

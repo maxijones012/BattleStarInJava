@@ -49,4 +49,8 @@ public abstract class Movible extends Elemento implements IMovible {
 		util.uMovimiento.girar(this, direccion);
 	}
 	
+	@Override
+	public void jugar() {
+		super.jugar();
+	}
 }

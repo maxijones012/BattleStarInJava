@@ -1,5 +1,6 @@
 package logicaJuego;
 
+import configuracion.ConfiguracionInicial;
 import interfaces.INave;
 import interfaces.IRadarListener;
 import util.uArmamento;
@@ -10,8 +11,8 @@ import util.uMovimiento;
 public abstract class Nave extends Movible implements INave,IRadarListener{
 	private Boolean RadarOn=true;
 	private Boolean inmunidad=false;
-	private int cantidadMunicion=30;
-	private int cantidadBomba=30;
+	private int cantidadMunicion=ConfiguracionInicial.CANTIDAD_MUNICION;
+	private int cantidadBomba=ConfiguracionInicial.CANTIDAD_BOMBA;
 	private int nivelCombustible;
 	private Radar radar;
 	private int nivelEscudo;
@@ -42,27 +43,33 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	 */
 	public void avanzar() {
 		if (this.getNivelCombustible()>=0){
-			super.avanzar();
 			this.setNivelCombustible(this.getNivelCombustible()-1);
+			super.avanzar();
+		}else{
+			uEstrategia.girarCorrectorRadar(this,360, 90, 800);
 		}
+		
 		
 	}
 	
 	
 	@Override
 	public void jugar() {
+		
+		super.jugar();
 		controlarInmunidad();
 		//tengo escudo		
-		if (this.getNivelEscudo()>=0){
+		if (this.getNivelVida()>=0){
 			uEstrategia.girarCorrectorRadar(this, 10, 0, 1);
-//			this.dispararBomba(this);
-   			super.avanzar();
+   			avanzar();
 			this.getRadar().escanear();
-			
+
 		}
 		//sino se rompio escudo
 		else{
-			if (this.getInmunidad()==false){destruir(this);}
+			if (this.getInmunidad()==false){
+				destruir(this);
+			}
 		}
 	}
 
@@ -225,8 +232,9 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	 * @param bomba
 	 */
 	public void chocarContraBomba(Bomba bomba) {
-		
-		this.setNivelVida(getNivelVida()-bomba.getDanioBomba());	// TODO Auto-generated method stub
+		if (bomba.getDuenio()!=this){
+			this.setNivelVida(getNivelVida()-bomba.getDanioBomba());	// TODO Auto-generated method stub
+		}
 		
 	}
 	
@@ -245,7 +253,6 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	 * reduzco el nivel de escudo de la nave 
 	 */
 	public void chocarContraNave(Nave nave) {
-		this.setNivelEscudo(this.getNivelEscudo()-danioNave);
 	}
 
 	
@@ -257,7 +264,9 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	
 	@Override
 	public void chocarContraMisil(Misil misil) {
-		this.setNivelVida(this.getNivelVida()-misil.getNivelDanio());
+		if (misil.getDuenio()!= this){
+			this.setNivelVida(this.getNivelVida()-misil.getNivelDanio());
+		}
 		
 	}
 	

@@ -27,18 +27,9 @@ public class NaveGreenwich extends Nave{
 	@Override
 	//TODO preguntar por el giro en un angulo x 
 	public void avanzar() {
-		avanzarGrenwich();
-		System.out.println("Grenwich:"+"x: "+this.getPosicion().getX()+"y: "+this.getPosicion().getY());
+		super.avanzar();
 	}
 
-
-	private void avanzarGrenwich() {
-		Random random = new Random();
-		Boolean valorLogico=random.nextBoolean();
-		
-		girar(180); //avanza hacia arriba
-		
-	}
 
 
 	@Override
@@ -50,42 +41,13 @@ public class NaveGreenwich extends Nave{
 	}
 
 
-	@Override
-	/**
-	 *TODO VER EL CHOCAR CONTRA  DE BonusReparacion 
-	 */
-	public void chocarContraBonusReparacion(BonusReparacion bonus) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	/**
-	 * 
-	 */
-	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	/**
-	 * 
-	 */
-	public void chocarContraBonusMisil(BonusMisil bonus) {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 	@Override
 	/**
 	 * INVIERTO LA DIRECCION DE LA NAVE 
 	 */
 	public void chocarContraPared() {
-		girar(this.getDireccion()-90);
+		girar(90);
 	}
 
 	@Override
@@ -96,20 +58,7 @@ public class NaveGreenwich extends Nave{
 		 * IF (LA DISTANCIA ES OPTIMA){
 		 * }
 		 * */
-		
-//		disparar(new Misil(this,null, null, this.getAdministradorJuego()));
-		uEstrategia.inteligencia(elementos, this);
-//		for (int i = 0; i < elementos.size(); i++) {
-//			dispararMunicion(this);
-//			Elemento e = elementos.get(i);
-//			if ((e instanceof Misil) || (e instanceof Bomba)){
-//				uEstrategia.eludir(this);
-//			}
-//			if (e instanceof Nave){
-//				uEstrategia.eludir(this);
-//			}
-//		}
-		
+		uEstrategia.inteligenciaGreenwich(elementos, this);
 	}
 	
 	

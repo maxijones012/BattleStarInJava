@@ -13,6 +13,7 @@ import logicaJuego.Elemento;
 import logicaJuego.AdministradorJuego;
 import logicaJuego.NaveCrazy;
 import logicaJuego.NaveEcuatorial;
+import logicaJuego.NaveGreenwich;
 import logicaJuego.NaveManual;
 import logicaJuego.ObstaculoExplosivo;
 import logicaJuego.Pasadizo;
@@ -54,12 +55,17 @@ public abstract class UAdministradorJuego {
 		NaveCrazy naveCrazy = new NaveCrazy(new Posicion(707, 100), tamanioNave, administradorJuego);
 		administradorJuego.getListaElemento().add(naveCrazy);
 		
-		NaveEcuatorial naveEcutaorial = new NaveEcuatorial(new Posicion(300, 255), tamanioNave, administradorJuego);
-		administradorJuego.getListaElemento().add(naveEcutaorial);
 		
 		NaveManual naveManual = new NaveManual(new Posicion(450,250),tamanioNave, administradorJuego);
 		administradorJuego.addElemento(naveManual);
 
+		NaveGreenwich naveGranwich = new NaveGreenwich(new Posicion(80, 500), tamanioNave, administradorJuego);
+		administradorJuego.addElemento(naveGranwich);
+		
+		tamanioNave = new Tamanio(ConfiguracionInicial.ANCHO_NAVE,80);
+		NaveEcuatorial naveEcutaorial = new NaveEcuatorial(new Posicion(100, 255), tamanioNave, administradorJuego);
+		administradorJuego.getListaElemento().add(naveEcutaorial);
+		
 		
 		//-----------------------------------------------------------------------
 		//		P A S A D I Z O 

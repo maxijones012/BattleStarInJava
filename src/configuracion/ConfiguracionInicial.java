@@ -11,7 +11,7 @@ import logicaJuego.AdministradorJuego;
 public class ConfiguracionInicial {
 	private AdministradorJuego administradorJuego;
 	
-	private int nivelVida=10000;
+	private int nivelVida=100000;
 	private int tiempoDeExplosion=150;
 	private int nivelCombustible=800;
 	
@@ -51,6 +51,10 @@ public class ConfiguracionInicial {
 
 	public static final int VELOCIDAD_MISIL = 35;
 	public static final int VELOCIDAD_BOMBA = 20;
+
+	public static final int CANTIDAD_MUNICION = 50;
+
+	public static final int CANTIDAD_BOMBA = 50;
 		
 	private int nivelDanioBomba=50;
 	private int danioMisil=20;
