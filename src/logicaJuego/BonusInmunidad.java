@@ -86,5 +86,10 @@ public class BonusInmunidad extends Bonus{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
+	public void chocarContraMisil(Misil misil) {
+		this.destruir(this);
+	};
 
 }

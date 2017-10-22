@@ -11,7 +11,7 @@ import logicaJuego.AdministradorJuego;
 public class ConfiguracionInicial {
 	private AdministradorJuego administradorJuego;
 	
-	private int nivelVida=1000;
+	private int nivelVida=10000;
 	private int tiempoDeExplosion=150;
 	private int nivelCombustible=800;
 	
@@ -24,7 +24,7 @@ public class ConfiguracionInicial {
 	private int posicionYNave=20;
 	
 	public static final int POSICION_X_NAVE_MANUAL=250;
-	public static final int POSICION_Y_NAVE_MANUAL=250;
+	public static final int POSICION_Y_NAVE_MANUAL=850;
 	
 	public static final int POSICION_X_PASADIZO_A=200;
 	public static final int POSICION_Y_PASADIZO_A=200;
@@ -48,22 +48,25 @@ public class ConfiguracionInicial {
 	
 	public static final int ANCHO_OBSTACULO_EXPLOSIVO = 40;
 	public static final int ALTO_OBSTACULO_EXPLOSIVO = 80;
+
+	public static final int VELOCIDAD_MISIL = 35;
+	public static final int VELOCIDAD_BOMBA = 20;
 		
 	private int nivelDanioBomba=50;
 	private int danioMisil=20;
 	
-	private int cantidadAvanceHaciaArriba=5;
+	private int cantidadAvanceHaciaArriba=380;
 	
 	private int anchoBonus=30;
 	private int altoBonus=30;
 	
 	private int direccionMovible=10;
 
-	private int velocidadInicialBomba=14;
+	
 	private int nivelDanioMisil=30;
 	private int valorReparacionBonus=40;
 	
-	private int velocidadAvanceMovible=7;
+	private int velocidadAvanceMovible=5;
 	
 	private int tiempoInmunidad=25;
 	private int alcanceRadar=250;
@@ -181,9 +184,7 @@ public class ConfiguracionInicial {
 	public AdministradorJuego getEscenario() {
 		return administradorJuego;
 	}
-	public int getVelocidadInicialBomba() {
-		return velocidadInicialBomba;
-	}
+
 	public int getNivelVida() {
 		return nivelVida;
 	}

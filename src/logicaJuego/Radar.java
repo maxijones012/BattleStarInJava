@@ -178,6 +178,14 @@ public class Radar extends Movible implements IRadar{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void chocarContraMisil(Misil misil) {}
+
+	@Override
+	public void chocarContraObstaculoExplosivo(ObstaculoExplosivo obstaculoExplosivo) {
+		
+	}
 	
 	
 	

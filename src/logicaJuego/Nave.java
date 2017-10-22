@@ -4,12 +4,13 @@ import interfaces.INave;
 import interfaces.IRadarListener;
 import util.uArmamento;
 import util.uDebugConsola;
+import util.uEstrategia;
 import util.uMovimiento;
 
 public abstract class Nave extends Movible implements INave,IRadarListener{
 	private Boolean RadarOn=true;
 	private Boolean inmunidad=false;
-	private int cantidadMunicion;
+	private int cantidadMunicion=30;
 	private int cantidadBomba=30;
 	private int nivelCombustible;
 	private Radar radar;
@@ -27,6 +28,7 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 		this.tiempoInmunidad=this.getAministradorJuego().getConfiguracionInicial().getTiempoInmunidad();
 		this.nivelCombustible=this.getAministradorJuego().getConfiguracionInicial().getNivelCombustible();
 		this.radar=new Radar(posicion, tamanio, administradorJuego, this);
+		this.radar.addRadarListener(this);
 		
 	}
 
@@ -50,18 +52,18 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	@Override
 	public void jugar() {
 		controlarInmunidad();
-		//tengo escudo
-		
-		if (this.getNivelEscudo()>=0){	
-			this.dispararBomba(this);
+		//tengo escudo		
+		if (this.getNivelEscudo()>=0){
+			uEstrategia.girarCorrectorRadar(this, 10, 0, 1);
+//			this.dispararBomba(this);
    			super.avanzar();
-			this.getRadar().escanear();	
+			this.getRadar().escanear();
+			
 		}
 		//sino se rompio escudo
 		else{
 			if (this.getInmunidad()==false){destruir(this);}
 		}
-//		uDebugConsola.posicion(this);
 	}
 
 	
@@ -78,16 +80,8 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	}
 
 
-//	public void dispararBomba(){
-//		dispararBomba();
-//	}
-//	public void disparar(Misil municion){
-//		dispararMunicion();
-//	}
-//	
 	/**
-	 * Girar de la clase Nave
-	 * @param direccion
+	 * metodo girar que segun un valor @see direccion gira la nave
 	 */
 	public void girar(int direccion) {
 		uMovimiento.girar(this, direccion);
@@ -101,7 +95,8 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	
 	
 	/**
-	 * dispara una municion en una direccion
+	 * Dispara una {@link Municion municion} desde la posicion de la nave 
+	 * @param nave
 	 */
 	public void dispararMunicion(Nave nave) {
 		uArmamento.dispararMisil(nave);
@@ -110,7 +105,8 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	
 
 	/**
-	 * Dispara una bomba en una direccion
+	 * Dispara una {@link Bomba bomba} desde la posicion de la nave 
+	 * @param nave
 	 */
 	public void dispararBomba(Nave nave) {
 		uArmamento.dispararBomba(nave);
@@ -229,6 +225,7 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	 * @param bomba
 	 */
 	public void chocarContraBomba(Bomba bomba) {
+		
 		this.setNivelVida(getNivelVida()-bomba.getDanioBomba());	// TODO Auto-generated method stub
 		
 	}
@@ -255,5 +252,19 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	@Override
 	public void chocarContraPazadizo(Pasadizo pasadizo) {
 		this.setPosicion(pasadizo.getPasadizoSalida());
+	}
+	
+	
+	@Override
+	public void chocarContraMisil(Misil misil) {
+		this.setNivelVida(this.getNivelVida()-misil.getNivelDanio());
+		
+	}
+	
+	
+	@Override
+	public void chocarContraObstaculoExplosivo(ObstaculoExplosivo obstaculoExplosivo) {
+		this.setNivelVida(this.getNivelVida()-obstaculoExplosivo.getNivelDanio());
+		uEstrategia.eludir(this);
 	}
 }

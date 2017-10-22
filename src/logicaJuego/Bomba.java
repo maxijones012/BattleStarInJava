@@ -1,8 +1,8 @@
 package logicaJuego;
 
+import configuracion.ConfiguracionInicial;
 import util.uArmamento;
 public class Bomba extends Movible{
-	private int velocidadInicial=400; 
 	private int danioBomba; 
 	private Nave duenio;
 	private int tiempoDeExposicion; 
@@ -18,7 +18,7 @@ public class Bomba extends Movible{
 	public Bomba(Nave duenio, Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
 		super(posicion, tamanio, administradorJuego);
 		this.duenio= duenio;
-		this.setVelocidadAvance(this.getAministradorJuego().getConfiguracionInicial().getVelocidadInicialBomba());
+		this.setVelocidadAvance(ConfiguracionInicial.VELOCIDAD_BOMBA);
 		this.danioBomba=this.getAministradorJuego().getConfiguracionInicial().getNivelDanioBomba();
 		this.tiempoDeExposicion=this.getAdministradorJuego().getConfiguracionInicial().getTiempoExposicion();
 
@@ -33,12 +33,16 @@ public class Bomba extends Movible{
 	 * @param alcance
 	 */
 	public void jugar() {
-		if (getVelocidadInicial()>0){
+		if (getVelocidadAvance()>0){
 			super.avanzar();
 			verificarExplosion();
-			this.setVelocidadInicial(this.getVelocidadInicial()-1); //TODO verificar que anda
+			this.setVelocidadAvance(this.getVelocidadAvance()-1); //TODO verificar que anda
+			if (this.getVelocidadAvance()<8){
+				this.setEstaExplotando(true);
+			}
 		}
 		else{
+			
 			super.destruir(this);
 		}
 		
@@ -58,17 +62,6 @@ public class Bomba extends Movible{
 		
 	}
 
-	/**
-	 * metodo que sirve para obtener el alcance de la bomba
-	 * @return velocidadInicial
-	 */
-	public int getVelocidadInicial() {
-		return velocidadInicial;
-	}
-
-	public void setVelocidadInicial(int alcance) {
-		this.velocidadInicial = alcance;
-	}
 
 	public Nave getDuenio() {
 		return duenio;
@@ -156,9 +149,7 @@ public class Bomba extends Movible{
 		}
 	}
 	
-	/**
-	 * 
-	 */
+
 	/**
 	 * TODO revisar esta parte 
 	 */
@@ -186,6 +177,18 @@ public class Bomba extends Movible{
 	public void chocarContraPazadizo(Pasadizo pasadizo) {
 		this.destruir(this);
 	}
+
+	@Override
+	public void chocarContraMisil(Misil misil) {
+		this.destruir(this);
+	}
+
+	@Override
+	public void chocarContraObstaculoExplosivo(ObstaculoExplosivo obstaculoExplosivo) {
+		this.destruir(this);
+	}
+
+
 
 
 }

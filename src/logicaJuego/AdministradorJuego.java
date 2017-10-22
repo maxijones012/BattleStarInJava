@@ -10,7 +10,12 @@ import interfaces.IAdministradorJuego;
 import util.UAdministradorJuego;
 
 
-
+/**
+ * Clase administrador de juego, es la encargada de crear, controlar, y mostrar todo lo relacionado al 
+ * 	juego
+ * @author Maxi Jones
+ *
+ */
 public class AdministradorJuego implements IAdministradorJuego{
 	private Tamanio tamanio;
 	ArrayList<Elemento> listaElemento = new ArrayList<>();
@@ -28,14 +33,14 @@ public class AdministradorJuego implements IAdministradorJuego{
 		this.ancho=this.getConfiguracionInicial().getAnchoEscenario();
 		this.alto=this.getConfiguracionInicial().getAltoEscenario();
 	}
-	//TODO arreglar el iniciar juego
+	
 	@Override
 	public void iniciarJuego() {
 		crearElementos();
 		
 		vTableroJuego vista = new vTableroJuego(this);
 		while (true){
-			crearBonus();
+//			crearBonus();
 			
 			turnos();
 			
@@ -45,11 +50,7 @@ public class AdministradorJuego implements IAdministradorJuego{
 			
 			depurarElementos();
 			
-		 	try {
-				Thread.sleep(150); //aca va un 1000
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+		 	espera(60);
 		}
 	}
 
@@ -79,7 +80,14 @@ public class AdministradorJuego implements IAdministradorJuego{
 	}
 
 
-
+	public void espera(int c){
+		if (c==0){ c=150;} //valor por defecto
+	 	try {
+			Thread.sleep(c); //aca va un 1000
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	};
 
 	public Tamanio getTamanio() {
 		return tamanio;

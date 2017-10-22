@@ -14,15 +14,21 @@ public class Misil extends Movible{
 	 * @param administradorJuego
 	 */
 	public Misil(Nave duenio, Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
-		super(duenio.getPosicion(),tamanio, administradorJuego);
+		super(posicion,tamanio, administradorJuego);
 		this.duenio= duenio;
-		
+		this.setVelocidadAvance(ConfiguracionInicial.VELOCIDAD_MISIL);		
 		this.nivelDanioMisil=getAministradorJuego().getConfiguracionInicial().getNivelDanioMisil();
 	}
 
 	@Override
 	public void jugar() {
-		// TODO Auto-generated method stub
+		if (this.getVelocidadAvance()>0){
+			super.avanzar();
+			this.setVelocidadAvance(this.getVelocidadAvance()-1); 
+		}
+		else{
+			super.destruir(this);
+		}
 		
 	}
 	public Nave getDuenio() {
@@ -46,7 +52,7 @@ public class Misil extends Movible{
 	 * TODO cualquier elemento que choca con el misl
 	 */
 	public void chocarContra(Elemento elemento) {
-		elemento.chocarContra(this);
+		elemento.chocarContraMisil(this);
 		
 	}
 
@@ -109,7 +115,9 @@ public class Misil extends Movible{
 	 * @param nave
 	 */
 	public void chocarContraNave(Nave nave) {
-		this.destruir(this);
+		if (nave != this.getDuenio()){
+			this.destruir(this);			
+		}
 	}
 
 	@Override
@@ -118,14 +126,18 @@ public class Misil extends Movible{
 		
 	}
 
-	public void disparar(Nave nave, Misil misil) {
-			misil.getTamanio().setAlto(30);
-			misil.getTamanio().setAncho(30);
-			misil.getPosicion().setX(nave.getPosicion().getX());
-			misil.getPosicion().setY(nave.getPosicion().getY());
-			this.setVelocidadAvance(nave.getAdministradorJuego().getConfiguracionInicial().getVelocidadAvanceMovible()+30);
-			nave.getAdministradorJuego().addElemento(misil);
-			
+
+
+	@Override
+	public void chocarContraMisil(Misil misil) {
+		if (misil.getDuenio()!= this.getDuenio()){
+			this.destruir(this);
+		}
+	}
+
+	@Override
+	public void chocarContraObstaculoExplosivo(ObstaculoExplosivo obstaculoExplosivo) {
+		this.destruir(this);
 	}
 	
 	

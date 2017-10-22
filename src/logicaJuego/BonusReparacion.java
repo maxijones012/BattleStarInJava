@@ -89,4 +89,10 @@ public class BonusReparacion extends Bonus{
 		
 	}
 
+
+	@Override
+	public void chocarContraMisil(Misil misil) {
+		this.destruir(this);
+	}
+
 }

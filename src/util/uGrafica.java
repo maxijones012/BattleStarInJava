@@ -1,4 +1,5 @@
 package util;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -6,20 +7,22 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
 import grafica.TableroJuego;
+import logicaJuego.Bomba;
 import logicaJuego.Nave;
 
 public class uGrafica {
 
 	
 	public static void dibujarRadar(TableroJuego tableroJuego, Nave nave) {
-		tableroJuego.getGrafico2D().drawPolygon(nave.getRadar().getAreaCobertura());		
+		tableroJuego.getGrafico2D().drawPolygon(nave.getRadar().getAreaCobertura());
 	}
 
 
 
 	public static BufferedImage cambiarTamanio(BufferedImage img, int ancho, int alto) {
 		
-		BufferedImage newImage = new BufferedImage(ancho,alto, BufferedImage.TYPE_INT_RGB);
+//		BufferedImage newImage = new BufferedImage(ancho,alto, BufferedImage.TYPE_INT_RGB); //esto agrega el fondo en los elementos
+		BufferedImage newImage = new BufferedImage(ancho,alto, BufferedImage.TRANSLUCENT);
 
 		Graphics g = newImage.createGraphics();
 		g.drawImage(img, 0, 0, ancho, alto, null);
@@ -73,6 +76,18 @@ public class uGrafica {
 		g2d.drawRenderedImage(image, at);
 
 		return image2;		
+	}
+
+
+
+	public static void dibujarExplosion(TableroJuego tableroJuego, Bomba bomba) {
+//		tableroJuego.getGrafico2D().drawPolygon(nave.getRadar().getAreaCobertura());
+		
+		int x= bomba.getPosicion().getX()-45;
+		int y= bomba.getPosicion().getY()-45;
+		
+		tableroJuego.getGrafico2D().drawOval(x, y,120, 120);	
+		
 	}	
 	
 	

@@ -2,6 +2,7 @@ package grafica;
 
 import java.awt.Canvas;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
@@ -15,6 +16,7 @@ import javax.imageio.ImageIO;
 import com.sun.prism.paint.Color;
 
 import logicaJuego.AdministradorJuego;
+import logicaJuego.Bomba;
 import logicaJuego.Elemento;
 import logicaJuego.Movible;
 import logicaJuego.Nave;
@@ -68,6 +70,15 @@ public class TableroJuego extends Canvas implements KeyListener{
 				if (e2 instanceof Nave){
 					Nave Nave = (Nave) e2;
 					uGrafica.dibujarRadar(this, Nave);
+					String nombre = e2.toString();
+					this.getGrafico2D().drawString(nombre, x, y);
+				}
+				
+				if (e2 instanceof Bomba){
+					Bomba bomba = (Bomba) e2;
+					if (bomba.isEstaExplotando()==true){
+						uGrafica.dibujarExplosion(this,bomba);
+					}
 				}
 
 			}

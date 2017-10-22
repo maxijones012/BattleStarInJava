@@ -5,7 +5,9 @@ import logicaJuego.BonusInmunidad;
 import logicaJuego.BonusMisil;
 import logicaJuego.BonusReparacion;
 import logicaJuego.Elemento;
+import logicaJuego.Misil;
 import logicaJuego.Nave;
+import logicaJuego.ObstaculoExplosivo;
 import logicaJuego.Pasadizo;
 
 public interface IElemento {
@@ -73,4 +75,9 @@ public interface IElemento {
 	
 	public abstract void chocarContraPazadizo(Pasadizo pasadizo);
 	
+	
+	public abstract void chocarContraMisil(Misil misil);
+	
+	
+	public abstract void chocarContraObstaculoExplosivo(ObstaculoExplosivo obstaculoExplosivo);
 }

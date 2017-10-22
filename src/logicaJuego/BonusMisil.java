@@ -78,5 +78,10 @@ public class BonusMisil extends Bonus{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void chocarContraMisil(Misil misil) {
+		this.destruir(this);
+	}
 	
 }

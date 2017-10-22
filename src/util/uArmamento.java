@@ -4,6 +4,7 @@ package util;
 import logicaJuego.Bomba;
 import logicaJuego.Misil;
 import logicaJuego.Nave;
+import logicaJuego.NaveCrazy;
 import logicaJuego.Posicion;
 import logicaJuego.Tamanio;
 
@@ -35,7 +36,7 @@ public abstract class uArmamento {
 	 */
 	public static void dispararBomba(Nave nave) {
 		if (nave.getCantidadBomba() > 0){			
-			Bomba b = new Bomba(nave, new Posicion(nave.getPosicion().getX()+40, nave.getPosicion().getY()+40), new Tamanio(40,40),nave.getAdministradorJuego());
+			Bomba b = new Bomba(nave, new Posicion(nave.getPosicion().getX(), nave.getPosicion().getY()), new Tamanio(40,40),nave.getAdministradorJuego());
 			b.setDireccion(nave.getDireccion());
 			b.setDuenio(nave);
 			nave.setCantidadBomba(nave.getCantidadBomba()-1);
@@ -50,12 +51,11 @@ public abstract class uArmamento {
 	 */
 	public static void dispararMisil(Nave nave) {
 		if (nave.getCantidadMunicion() > 0){
-			Posicion posicion = new Posicion(nave.getPosicion().getX(), nave.getPosicion().getX());
-			Misil misil = new Misil(nave,posicion ,new Tamanio(40, 40) ,nave.getAdministradorJuego());
+			Misil misil = new Misil(nave, new Posicion(nave.getPosicion().getX(), nave.getPosicion().getY()), new Tamanio(40,40),nave.getAdministradorJuego());
 			misil.setDireccion(nave.getDireccion());
 			misil.setDuenio(nave);
-			misil.disparar(nave, misil);			
 			nave.setCantidadMunicion(nave.getCantidadMunicion()-1);	
+			nave.getAdministradorJuego().addElemento(misil);
 		}
 	}
 
@@ -75,7 +75,9 @@ public abstract class uArmamento {
 			
 		}
 		
-	};
+	}
+
+
 	
 	
 	//TODO se podria hacer un 

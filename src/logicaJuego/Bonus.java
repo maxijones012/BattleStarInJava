@@ -39,5 +39,7 @@ public abstract class Bonus extends Estatico{
 		return duenio;
 	}	
 	
+	@Override
+	public void chocarContraObstaculoExplosivo(ObstaculoExplosivo obstaculoExplosivo) {}
 	
 }

@@ -73,6 +73,14 @@ public class Pasadizo extends Estatico{
 
 	@Override
 	public void chocarContraPazadizo(Pasadizo pasadizo) {}
+
+	@Override
+	public void chocarContraMisil(Misil misil) {}
+
+	@Override
+	public void chocarContraObstaculoExplosivo(ObstaculoExplosivo obstaculoExplosivo) {
+		
+	}
 	
 	
 }

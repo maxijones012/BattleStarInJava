@@ -6,6 +6,7 @@ public class NaveManual extends Nave{
 
 	public NaveManual(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
 		super(posicion, tamanio, administradorJuego);
+		
 	}
 
 	
@@ -13,11 +14,12 @@ public class NaveManual extends Nave{
 	@Override
 	public void jugar() {
 		if(this.getAdministradorJuego().getConfiguracionInicial().isDisMunicion()){
-			this.dispararBomba(this);
+			
+			this.dispararMunicion(this);
 			this.getAdministradorJuego().getConfiguracionInicial().setDisMunicion(false);
 		}
 		if(this.getAdministradorJuego().getConfiguracionInicial().isDisBomba()){
-//			this.dispararMunicion();
+			this.dispararBomba(this);
 			this.getAdministradorJuego().getConfiguracionInicial().setDisBomba(false);
 		}
 		if (this.getAdministradorJuego().getConfiguracionInicial().isDerecha()){
@@ -42,7 +44,8 @@ public class NaveManual extends Nave{
 		}				
 	}
 	@Override
-	public void elementosVistos(ArrayList<Elemento> elementos) {}
+	public void elementosVistos(ArrayList<Elemento> elementos) {
+	}
 
 	@Override
 	public void chocarContraPared() {
@@ -50,4 +53,10 @@ public class NaveManual extends Nave{
 		
 	}
 
+
+	
+	@Override
+	public String toString() {
+		return ("MANUAL");
+	}
 }

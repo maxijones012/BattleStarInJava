@@ -4,6 +4,7 @@ import java.lang.Override;
 
 public class ObstaculoExplosivo extends Estatico{
 	private int tiempoDeExplosion;
+	private int nivelDanio=50;
 	
 	public ObstaculoExplosivo(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
 		super(posicion, tamanio, administradorJuego);
@@ -17,7 +18,7 @@ public class ObstaculoExplosivo extends Estatico{
 
 	@Override
 	public void chocarContra(Elemento elemento) {
-		elemento.chocarContra(this);
+		elemento.chocarContraObstaculoExplosivo(this);
 		
 	}
 
@@ -63,8 +64,23 @@ public class ObstaculoExplosivo extends Estatico{
 	@Override
 	public void chocarContraNave(Nave nave) {}
 
+	public int getNivelDanio() {
+		return nivelDanio;
+	}
+
 	@Override
 	public void chocarContraPazadizo(Pasadizo pasadizo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void chocarContraMisil(Misil misil) {
+		this.setNivelVida(this.getNivelVida()-misil.getNivelDanio());
+	}
+
+	@Override
+	public void chocarContraObstaculoExplosivo(ObstaculoExplosivo obstaculoExplosivo) {
 		// TODO Auto-generated method stub
 		
 	}

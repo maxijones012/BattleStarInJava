@@ -3,6 +3,9 @@ package logicaJuego;
 import java.util.ArrayList;
 import java.util.Random;
 
+import util.uArmamento;
+import util.uEstrategia;
+
 public class NaveGreenwich extends Nave{
 /**
  * constructor de la clase  NaveGreenwich
@@ -95,8 +98,26 @@ public class NaveGreenwich extends Nave{
 		 * */
 		
 //		disparar(new Misil(this,null, null, this.getAdministradorJuego()));
-
+		uEstrategia.inteligencia(elementos, this);
+//		for (int i = 0; i < elementos.size(); i++) {
+//			dispararMunicion(this);
+//			Elemento e = elementos.get(i);
+//			if ((e instanceof Misil) || (e instanceof Bomba)){
+//				uEstrategia.eludir(this);
+//			}
+//			if (e instanceof Nave){
+//				uEstrategia.eludir(this);
+//			}
+//		}
 		
+	}
+	
+	
+
+	
+	@Override
+	public String toString() {
+		return ("GREENWICH");
 	}
 
 }

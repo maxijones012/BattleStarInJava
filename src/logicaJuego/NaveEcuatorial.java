@@ -2,6 +2,9 @@ package logicaJuego;
 
 import java.util.ArrayList;
 
+import util.uArmamento;
+import util.uEstrategia;
+
 public class NaveEcuatorial extends Nave{
 	private int cantidadAvanceVertical;
 	
@@ -9,6 +12,7 @@ public class NaveEcuatorial extends Nave{
 	public NaveEcuatorial(Posicion posicion, Tamanio tamanio, AdministradorJuego escenario) {
 		super(posicion, tamanio, escenario);
 		this.cantidadAvanceVertical=this.getAministradorJuego().getConfiguracionInicial().getCantidadAvanceHaciaArriba();
+		
 	}
 	
 	@Override
@@ -24,23 +28,7 @@ public class NaveEcuatorial extends Nave{
 		avanzarEcuatorial();
 	}
 
-	@Override
-	public void chocarContraBonusReparacion(BonusReparacion bonus) {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void chocarContraBonusMisil(BonusMisil bonus) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void chocarContraPared() {
@@ -61,18 +49,21 @@ public class NaveEcuatorial extends Nave{
 	public void elementosVistos(ArrayList<Elemento> elementos) {
 //		 Dispara misiles  cuando  detecta  una  nave  en  el  radar.  Si  por  el  contrario  
 //		detecta  a  más  de  3  naves,  dispara​ ​una​ ​bomba.
-		// TODO Auto-generated method stub
 		int contadorInternoNave=0;
 		for (int i = 0; i < elementos.size(); i++) {
 			
 			 Elemento e = elementos.get(i);
-			if (e instanceof Nave){
-				if (contadorInternoNave<=3) {
-					this.dispararBomba(this);
+			 if (e instanceof Nave){
+				 if (contadorInternoNave<=3) {
+						this.dispararBomba(this);
+					}
+					this.dispararMunicion(this);
+					contadorInternoNave++;
+			 }
+			 if ((e instanceof Misil) || (e instanceof Bomba)){
+					uEstrategia.eludir(this);
+					
 				}
-//				disparar(new Misil(this, null, null, this.getAdministradorJuego()));
-				contadorInternoNave++;
-			}
 		}
 		
 	}
@@ -80,6 +71,11 @@ public class NaveEcuatorial extends Nave{
 	
 	
 
+	
+	@Override
+	public String toString() {
+		return ("ECUATORIAL");
+	}
 
 	
 	

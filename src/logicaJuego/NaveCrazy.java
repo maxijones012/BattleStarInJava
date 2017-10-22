@@ -1,6 +1,7 @@
 package logicaJuego;
 
 import java.util.ArrayList;
+import util.uEstrategia;
 
 /**
  * Se  mueve  por  el  escenario  sin  un  rumbo  fijo,  y  dispara  misiles  cada  vez  que  toca  
@@ -32,7 +33,6 @@ public class NaveCrazy extends Nave{
 	@Override
 	public void chocarContraPared() {
 		super.girar(-90); //TODO CAPAZ QUE HAY QUE CAMBIARLO A 90
-//		this.disparar(new Misil(this, null, null, null)); //TODO VERIFICAR LOS 'NULL'
 	}
 
 
@@ -41,7 +41,8 @@ public class NaveCrazy extends Nave{
 	@Override
 	public void elementosVistos(ArrayList<Elemento> elementos) {
 		// TODO preguntar que deberia hacer
-		
+		uEstrategia.inteligencia(elementos, this);
+
 	}
 
 
@@ -53,6 +54,11 @@ public class NaveCrazy extends Nave{
 
 
 
+	
+	@Override
+	public String toString() {
+		return ("CRAZY");
+	}
 
 
 
