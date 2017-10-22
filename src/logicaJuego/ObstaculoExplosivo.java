@@ -5,7 +5,6 @@ import java.lang.Override;
 public class ObstaculoExplosivo extends Estatico{
 	private int tiempoDeExplosion;
 	
-//	constructor 
 	public ObstaculoExplosivo(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
 		super(posicion, tamanio, administradorJuego);
 		this.tiempoDeExplosion=this.getAdministradorJuego().getConfiguracionInicial().getTiempoDeExplosion();
@@ -63,5 +62,11 @@ public class ObstaculoExplosivo extends Estatico{
 
 	@Override
 	public void chocarContraNave(Nave nave) {}
+
+	@Override
+	public void chocarContraPazadizo(Pasadizo pasadizo) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

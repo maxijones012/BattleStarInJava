@@ -2,7 +2,7 @@ package logicaJuego;
 
 import util.uArmamento;
 public class Bomba extends Movible{
-	private int velocidadInicial; 
+	private int velocidadInicial=400; 
 	private int danioBomba; 
 	private Nave duenio;
 	private int tiempoDeExposicion; 
@@ -18,9 +18,10 @@ public class Bomba extends Movible{
 	public Bomba(Nave duenio, Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
 		super(posicion, tamanio, administradorJuego);
 		this.duenio= duenio;
-		this. velocidadInicial=this.getAministradorJuego().getConfiguracionInicial().getVelocidadInicialBomba();
+		this.setVelocidadAvance(this.getAministradorJuego().getConfiguracionInicial().getVelocidadInicialBomba());
 		this.danioBomba=this.getAministradorJuego().getConfiguracionInicial().getNivelDanioBomba();
 		this.tiempoDeExposicion=this.getAdministradorJuego().getConfiguracionInicial().getTiempoExposicion();
+
 		
 
 	}
@@ -35,7 +36,7 @@ public class Bomba extends Movible{
 		if (getVelocidadInicial()>0){
 			super.avanzar();
 			verificarExplosion();
-			this.setVelocidadInicial(velocidadInicial-1); //TODO verificar que anda
+			this.setVelocidadInicial(this.getVelocidadInicial()-1); //TODO verificar que anda
 		}
 		else{
 			super.destruir(this);
@@ -45,7 +46,7 @@ public class Bomba extends Movible{
 
 	
 	/**
-	 * Verifica si la bomba esta explotando
+		TODO Verifica si la bomba esta explotando
 	 */
 	private void verificarExplosion() {
 		if (isEstaExplotando()){
@@ -59,7 +60,7 @@ public class Bomba extends Movible{
 
 	/**
 	 * metodo que sirve para obtener el alcance de la bomba
-	 * @return
+	 * @return velocidadInicial
 	 */
 	public int getVelocidadInicial() {
 		return velocidadInicial;
@@ -79,23 +80,42 @@ public class Bomba extends Movible{
 
 
 	@Override
+	/**
+	 * LLAMO AL ChocarContra de la instancia del elemento
+	 * @param elemento
+	 */
 	public void chocarContra(Elemento elemento) {
-		elemento.chocarContra(this);
+		elemento.chocarContraBomba(this);
 		
 	}
 
 	@Override
+	/**
+	 * TODO CUANDO SE SUPERPONE UN MOVIBLE CON EL BONUS ESTE SE DESTRUYE
+	 */
 	public void chocarContraBonusReparacion(BonusReparacion bonus) {
 		this.destruir(this);
 		
 	}
 
 	@Override
+	/**
+	 * TODO CUANDO SE SUPERPONE UNA BOMBA CON EL BONUS ESTE SE DESTRUYE
+	 *
+	 */
 	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {
 		this.destruir(this);
 	}
 
 	@Override
+	/**
+	 * TODO CUANDO SE SUPERPONE UNA BOMBA CON EL BONUS ESTE SE DESTRUYE
+	 
+	 *
+	 *
+	 *
+	 *
+	 */
 	public void chocarContraBonusMisil(BonusMisil bonus) {
 		this.destruir(this);
 		
@@ -111,19 +131,37 @@ public class Bomba extends Movible{
 
 
 	@Override
+	//TODO 
 	public void chocarContraPared() {
 		this.destruir(this);
 	}
 
 	@Override
-	public void chocarContraBomba(Bomba bomba) {this.destruir(this);}
+	/**
+	 * TODO DESTRUIR LAS BOMBAS
+	 */
+	public void chocarContraBomba(Bomba bomba) {
+		if (bomba.getDuenio()!= this.getDuenio()){
+			this.destruir(this);
+		}
+	}
 
 	@Override
+	/**
+	 * LLAMO AL DESTRUIR DE LA NAVE
+	 */
 	public void chocarContraNave(Nave nave) {
-		this.destruir(this);
+		if (nave != this.getDuenio()){
+			this.destruir(this);			
+		}
 	}
 	
-	
+	/**
+	 * 
+	 */
+	/**
+	 * TODO revisar esta parte 
+	 */
 	public void explotar(){
 		uArmamento.explotar(this);
 	}
@@ -144,6 +182,10 @@ public class Bomba extends Movible{
 		this.estaExplotando = estaExplotando;
 	}
 
+	@Override
+	public void chocarContraPazadizo(Pasadizo pasadizo) {
+		this.destruir(this);
+	}
 
 
 }

@@ -20,6 +20,9 @@ public class BonusMisil extends Bonus{
 	}
 
 	@Override
+	/**
+	 * 
+	 */
 	public void chocarContra(Elemento elemento) {
 		elemento.chocarContraBonusMisil(this);
 		
@@ -28,18 +31,20 @@ public class BonusMisil extends Bonus{
 
 	@Override
 	public void chocarContraBonusMisil(BonusMisil bonus) {
-		darBeneficio(bonus.getDuenio());
+//		darBeneficio(bonus.getDuenio());
 	}
 	@Override
 	public void darBeneficio(Nave nave) {
-		darBonusMisil(nave);
+		this.destruir(this);
 	}
 
 	
 	
 	
 	private void darBonusMisil(Nave nave) { //TODO VERFICIAR QUE TOME LA MITAD
-		if (nave!=null){nave.setCantidadMunicion(nave.getCantidadMunicion()+(nave.getCantidadMunicion()/2));}
+		if (nave!=null){
+			nave.setCantidadMunicion(nave.getCantidadMunicion()+(nave.getCantidadMunicion()/2));
+		}
 	}
 
 	
@@ -66,6 +71,12 @@ public class BonusMisil extends Bonus{
 	@Override
 	public void chocarContraNave(Nave nave) {
 		this.destruir(this);
+	}
+
+	@Override
+	public void chocarContraPazadizo(Pasadizo pasadizo) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

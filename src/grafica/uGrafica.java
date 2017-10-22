@@ -1,7 +1,7 @@
+package grafica;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-import grafica.TableroJuego;
 import logicaJuego.Nave;
 
 public class uGrafica {

@@ -31,8 +31,7 @@ public class Pasadizo extends Estatico{
 
 	@Override
 	public void chocarContra(Elemento elemento) {
-		elemento.chocarContra(this);
-		
+		elemento.chocarContraPazadizo(this);
 	}
 
 
@@ -44,8 +43,6 @@ public class Pasadizo extends Estatico{
 	
 	@Override
 	public void chocarContraNave(Nave nave) {
-		diminuirNivelCombustible(nave);
-		this.setPosicion(getPasadizoSalida());
 	}
 
 	/**
@@ -73,6 +70,9 @@ public class Pasadizo extends Estatico{
 	public int getQuitarNivelCombustible() {
 		return quitarNivelCombustible;
 	}
+
+	@Override
+	public void chocarContraPazadizo(Pasadizo pasadizo) {}
 	
 	
 }

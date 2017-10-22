@@ -14,39 +14,48 @@ public class Radar extends Movible implements IRadar{
 	private int alcanceMaximo=25;
 	private int anguloAperturaRadar; 
 	private int alcanceRadar; 
-	private ArrayList<IRadarListener> listeners;
+	private ArrayList<IRadarListener> radarListener ;
+	private ArrayList<Elemento> elementosVistos;
+	
 	
 	public Radar(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego, Nave nave) {
 		super(posicion, tamanio, administradorJuego);
 		this.duenio=nave;
 		this.alcanceRadar=this.getAdministradorJuego().getConfiguracionInicial().getAlcanceRadar();
 		this.anguloAperturaRadar=this.getAdministradorJuego().getConfiguracionInicial().getAnguloAperturaRadar();
-		this.listeners=  listeners; //TODO VERFICAR ESTO
+		this.elementosVistos= new ArrayList<Elemento>();
+		this.radarListener= new ArrayList<IRadarListener>();
 	}
 	
-	public void addRadarListener(IRadarListener listeners) {
-		this.listeners.add(listeners);
-		
+	/***
+	 * agrega un elemento a su lista de escuchadores
+	 * @param listener
+	 */
+	public void addRadarListener(IRadarListener listener) {
+		this.radarListener.add(listener);
 	}
-	public void removeRadarListener(IRadarListener listeners) {
-		
-		this.listeners.remove(listeners);		
+
+	
+	/***
+	 * elimina un elemento de su lista de escuchadores
+	 * @param listener
+	 */
+	public void removeRadarListener(IRadarListener listener) {
+		this.radarListener.remove(listener);
 	}
+	
 	
 	
 	
 	//TODO HACER EL ESCANEAR
-	public void escanear(){ //TODO anda mejorar y hacer 
-//			for (IRadarListener listener : this.listeners)
-				
-			System.out.println("Escanenando..." );
+	public void escanear(){ //TODO anda mejorar y hacer
+		this.elementosVistos = this.getAdministradorJuego().detectarElementos(this);
+		   for (IRadarListener escuchadores: this.radarListener){		   		 		   
+			   escuchadores.elementosVistos(this.elementosVistos);
+		   }	
 	};
 	
-	@Override
-	public void jugar() {
-		this.escanear();
-		
-	}
+
 	
 	/**
 	 * devuelve el un polygono
@@ -162,6 +171,12 @@ public class Radar extends Movible implements IRadar{
 
 	public void setDireccion(int direccion) {
 		this.direccion = direccion;
+	}
+
+	@Override
+	public void chocarContraPazadizo(Pasadizo pasadizo) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

@@ -1,10 +1,15 @@
 package logicaJuego;
 
+import java.awt.Polygon;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 
 import configuracion.ConfiguracionInicial;
+import grafica.vTableroJuego;
 import interfaces.IAdministradorJuego;
 import util.UAdministradorJuego;
+
+
 
 public class AdministradorJuego implements IAdministradorJuego{
 	private Tamanio tamanio;
@@ -14,6 +19,7 @@ public class AdministradorJuego implements IAdministradorJuego{
 	private Boolean bonusAleatorio=true;
 	private int ancho;
 	private int alto;
+	private boolean pausa=false;
 	
 	
 	public AdministradorJuego(ConfiguracionInicial configuracionInicial) {
@@ -27,16 +33,29 @@ public class AdministradorJuego implements IAdministradorJuego{
 	public void iniciarJuego() {
 		crearElementos();
 		
+		vTableroJuego vista = new vTableroJuego(this);
 		while (true){
 			crearBonus();
 			
 			turnos();
 			
+			vista.actualizar(this);
+			
 			verificarChoques();
+			
+			depurarElementos();
+			
+		 	try {
+				Thread.sleep(150); //aca va un 1000
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
-	
+	/**
+	 * TODO verificar si los poligonos de los elmentos que chocan estan superpuestos
+	 */
 	private void verificarChoques() {
 		UAdministradorJuego.verficarChoques(this);
 		
@@ -56,7 +75,6 @@ public class AdministradorJuego implements IAdministradorJuego{
 	@Override
 	public void crearElementos() {
 		UAdministradorJuego.crearElementos(this);
-		//TODO crear elementos
 		
 	}
 
@@ -102,8 +120,49 @@ public class AdministradorJuego implements IAdministradorJuego{
 	}
 	public ConfiguracionInicial getConfiguracionInicial() {
 		return configuracionInicial;
-	};
+	}
+
+	public boolean isPausa() {
+		return pausa;
+	}
+	public void setPausa(boolean pausa) {
+		this.pausa = pausa;
+	}
+
+
+	/**
+	 * añade a una lista todos los elementos que puede visualizar un radar
+	 * @param radar
+	 * @return lista de elementos
+	 */
+	public ArrayList<Elemento> detectarElementos(Radar radar){
+		ArrayList<Elemento> elementosVistos = new ArrayList<Elemento>();
+		
+		Polygon areaRadar = radar.getAreaCobertura();
+		
+		for(int i= 0; i< this.getListaElemento().size();i++){
+			Elemento elemento = this.getListaElemento().get(i);
+			
+			Rectangle areaElemento = new Rectangle((int)elemento.getPosicion().getX(),
+												   (int)elemento.getPosicion().getY(),
+												    elemento.getTamanio().getAncho(),
+												    elemento.getTamanio().getAlto()); 			
+			
+			if (areaRadar.intersects(areaElemento)){				
+				elementosVistos.add(elemento);	
+			}			
+		}
+		return elementosVistos;
+	}
 	
+	/**
+	 * Se encarga de monitorear los estados de vida de los elementos presentes en el juego
+	 * en caso de que un elemento no este vivo es retirado del juego.
+	 * 
+	 */
+	private void depurarElementos() {
+		UAdministradorJuego.eliminarElementos(this);
+	}
 	
 	
 }

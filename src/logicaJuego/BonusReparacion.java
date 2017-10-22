@@ -82,4 +82,11 @@ public class BonusReparacion extends Bonus{
 		this.destruir(this);
 	}
 
+
+	@Override
+	public void chocarContraPazadizo(Pasadizo pasadizo) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -4,26 +4,50 @@ import logicaJuego.AdministradorJuego;
 
 /**
  * Contiene todos los datos del juego
+ * configuracion inicial por defecto
  * @author Maxi Jones
  *
  */
 public class ConfiguracionInicial {
 	private AdministradorJuego administradorJuego;
 	
-	private int nivelVida=100;
-	private int tiempoDeExplosion=20;
-	private int nivelCombustible=100;
+	private int nivelVida=1000;
+	private int tiempoDeExplosion=150;
+	private int nivelCombustible=800;
 	
-	private int anchoNave=20;
-	private int altoNave=20;
+	private int anchoNave=40;
+	private int altoNave=40;
+	
+	
 	
 	private int posicionXNave=20;
 	private int posicionYNave=20;
 	
+	public static final int POSICION_X_NAVE_MANUAL=250;
+	public static final int POSICION_Y_NAVE_MANUAL=250;
+	
+	public static final int POSICION_X_PASADIZO_A=200;
+	public static final int POSICION_Y_PASADIZO_A=200;
+
+	public static final int POSICION_X_PASADIZO_B=530;
+	public static final int POSICION_Y_PASADIZO_B=430;
+	
+	
 	private int cantidadMunicionNave=20;
 	
-	private int anchoEscenario=800;
-	private int altoEscenario=600;
+	private int anchoEscenario=900;
+	private int altoEscenario=700;
+	public static final int ALTO_PASADIZO=40;
+	public static final int ANCHO_PASADIZO=40;
+	
+	public static final int ANCHO_NAVE=40;
+	public static final int ALTO_NAVE=40;
+
+	public static final int POSICION_X_OBSTACULO_EXPLOSIVO = 800;
+	public static final int POSICION_Y_OBSTACULO_EXPLOSIVO = 200;
+	
+	public static final int ANCHO_OBSTACULO_EXPLOSIVO = 40;
+	public static final int ALTO_OBSTACULO_EXPLOSIVO = 80;
 		
 	private int nivelDanioBomba=50;
 	private int danioMisil=20;
@@ -35,18 +59,18 @@ public class ConfiguracionInicial {
 	
 	private int direccionMovible=10;
 
-	private int velocidadInicialBomba=60;
+	private int velocidadInicialBomba=14;
 	private int nivelDanioMisil=30;
 	private int valorReparacionBonus=40;
 	
-	private int velocidadAvanceMovible=20;
+	private int velocidadAvanceMovible=7;
 	
 	private int tiempoInmunidad=25;
-	private int alcanceRadar=25;
+	private int alcanceRadar=250;
 	private int anguloAperturaRadar=13;
 	
 	
-	private int quitarNivelCombustible=20;
+	private int quitarNivelCombustible=50;
 	private int tiempoExposicion=10;
 	
 	private int tiempoVidaBonus=10;

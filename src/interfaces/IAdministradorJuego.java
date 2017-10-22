@@ -17,10 +17,11 @@ public interface IAdministradorJuego {
 
 
 	/**
-	 * Genera turnos por cada lapso de tiempo 
+	 * Genera turnos por cada lapso de tiempo
+	 * TODO se considera  un turno cuando todos los elementos terminan de  jugar  
 	 */
-	public void turnos();
 	
+	public void turnos(); 
 	
 	/**
 	 * Crea todos los elementos del juego

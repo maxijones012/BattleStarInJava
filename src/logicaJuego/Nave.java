@@ -10,7 +10,7 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	private Boolean RadarOn=true;
 	private Boolean inmunidad=false;
 	private int cantidadMunicion;
-	private int cantidadBomba;
+	private int cantidadBomba=30;
 	private int nivelCombustible;
 	private Radar radar;
 	private int nivelEscudo;
@@ -21,7 +21,7 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	
 //	constructor
 	public Nave(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
-		super(posicion, tamanio,administradorJuego);
+		super(posicion, new Tamanio(administradorJuego.getConfiguracionInicial().getAnchoNave(), administradorJuego.getConfiguracionInicial().getAltoNave()),administradorJuego);
 		this.nivelVida=this.getAministradorJuego().getConfiguracionInicial().getNivelVida();
 		this.cantidadMunicion=this.getAdministradorJuego().getConfiguracionInicial().getCantidadMunicionNave();
 		this.tiempoInmunidad=this.getAministradorJuego().getConfiguracionInicial().getTiempoInmunidad();
@@ -53,7 +53,8 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 		//tengo escudo
 		
 		if (this.getNivelEscudo()>=0){	
-			super.avanzar();
+			this.dispararBomba(this);
+   			super.avanzar();
 			this.getRadar().escanear();	
 		}
 		//sino se rompio escudo
@@ -77,13 +78,13 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	}
 
 
-	public void disparar(Bomba bomba){
-		dispararBomba();
-	}
-	public void disparar(Misil municion){
-		dispararMunicion();
-	}
-	
+//	public void dispararBomba(){
+//		dispararBomba();
+//	}
+//	public void disparar(Misil municion){
+//		dispararMunicion();
+//	}
+//	
 	/**
 	 * Girar de la clase Nave
 	 * @param direccion
@@ -102,8 +103,8 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	/**
 	 * dispara una municion en una direccion
 	 */
-	private void dispararMunicion() {
-		uArmamento.dispararMisil(this);
+	public void dispararMunicion(Nave nave) {
+		uArmamento.dispararMisil(nave);
 	}
 
 	
@@ -111,8 +112,8 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	/**
 	 * Dispara una bomba en una direccion
 	 */
-	private void dispararBomba() {
-		uArmamento.dispararBomba(this);
+	public void dispararBomba(Nave nave) {
+		uArmamento.dispararBomba(nave);
 	}
 
 
@@ -166,16 +167,28 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	}
 	
 	@Override
+	/**
+	 * invoco el chocar contra del elemento
+	 * TODO el tipo de elemento que se intersecta con la nave 
+	 */
 	public void chocarContra(Elemento elemento) {
-		elemento.chocarContra(this);
+		elemento.chocarContraNave(this);
 	}
 	
 	@Override
+	/**
+	 * otorga el beneficio de inmunidad a la nave que choca con el bonus
+	 * TODO durante una cierta cantidad de tiempo el flag de inmunidad esta en true
+	 */
 	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {
 		bonus.darBeneficio(this);
 	}
 
 	@Override
+	/**
+	 * otorga el beneficio de misil a la naver
+	 * TODO Se Setea el nivel de misiles por defaul
+	 */
 	public void chocarContraBonusMisil(BonusMisil bonus) {
 		bonus.darBeneficio(this);
 	}
@@ -211,20 +224,36 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	}
 
 	@Override
+	/**
+	 * reduzco el nivel de vida de la nave 
+	 * @param bomba
+	 */
 	public void chocarContraBomba(Bomba bomba) {
 		this.setNivelVida(getNivelVida()-bomba.getDanioBomba());	// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
+	/**
+	 * el nivel de combustible vuelve al valor por defecto
+	 * aumenta el nivel de vida de vida de la nave 
+	 */
 	public void chocarContraBonusReparacion(BonusReparacion bonus) {
 		bonus.darBeneficio(this);
 	}
 	
 	
 	@Override
+	/**
+	 * reduzco el nivel de escudo de la nave 
+	 */
 	public void chocarContraNave(Nave nave) {
 		this.setNivelEscudo(this.getNivelEscudo()-danioNave);
 	}
 
+	
+	@Override
+	public void chocarContraPazadizo(Pasadizo pasadizo) {
+		this.setPosicion(pasadizo.getPasadizoSalida());
+	}
 }

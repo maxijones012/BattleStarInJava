@@ -13,6 +13,7 @@ public class NaveEcuatorial extends Nave{
 	
 	@Override
 	public void jugar() {
+		super.dispararBomba(this);
 		super.jugar();
 		avanzar();
 	}
@@ -21,11 +22,6 @@ public class NaveEcuatorial extends Nave{
 	public void avanzar() {
 		super.avanzar();
 		avanzarEcuatorial();
-	}
-
-	@Override
-	public void chocarContra(Elemento elemento) {
-		elemento.chocarContra(this);
 	}
 
 	@Override
@@ -72,9 +68,9 @@ public class NaveEcuatorial extends Nave{
 			 Elemento e = elementos.get(i);
 			if (e instanceof Nave){
 				if (contadorInternoNave<=3) {
-					disparar(new Bomba(this, null, null, this.getAdministradorJuego()));
+					this.dispararBomba(this);
 				}
-				disparar(new Misil(this, null, null, this.getAdministradorJuego()));
+//				disparar(new Misil(this, null, null, this.getAdministradorJuego()));
 				contadorInternoNave++;
 			}
 		}

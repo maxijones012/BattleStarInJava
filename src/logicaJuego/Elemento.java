@@ -8,7 +8,8 @@ public abstract class Elemento implements IElemento{
 	private Posicion posicion;
 	private Tamanio tamanio;
 	private AdministradorJuego administradorJuego;
-	private Boolean estaVivo;
+	private Boolean estaVivo=true;
+	private boolean pausa=false;
 	
 	
 //	constructor
@@ -39,6 +40,7 @@ public abstract class Elemento implements IElemento{
 	public void destruir(Elemento elemento){
 		this.getAministradorJuego().removeElemento(elemento);
 		this.getAdministradorJuego().removeElemento(elemento);
+		this.setEstaVivo(false);
 	};
 	
 
@@ -85,6 +87,16 @@ public abstract class Elemento implements IElemento{
 
 	public AdministradorJuego getAdministradorJuego() {
 		return administradorJuego;
+	}
+
+
+	public boolean isPausa() {
+		return pausa;
+	}
+
+
+	public void setPausa(boolean pausa) {
+		this.pausa = pausa;
 	}
 
 	

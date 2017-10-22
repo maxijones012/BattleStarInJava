@@ -1,6 +1,6 @@
 package logicaJuego;
 
-import java.util.ArrayList;
+import java.util.ArrayList;import configuracion.ConfiguracionInicial;
 
 public class NaveManual extends Nave{
 
@@ -13,11 +13,11 @@ public class NaveManual extends Nave{
 	@Override
 	public void jugar() {
 		if(this.getAdministradorJuego().getConfiguracionInicial().isDisMunicion()){
-			this.disparar(new Misil(this, null, null, this.getAdministradorJuego()));
+			this.dispararBomba(this);
 			this.getAdministradorJuego().getConfiguracionInicial().setDisMunicion(false);
 		}
 		if(this.getAdministradorJuego().getConfiguracionInicial().isDisBomba()){
-			this.disparar(new Bomba(this, null, null, this.getAdministradorJuego()));
+//			this.dispararMunicion();
 			this.getAdministradorJuego().getConfiguracionInicial().setDisBomba(false);
 		}
 		if (this.getAdministradorJuego().getConfiguracionInicial().isDerecha()){

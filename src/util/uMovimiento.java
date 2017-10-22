@@ -64,21 +64,23 @@ public abstract class uMovimiento{
 	 * y devuelve un X
 	 * @return X
 	 */
-	public static int posicionAleatoriaX(){
+	public static Double posicionAleatoriaX(){
 		Random randx = new Random();
-		return (int) (randx.nextDouble());
+		return (randx.nextDouble());
 	}
+	
 	
 	/**
 	 * Genera una posicion aleatoria en el en juego base 
 	 * y devuelve un Y
 	 * @return
 	 */
-	public static int posicionAleatoriaY(){
+	public static Double posicionAleatoriaY(){
 		Random randy = new Random();
-		return (int) ( randy.nextDouble() );
+		return( randy.nextDouble() );
 	}
-
+	
+	
 
 
 }

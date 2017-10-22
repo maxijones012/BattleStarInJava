@@ -12,17 +12,18 @@ import java.io.File;
 import java.util.HashMap;
 import javax.imageio.ImageIO;
 
+import com.sun.prism.paint.Color;
+
 import logicaJuego.AdministradorJuego;
 import logicaJuego.Elemento;
 import logicaJuego.Movible;
 import logicaJuego.Nave;
+import util.Controles;
 import util.uGrafica;
 import util.uMovimiento;
 
 @SuppressWarnings("serial")
-public class TableroJuego extends Canvas{
-
-	
+public class TableroJuego extends Canvas implements KeyListener{
 	private AdministradorJuego administradorJuego;
 	private HashMap<String, BufferedImage> listaImagenes;
 	private int anchoNave;
@@ -41,7 +42,14 @@ public class TableroJuego extends Canvas{
 	}
 			
 			
-			
+	public void inicializar() {		
+		//Crea dos buffers para dibujar.
+		this.createBufferStrategy(2);		
+		this.addKeyListener(this);
+	}
+	
+	
+	
 	private void dibujar(){
 		for (int i=0; i< administradorJuego.getListaElemento().size(); i++){
 			//pinto cada elemento
@@ -64,8 +72,10 @@ public class TableroJuego extends Canvas{
 
 			}
 
-			this.getGrafico2D().drawImage(eImagen, x, y, e.getTamanio().getAncho(), e.getTamanio().getAlto(), null);		
+			this.getGrafico2D().drawImage(eImagen, x, y, e.getTamanio().getAncho(), e.getTamanio().getAlto(), null);
+			this.getGrafico2D().dispose();
 		}
+		
 		this.getBufferStrategy().show();
 
 	}
@@ -114,13 +124,6 @@ public class TableroJuego extends Canvas{
 	
 	
 	
-	public AdministradorJuego getAdministradorJuego() {
-		return administradorJuego;
-	}
-	public int getAnchoNave() {
-		return anchoNave;
-	}
-
 
 
 	public HashMap<String, BufferedImage> getListaImagenes() {
@@ -144,4 +147,48 @@ public class TableroJuego extends Canvas{
 	
 	public int getAltoNave() {
 		return altoNave;
-	}}
+	}
+
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		Controles.controlTeclado(this, e, getAdministradorJuego().getConfiguracionInicial());
+		
+	}
+
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void keyTyped(KeyEvent c) {
+		
+	}
+	
+
+	public AdministradorJuego getAdministradorJuego() {
+		return administradorJuego;
+	}
+	public int getAnchoNave() {
+		return anchoNave;
+	}
+
+
+	public void actualizar() {
+		limpiar();
+ 		dibujar(); 	
+	}
+
+
+	
+	private void limpiar(){
+		this.getGrafico2D().drawImage(getImagen("fondo"), 0, 0, getWidth(), getHeight(), null);
+		this.getGrafico2D().dispose();
+	}
+	
+
+}

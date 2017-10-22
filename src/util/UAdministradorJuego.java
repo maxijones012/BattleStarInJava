@@ -4,6 +4,7 @@ package util;
 import java.awt.Rectangle;
 import java.util.Random;
 
+import configuracion.ConfiguracionInicial;
 import logicaJuego.Bonus;
 import logicaJuego.BonusInmunidad;
 import logicaJuego.BonusMisil;
@@ -12,6 +13,9 @@ import logicaJuego.Elemento;
 import logicaJuego.AdministradorJuego;
 import logicaJuego.NaveCrazy;
 import logicaJuego.NaveEcuatorial;
+import logicaJuego.NaveManual;
+import logicaJuego.ObstaculoExplosivo;
+import logicaJuego.Pasadizo;
 import logicaJuego.Posicion;
 import logicaJuego.Tamanio;
 
@@ -45,12 +49,29 @@ public abstract class UAdministradorJuego {
 
 	//TODO HACER LOS CREAR ELEMENTOS
 	public static void crearElementos(AdministradorJuego administradorJuego) {
-		NaveCrazy naveCrazy = new NaveCrazy(new Posicion(40, 40), new Tamanio(30, 30), administradorJuego);
+		Tamanio tamanioNave = new Tamanio(ConfiguracionInicial.ANCHO_NAVE,ConfiguracionInicial.ALTO_NAVE);
+		
+		NaveCrazy naveCrazy = new NaveCrazy(new Posicion(40, 40), tamanioNave, administradorJuego);
 		administradorJuego.getListaElemento().add(naveCrazy);
 		
-		NaveEcuatorial naveEcutaorial = new NaveEcuatorial(new Posicion(255, 255), new Tamanio(30, 30), administradorJuego);
+		NaveEcuatorial naveEcutaorial = new NaveEcuatorial(new Posicion(300, 255), tamanioNave, administradorJuego);
 		administradorJuego.getListaElemento().add(naveEcutaorial);
 		
+		NaveManual naveManual = new NaveManual(new Posicion(250,250),tamanioNave, administradorJuego);
+		administradorJuego.addElemento(naveManual);
+//		
+		Posicion posicion_pazadizoA= new Posicion(ConfiguracionInicial.POSICION_X_PASADIZO_A, ConfiguracionInicial.POSICION_Y_PASADIZO_A);
+		Posicion posicion_pazadizoB = new Posicion(ConfiguracionInicial.POSICION_X_PASADIZO_B, ConfiguracionInicial.POSICION_Y_PASADIZO_B);
+		Pasadizo pasadizoA = new Pasadizo(posicion_pazadizoA, new Tamanio(ConfiguracionInicial.ANCHO_PASADIZO, ConfiguracionInicial.ALTO_PASADIZO),administradorJuego,posicion_pazadizoB);
+		administradorJuego.addElemento(pasadizoA);
+		
+		posicion_pazadizoB= new Posicion(ConfiguracionInicial.POSICION_X_PASADIZO_A, ConfiguracionInicial.POSICION_Y_PASADIZO_A);
+		posicion_pazadizoA = new Posicion(ConfiguracionInicial.POSICION_X_PASADIZO_B, ConfiguracionInicial.POSICION_Y_PASADIZO_B);
+		Pasadizo pasadizoB = new Pasadizo(posicion_pazadizoA, new Tamanio(ConfiguracionInicial.ANCHO_PASADIZO, ConfiguracionInicial.ALTO_PASADIZO),administradorJuego,posicion_pazadizoB);
+		administradorJuego.addElemento(pasadizoB);
+		
+		ObstaculoExplosivo obstaculoExplosivo = new ObstaculoExplosivo(new Posicion(ConfiguracionInicial.POSICION_X_OBSTACULO_EXPLOSIVO, ConfiguracionInicial.POSICION_Y_OBSTACULO_EXPLOSIVO), new Tamanio(ConfiguracionInicial.ANCHO_OBSTACULO_EXPLOSIVO, ConfiguracionInicial.ALTO_OBSTACULO_EXPLOSIVO), administradorJuego);
+		administradorJuego.addElemento(obstaculoExplosivo);
 	}
 	
 	
@@ -125,9 +146,7 @@ public abstract class UAdministradorJuego {
 				
 				if(r1.intersects(r2)){
 					e1.chocarContra(e2);
-					uDebugConsola.posicion(e2); //TODO 
 					e2.chocarContra(e1);
-					uDebugConsola.posicion(e2);
 				}
 			}
 			

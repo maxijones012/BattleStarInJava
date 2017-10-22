@@ -4,8 +4,8 @@ import java.awt.Polygon;
 
 public interface IRadar {
 	/**
-	 * Utiliza el poligono para detectar elementos en un angulo determinado por su distrancia
-	 * @return area de cobertura que cubre el robot
+	 * Utiliza el poligono para detectar elementos en un angulo determinado por su distancia
+	 * @return area de cobertura que cubre el radar??
 	 */
 	public Polygon getAreaCobertura();
 	

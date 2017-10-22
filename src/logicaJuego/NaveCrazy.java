@@ -3,15 +3,11 @@ package logicaJuego;
 import java.util.ArrayList;
 
 /**
- *  Se  mueve  por  el  escenario  sin  un  rumbo  fijo,  y  dispara  misiles  cada  vez  que  toca  
- *     alguno​ ​de​ ​los​ ​límites​ ​del​ ​escenario.
+ * Se  mueve  por  el  escenario  sin  un  rumbo  fijo,  y  dispara  misiles  cada  vez  que  toca  
+ * alguno​ ​de​ ​los​ ​límites​ ​del​ ​escenario.
  * @author Maxi Jones
- *
  */
-public class NaveCrazy extends Nave{
-	
-	
-	
+public class NaveCrazy extends Nave{	
 	/**
 	 * Constructor de la clase crazy
 	 * @param posicion
@@ -21,9 +17,6 @@ public class NaveCrazy extends Nave{
 	public NaveCrazy(Posicion posicion, Tamanio tamanio, AdministradorJuego escenario) {
 		super(posicion, tamanio, escenario);
 	}
-
-
-	
 	
 	@Override
 	public void jugar() {		
@@ -34,16 +27,12 @@ public class NaveCrazy extends Nave{
 
 
 
-	@Override
-	public void chocarContra(Elemento elemento) {
-		elemento.chocarContra(this);
-	}
 
 
 	@Override
 	public void chocarContraPared() {
 		super.girar(-90); //TODO CAPAZ QUE HAY QUE CAMBIARLO A 90
-		this.disparar(new Misil(this, null, null, null)); //TODO VERIFICAR LOS 'NULL'
+//		this.disparar(new Misil(this, null, null, null)); //TODO VERIFICAR LOS 'NULL'
 	}
 
 

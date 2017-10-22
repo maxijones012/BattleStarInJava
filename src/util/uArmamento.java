@@ -34,11 +34,12 @@ public abstract class uArmamento {
 	 * @param nave
 	 */
 	public static void dispararBomba(Nave nave) {
-		if (nave.getCantidadBomba()>0){
-			Posicion posicion = new Posicion(nave.getPosicion().getX(),nave.getPosicion().getY());
-			Tamanio tamanio = new Tamanio(nave.getTamanio().getAncho(), nave.getTamanio().getAlto());
-			new Bomba(nave, posicion,tamanio, nave.getAministradorJuego());
-			new Bomba(nave, posicion,tamanio, nave.getAdministradorJuego());
+		if (nave.getCantidadBomba() > 0){			
+			Bomba b = new Bomba(nave, new Posicion(nave.getPosicion().getX()+40, nave.getPosicion().getY()+40), new Tamanio(40,40),nave.getAdministradorJuego());
+			b.setDireccion(nave.getDireccion());
+			b.setDuenio(nave);
+			nave.setCantidadBomba(nave.getCantidadBomba()-1);
+			nave.getAdministradorJuego().addElemento(b);
 		}
 	}
 
@@ -48,11 +49,13 @@ public abstract class uArmamento {
 	 * @param nave que es la que crea el Misil
 	 */
 	public static void dispararMisil(Nave nave) {
-		if (nave.getCantidadMunicion()>0){
-			Posicion posicion = new Posicion(nave.getPosicion().getX(),nave.getPosicion().getY());
-			Tamanio tamanio = new Tamanio(nave.getTamanio().getAncho(), nave.getTamanio().getAlto());
-			new Misil(nave, posicion,tamanio, nave.getAministradorJuego());
-			new Misil(nave, posicion,tamanio, nave.getAdministradorJuego());
+		if (nave.getCantidadMunicion() > 0){
+			Posicion posicion = new Posicion(nave.getPosicion().getX(), nave.getPosicion().getX());
+			Misil misil = new Misil(nave,posicion ,new Tamanio(40, 40) ,nave.getAdministradorJuego());
+			misil.setDireccion(nave.getDireccion());
+			misil.setDuenio(nave);
+			misil.disparar(nave, misil);			
+			nave.setCantidadMunicion(nave.getCantidadMunicion()-1);	
 		}
 	}
 
