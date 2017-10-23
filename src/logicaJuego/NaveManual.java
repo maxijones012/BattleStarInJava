@@ -1,6 +1,19 @@
 package logicaJuego;
 
-import java.util.ArrayList;import configuracion.ConfiguracionInicial;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
+import configuracion.ConfiguracionInicial;
 
 public class NaveManual extends Nave{
 
@@ -13,10 +26,13 @@ public class NaveManual extends Nave{
 	
 	@Override
 	public void jugar() {
-		if(this.getAdministradorJuego().getConfiguracionInicial().isDisMunicion()){
-			
+ 		if(this.getAdministradorJuego().getConfiguracionInicial().isDisMunicion()){			
 			this.dispararMunicion(this);
 			this.getAdministradorJuego().getConfiguracionInicial().setDisMunicion(false);
+			String v = ("/sonido/laser.wav");
+			Clip bang = cargarSonido(v);
+			bang.start();
+//			bang.stop();
 		}
 		if(this.getAdministradorJuego().getConfiguracionInicial().isDisBomba()){
 			this.dispararBomba(this);
@@ -59,4 +75,22 @@ public class NaveManual extends Nave{
 	public String toString() {
 		return ("MANUAL");
 	}
+	
+	
+	public static Clip cargarSonido(final String ruta){
+		Clip clip = null;
+		try{
+			InputStream is = ClassLoader.class .getResourceAsStream(ruta);
+			AudioInputStream ais = AudioSystem.getAudioInputStream(new BufferedInputStream(is));
+			DataLine.Info info = new DataLine.Info(Clip.class, ais.getFormat());
+			clip = (Clip) AudioSystem.getLine(info);
+			clip.open(ais);
+					
+				
+		}  catch (Exception e){
+			e.printStackTrace();
+		}
+		return clip;
+	}
+
 }

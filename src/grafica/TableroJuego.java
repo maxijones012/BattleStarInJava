@@ -155,7 +155,6 @@ public class TableroJuego extends Canvas implements KeyListener{
 	
 	
 	
-	
 	public int getAltoNave() {
 		return altoNave;
 	}

@@ -253,6 +253,7 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	 * reduzco el nivel de escudo de la nave 
 	 */
 	public void chocarContraNave(Nave nave) {
+		this.girar(90);
 	}
 
 	
