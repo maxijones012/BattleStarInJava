@@ -63,7 +63,7 @@ public class vTableroJuego extends JFrame implements KeyListener{
 	public void agregarMenu(Container contenedor){
 		//menu
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setSize(800,20);
+		menuBar.setSize(160,20);
 		
 		JMenuItem mntmPausar = new JMenuItem("Pausar");		
 		mntmPausar.addActionListener(new ActionListener() {
@@ -87,12 +87,13 @@ public class vTableroJuego extends JFrame implements KeyListener{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {				
-					for(int i=0; i<administradorJuego.getListaElemento().size(); i++){
-						Elemento e1 = administradorJuego.getListaElemento().get(i);
-						e1.getAdministradorJuego().setPausa(false);
-					}
-					}	
-			});
+				for(int i=0; i<administradorJuego.getListaElemento().size(); i++){
+					Elemento e1 = administradorJuego.getListaElemento().get(i);
+					e1.getAdministradorJuego().setPausa(false);
+				}
+				JOptionPane.showMessageDialog(tableroJuego, "JUEGO PAUSADO");
+			}
+		});
 		
 		menuBar.add(mntmReanudar);
 		

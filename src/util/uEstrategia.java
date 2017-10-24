@@ -34,6 +34,31 @@ public class uEstrategia {
 		
 	};
 	
+
+	
+	
+	
+	
+	
+	
+	/**
+	 * Cuando detecta una nave, realiza el seguimiento del mismo
+	 * @param elementos
+	 * @param nave
+	 */
+	public static void seguirNave(ArrayList<Elemento> elementos, Nave nave){
+		for (int i = 0; i < elementos.size(); i++) {
+			Elemento e = elementos.get(i);
+			if (e instanceof Nave){
+				if (e != nave){
+					nave.getRadar().setDireccion(((Nave) e).getDireccion());
+					
+				}
+			}
+		}
+	}
+	
+	
 	
 	public static void inteligenciaGreenwich(ArrayList<Elemento> elementos, Nave nave) {
 		for (int i = 0; i < elementos.size(); i++) {
@@ -41,7 +66,7 @@ public class uEstrategia {
 			Elemento e = elementos.get(i);
 			if (e instanceof Nave){
 				if (e != nave){
-					nave.dispararMunicion(nave);
+					nave.dispararMisil(nave);
 				}
 			}
 		}

@@ -25,11 +25,6 @@ public class Pasadizo extends Estatico{
 	}
 
 	@Override
-	public void jugar() {
-		
-	}
-
-	@Override
 	public void chocarContra(Elemento elemento) {
 		elemento.chocarContraPazadizo(this);
 	}

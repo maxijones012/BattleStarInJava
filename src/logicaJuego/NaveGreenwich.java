@@ -3,6 +3,7 @@ package logicaJuego;
 import java.util.ArrayList;
 import java.util.Random;
 
+import configuracion.Constante;
 import util.uArmamento;
 import util.uEstrategia;
 
@@ -15,29 +16,13 @@ public class NaveGreenwich extends Nave{
  */
 	public NaveGreenwich(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
 		super(posicion, tamanio, administradorJuego);
+		this.setDireccion(Constante.UP);
 	}
 	
 	@Override
 	public void jugar() {
-		super.jugar();
 		avanzar();
-	}
-	
-	
-	@Override
-	//TODO preguntar por el giro en un angulo x 
-	public void avanzar() {
-		super.avanzar();
-	}
-
-
-
-	@Override
-	/**
-	 * llamo al  metodo de chocarContra del elemento que choca con la nave
-	 */
-	public void chocarContra(Elemento elemento) {
-		elemento.chocarContra(this);
+		this.getRadar().girar(1);
 	}
 
 
@@ -47,7 +32,8 @@ public class NaveGreenwich extends Nave{
 	 * INVIERTO LA DIRECCION DE LA NAVE 
 	 */
 	public void chocarContraPared() {
-		girar(90);
+		this.girar(90);
+		this.avanzar();
 	}
 
 	@Override

@@ -33,6 +33,7 @@ public class NaveCrazy extends Nave{
 	@Override
 	public void chocarContraPared() {
 		super.girar(-90); //TODO CAPAZ QUE HAY QUE CAMBIARLO A 90
+		this.dispararMisil(this);
 	}
 
 

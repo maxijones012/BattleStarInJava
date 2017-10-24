@@ -20,8 +20,8 @@ public class NaveEcuatorial extends Nave{
 	
 	@Override
 	public void jugar() {
-		super.jugar();
 		if (chocoPared==true){			
+			avanzar();
 			avanzar();
 			this.turno--;
 			if (turno == 0){
@@ -29,12 +29,9 @@ public class NaveEcuatorial extends Nave{
 			}
 		}
 		this.avanzar();
+		this.getRadar().girar(5);
 	}
-	
-	@Override
-	public void avanzar() {
-		super.avanzar();
-	}
+
 
 
 
@@ -71,7 +68,7 @@ public class NaveEcuatorial extends Nave{
 				 if (contadorInternoNave<=3) {
 						this.dispararBomba(this);
 					}
-					this.dispararMunicion(this);
+					this.dispararMisil(this);
 					contadorInternoNave++;
 			 }
 			 if ((e instanceof Misil) || (e instanceof Bomba)){

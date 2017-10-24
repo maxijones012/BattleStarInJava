@@ -5,6 +5,7 @@ import java.awt.Rectangle;
 import java.util.Random;
 
 import configuracion.ConfiguracionInicial;
+import configuracion.Constante;
 import logicaJuego.Bonus;
 import logicaJuego.BonusInmunidad;
 import logicaJuego.BonusMisil;
@@ -58,9 +59,11 @@ public abstract class UAdministradorJuego {
 		
 		NaveManual naveManual = new NaveManual(new Posicion(450,250),tamanioNave, administradorJuego);
 		administradorJuego.addElemento(naveManual);
+		
 
 		NaveGreenwich naveGranwich = new NaveGreenwich(new Posicion(80, 500), tamanioNave, administradorJuego);
 		administradorJuego.addElemento(naveGranwich);
+		
 		
 		tamanioNave = new Tamanio(ConfiguracionInicial.ANCHO_NAVE,80);
 		NaveEcuatorial naveEcutaorial = new NaveEcuatorial(new Posicion(100, 255), tamanioNave, administradorJuego);

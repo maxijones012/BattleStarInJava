@@ -1,6 +1,7 @@
 package util;
 
 
+import configuracion.ConfiguracionInicial;
 import logicaJuego.Bomba;
 import logicaJuego.Misil;
 import logicaJuego.Nave;
@@ -50,8 +51,10 @@ public abstract class uArmamento {
 	 * @param nave que es la que crea el Misil
 	 */
 	public static void dispararMisil(Nave nave) {
+		int ancho=ConfiguracionInicial.ANCHO_MISIL;
+		int alto = ConfiguracionInicial.ALTO_MISIL;
 		if (nave.getCantidadMunicion() > 0){
-			Misil misil = new Misil(nave, new Posicion(nave.getPosicion().getX(), nave.getPosicion().getY()), new Tamanio(40,40),nave.getAdministradorJuego());
+			Misil misil = new Misil(nave, new Posicion(nave.getPosicion().getX(), nave.getPosicion().getY()), new Tamanio(ancho,alto),nave.getAdministradorJuego());
 			misil.setDireccion(nave.getDireccion());
 			misil.setDuenio(nave);
 			nave.setCantidadMunicion(nave.getCantidadMunicion()-1);	

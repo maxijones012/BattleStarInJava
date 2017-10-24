@@ -1,8 +1,11 @@
 package logicaJuego;
 
+import javax.sound.sampled.Clip;
+
 import configuracion.ConfiguracionInicial;
 import interfaces.INave;
 import interfaces.IRadarListener;
+import sonido.uSonido;
 import util.uArmamento;
 import util.uDebugConsola;
 import util.uEstrategia;
@@ -46,7 +49,7 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 			this.setNivelCombustible(this.getNivelCombustible()-1);
 			super.avanzar();
 		}else{
-			uEstrategia.girarCorrectorRadar(this,360, 90, 800);
+			uEstrategia.girarCorrectorRadar(this,360, 90, 1);
 		}
 		
 		
@@ -105,7 +108,7 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	 * Dispara una {@link Municion municion} desde la posicion de la nave 
 	 * @param nave
 	 */
-	public void dispararMunicion(Nave nave) {
+	public void dispararMisil(Nave nave) {
 		uArmamento.dispararMisil(nave);
 	}
 
@@ -184,7 +187,11 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	 * TODO durante una cierta cantidad de tiempo el flag de inmunidad esta en true
 	 */
 	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {
+//		String v = ("/sonido/laser2.wav");
+//		Clip bang = uSonido.cargarSonido(v);
+//		bang.start();
 		bonus.darBeneficio(this);
+		
 	}
 
 	@Override

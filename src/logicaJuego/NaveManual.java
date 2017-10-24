@@ -13,13 +13,16 @@ import javax.sound.sampled.DataLine;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
+
 import configuracion.ConfiguracionInicial;
+import configuracion.Constante;
+import sonido.uSonido;
 
 public class NaveManual extends Nave{
 
 	public NaveManual(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
 		super(posicion, tamanio, administradorJuego);
-		
 	}
 
 	
@@ -27,16 +30,14 @@ public class NaveManual extends Nave{
 	@Override
 	public void jugar() {
  		if(this.getAdministradorJuego().getConfiguracionInicial().isDisMunicion()){			
-			this.dispararMunicion(this);
+			this.dispararMisil(this);
 			this.getAdministradorJuego().getConfiguracionInicial().setDisMunicion(false);
-			String v = ("/sonido/laser.wav");
-			Clip bang = cargarSonido(v);
-			bang.start();
-//			bang.stop();
+			uSonido.reproducir("/sonido/misil2.wav");
 		}
 		if(this.getAdministradorJuego().getConfiguracionInicial().isDisBomba()){
 			this.dispararBomba(this);
 			this.getAdministradorJuego().getConfiguracionInicial().setDisBomba(false);
+			uSonido.reproducir("/sonido/laser2.wav");
 		}
 		if (this.getAdministradorJuego().getConfiguracionInicial().isDerecha()){
 			this.setDireccion(0);		
@@ -65,8 +66,8 @@ public class NaveManual extends Nave{
 
 	@Override
 	public void chocarContraPared() {
-		this.girar(180);
-		super.avanzar();
+		this.girar(270);
+		this.avanzar();
 	}
 
 

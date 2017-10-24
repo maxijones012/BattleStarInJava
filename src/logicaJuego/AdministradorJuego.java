@@ -3,6 +3,7 @@ package logicaJuego;
 import java.awt.Polygon;
 import java.awt.Rectangle;
 import java.util.ArrayList;
+import java.util.Random;
 
 import configuracion.ConfiguracionInicial;
 import grafica.vTableroJuego;
@@ -37,20 +38,22 @@ public class AdministradorJuego implements IAdministradorJuego{
 	@Override
 	public void iniciarJuego() {
 		crearElementos();
-		
+		espera(600);
 		vTableroJuego vista = new vTableroJuego(this);
 		while (true){
-//			crearBonus();
-			
-			turnos();
-			
-			vista.actualizar(this);
-			
-			verificarChoques();
-			
-			depurarElementos();
-			
-		 	espera(60);
+			if (!isPausa()){
+				crearBonus();
+				
+				turnos();
+				
+				vista.actualizar(this);
+				
+				verificarChoques();
+				
+				depurarElementos();
+				
+			 	espera(60);
+			}
 		}
 	}
 
@@ -63,7 +66,10 @@ public class AdministradorJuego implements IAdministradorJuego{
 	}
 
 	private void crearBonus() {
-		UAdministradorJuego.crearBonus(this);
+		Random rand = new Random();
+		if (rand.nextBoolean()==true){
+			UAdministradorJuego.crearBonus(this);
+		}
 		
 	}
 

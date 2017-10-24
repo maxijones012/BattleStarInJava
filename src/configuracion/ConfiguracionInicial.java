@@ -15,8 +15,8 @@ public class ConfiguracionInicial {
 	private int tiempoDeExplosion=150;
 	private int nivelCombustible=800;
 	
-	private int anchoNave=40;
-	private int altoNave=40;
+	private int anchoNave=70;
+	private int altoNave=70;
 	
 	
 	
@@ -40,8 +40,8 @@ public class ConfiguracionInicial {
 	public static final int ALTO_PASADIZO=40;
 	public static final int ANCHO_PASADIZO=40;
 	
-	public static final int ANCHO_NAVE=40;
-	public static final int ALTO_NAVE=40;
+	public static final int ANCHO_NAVE=50;
+	public static final int ALTO_NAVE=50;
 
 	public static final int POSICION_X_OBSTACULO_EXPLOSIVO = 800;
 	public static final int POSICION_Y_OBSTACULO_EXPLOSIVO = 200;
@@ -55,6 +55,9 @@ public class ConfiguracionInicial {
 	public static final int CANTIDAD_MUNICION = 50;
 
 	public static final int CANTIDAD_BOMBA = 50;
+
+	public static final int ANCHO_MISIL = 50;
+	public static final int ALTO_MISIL = 20;
 		
 	private int nivelDanioBomba=50;
 	private int danioMisil=20;
@@ -74,7 +77,7 @@ public class ConfiguracionInicial {
 	
 	private int tiempoInmunidad=25;
 	private int alcanceRadar=250;
-	private int anguloAperturaRadar=13;
+	private int anguloAperturaRadar=15;
 	
 	
 	private int quitarNivelCombustible=50;
