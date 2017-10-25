@@ -22,6 +22,7 @@ public class NaveGreenwich extends Nave{
 	@Override
 	public void jugar() {
 		avanzar();
+		this.getRadar().escanear();
 		this.getRadar().girar(1);
 	}
 
@@ -54,5 +55,7 @@ public class NaveGreenwich extends Nave{
 	public String toString() {
 		return ("GREENWICH");
 	}
+	
+
 
 }

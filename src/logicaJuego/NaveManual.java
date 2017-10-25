@@ -1,24 +1,14 @@
 package logicaJuego;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+
 import java.util.ArrayList;
-
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.DataLine;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
-
-import configuracion.ConfiguracionInicial;
-import configuracion.Constante;
 import sonido.uSonido;
 
+/**
+ * Clase de la Nave Manua, controlado por Teclado
+ * @author Maxi Jones
+ *
+ */
 public class NaveManual extends Nave{
 
 	public NaveManual(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
@@ -29,6 +19,7 @@ public class NaveManual extends Nave{
 	
 	@Override
 	public void jugar() {
+		this.getRadar().escanear();
  		if(this.getAdministradorJuego().getConfiguracionInicial().isDisMunicion()){			
 			this.dispararMisil(this);
 			this.getAdministradorJuego().getConfiguracionInicial().setDisMunicion(false);
@@ -62,12 +53,14 @@ public class NaveManual extends Nave{
 	}
 	@Override
 	public void elementosVistos(ArrayList<Elemento> elementos) {
+//		uEstrategia.inteligenciaDisparar(elementos, this);
 	}
 
 	@Override
 	public void chocarContraPared() {
-		this.girar(270);
-		this.avanzar();
+		cambiarDireccion(-180);
+		super.avanzar();
+
 	}
 
 
@@ -78,20 +71,20 @@ public class NaveManual extends Nave{
 	}
 	
 	
-	public static Clip cargarSonido(final String ruta){
-		Clip clip = null;
-		try{
-			InputStream is = ClassLoader.class .getResourceAsStream(ruta);
-			AudioInputStream ais = AudioSystem.getAudioInputStream(new BufferedInputStream(is));
-			DataLine.Info info = new DataLine.Info(Clip.class, ais.getFormat());
-			clip = (Clip) AudioSystem.getLine(info);
-			clip.open(ais);
-					
-				
-		}  catch (Exception e){
-			e.printStackTrace();
-		}
-		return clip;
+	public void cambiarDireccion(int i){
+		this.setDireccion(this.getDireccion()-i);
+		super.avanzar();
+
+	};
+	
+	
+	
+
+	@Override
+	public void chocarContraBonusMisil(BonusMisil bonus) {
+		super.chocarContraBonusMisil(bonus);
+		uSonido.reproducir("/sonido/bonus.wav");
 	}
+
 
 }

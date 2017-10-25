@@ -19,7 +19,7 @@ public class Posicion{
 	}
 	/**
 	 * Setea la posicion con un valor X 
-	 * @param posicionX
+	 * @param x
 	 */
 	public void setX(int x) {
 		X = x;
@@ -35,7 +35,7 @@ public class Posicion{
 	}
 	/**
 	 * Setea la posicion con un valor Y
-	 * @param posicionY
+	 * @param y
 	 */
 	public void setY(int y) {
 		Y = y;

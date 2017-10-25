@@ -2,6 +2,7 @@ package logicaJuego;
 
 
 import interfaces.IElemento;
+import util.uDebugConsola;
 
 public abstract class Elemento implements IElemento{
 	private int nivelVida; 

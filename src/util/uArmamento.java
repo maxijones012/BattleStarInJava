@@ -36,8 +36,11 @@ public abstract class uArmamento {
 	 * @param nave
 	 */
 	public static void dispararBomba(Nave nave) {
-		if (nave.getCantidadBomba() > 0){			
-			Bomba b = new Bomba(nave, new Posicion(nave.getPosicion().getX(), nave.getPosicion().getY()), new Tamanio(40,40),nave.getAdministradorJuego());
+		if (nave.getCantidadBomba() > 0){	
+			int ancho = ConfiguracionInicial.ANCHO_BOMBA;
+			int alto = ConfiguracionInicial.ALTO_BOMBA;
+			
+			Bomba b = new Bomba(nave, new Posicion(nave.getPosicion().getX(), nave.getPosicion().getY()), new Tamanio(ancho,alto),nave.getAdministradorJuego());
 			b.setDireccion(nave.getDireccion());
 			b.setDuenio(nave);
 			nave.setCantidadBomba(nave.getCantidadBomba()-1);

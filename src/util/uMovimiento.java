@@ -35,7 +35,7 @@ public abstract class uMovimiento{
 	
 	/**
 	 * Avanza obteniendo la posicion del objeto {@link Moible movible} en Y
-	 * @param movible
+	 * @param obj
 	 */
 	public static void avanzarY(Movible obj){
 		obj.getPosicion().setY((int) (obj.getPosicion().getY()+ Math.sin(Math.toRadians(obj.getDireccion()))*obj.getVelocidadAvance()));		

@@ -1,7 +1,9 @@
 package util;
 
 
+import java.awt.Font;
 import java.awt.Rectangle;
+import java.util.ArrayList;
 import java.util.Random;
 
 import configuracion.ConfiguracionInicial;
@@ -11,6 +13,7 @@ import logicaJuego.BonusInmunidad;
 import logicaJuego.BonusMisil;
 import logicaJuego.BonusReparacion;
 import logicaJuego.Elemento;
+import logicaJuego.Nave;
 import logicaJuego.AdministradorJuego;
 import logicaJuego.NaveCrazy;
 import logicaJuego.NaveEcuatorial;
@@ -53,7 +56,7 @@ public abstract class UAdministradorJuego {
 	public static void crearElementos(AdministradorJuego administradorJuego) {
 		Tamanio tamanioNave = new Tamanio(ConfiguracionInicial.ANCHO_NAVE,ConfiguracionInicial.ALTO_NAVE);
 		
-		NaveCrazy naveCrazy = new NaveCrazy(new Posicion(707, 100), tamanioNave, administradorJuego);
+		NaveCrazy naveCrazy = new NaveCrazy(new Posicion(607, 100), tamanioNave, administradorJuego);
 		administradorJuego.getListaElemento().add(naveCrazy);
 		
 		
@@ -61,7 +64,7 @@ public abstract class UAdministradorJuego {
 		administradorJuego.addElemento(naveManual);
 		
 
-		NaveGreenwich naveGranwich = new NaveGreenwich(new Posicion(80, 500), tamanioNave, administradorJuego);
+		NaveGreenwich naveGranwich = new NaveGreenwich(new Posicion(200, 500), tamanioNave, administradorJuego);
 		administradorJuego.addElemento(naveGranwich);
 		
 		
@@ -93,7 +96,10 @@ public abstract class UAdministradorJuego {
 		
 	}
 	
-	
+	/**
+	 * Crea bonus aleatorios y de distintos tipos
+	 * @param administradorJuego
+	 */
 	public static void crearBonus(AdministradorJuego administradorJuego) {
 		  Random timeRandom = new Random();
 		  int tiempoRandom = (int)(timeRandom.nextDouble()*10);  //3000
@@ -120,8 +126,6 @@ public abstract class UAdministradorJuego {
 			bonus.getTamanio().setAlto(administradorJuego.getConfiguracionInicial().getAltoBonus());
 			bonus.getTamanio().setAncho(administradorJuego.getConfiguracionInicial().getAnchoBonus());
 			
-			bonus.setTiempoVida(99);
-
 			
 			administradorJuego.getListaElemento().add(bonus);
 			administradorJuego.setBonusAleatorio(false);
@@ -172,8 +176,17 @@ public abstract class UAdministradorJuego {
 			
 			
 			// estaContenidoDentro, hace referencia si no se paso del tope del tablero
-			// esta contenidoposito, se fija si las posiciones son positivas 
-			boolean estaContenidoDentro = ( (coord1 >= administradorJuego.getConfiguracionInicial().getAnchoEscenario()) || (coord2 >= administradorJuego.getConfiguracionInicial().getAltoEscenario()) ); 
+			// esta contenidoposito, se fija si las posiciones son positivas
+			
+			//controlamos la posicion de arriba
+			int correctorVentana=100;
+			coord1 = coord1 + correctorVentana;
+			coord2 = coord2 + correctorVentana;
+			boolean estaContenidoDentro = ( (coord1 >= administradorJuego.getConfiguracionInicial().getAnchoEscenario()) || (coord2 >= administradorJuego.getConfiguracionInicial().getAltoEscenario()) );
+
+			//controlamos la posicion de abajo
+			coord1 = coord1 - correctorVentana;
+			coord2 = coord2 - correctorVentana;
 			boolean estaContenidoPositivo= (coord1<= 0) || (coord2 <= 0 ); 
 			if(estaContenidoPositivo || estaContenidoDentro){
 				e1.chocarContraPared();
@@ -181,6 +194,35 @@ public abstract class UAdministradorJuego {
 		}
 
 
+	}
+
+	/**
+	 * Busca todas las naves vivas que quedaon al finalizar el juego, y las muestra
+	 * @param elementos
+	 * @return
+	 */
+	public static int buscarNaveVivos(ArrayList<Elemento> elementos) {
+		int contador=0;
+		for (int i = 0; i < elementos.size(); i++) {
+			Elemento e = elementos.get(i);
+			if (e instanceof Nave){
+				contador++;
+				Nave nave = (Nave) e;
+				mostrarNave(nave);
+			}
+		}
+		return (contador);
+	}
+
+	
+	/**
+	 * Muestra el nombre de las nave ganadoras
+	 * @param nave
+	 */
+	private static void mostrarNave(Nave nave) {
+		String c = nave.getClass().getName();
+		c = c.substring(12, c.length());
+		System.out.println("GANADOR: "+ c);
 	}
 
 	

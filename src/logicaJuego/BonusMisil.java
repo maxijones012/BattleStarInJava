@@ -13,11 +13,7 @@ public class BonusMisil extends Bonus{
 		super(posicion, tamanio, administradorJuego, nave);
 	}
 
-	@Override
-	public void jugar() {
-		
-		
-	}
+
 
 	@Override
 	/**

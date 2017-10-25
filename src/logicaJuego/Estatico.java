@@ -11,7 +11,7 @@ public abstract class Estatico extends Elemento{
 	 * constructor de la clase estatico
 	 * @param posicion
 	 * @param tamanio
-	 * @param administradorJuego
+	 * @param AdministradorJuego
 	 */
 	public Estatico(Posicion posicion, Tamanio tamanio, AdministradorJuego AdministradorJuego) {
 		super(posicion, tamanio, AdministradorJuego);

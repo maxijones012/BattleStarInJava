@@ -8,7 +8,7 @@ public class Misil extends Movible{
 	
 	/**
 	 * Constructor de la clase Misil donde toma la posicion de la {@link Nave nave}
-	 * @param nave
+	 * @param duenio
 	 * @param posicion
 	 * @param tamanio
 	 * @param administradorJuego

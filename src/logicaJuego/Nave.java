@@ -24,19 +24,36 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	private int tiempoInmunidad; 
 	private int nivelVida;
 	
-//	constructor
+	/**
+	 * Constructor de la Super Clase Nave
+	 * @param posicion
+	 * @param tamanio
+	 * @param administradorJuego
+	 */
 	public Nave(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
 		super(posicion, new Tamanio(administradorJuego.getConfiguracionInicial().getAnchoNave(), administradorJuego.getConfiguracionInicial().getAltoNave()),administradorJuego);
 		this.nivelVida=this.getAministradorJuego().getConfiguracionInicial().getNivelVida();
 		this.cantidadMunicion=this.getAdministradorJuego().getConfiguracionInicial().getCantidadMunicionNave();
 		this.tiempoInmunidad=this.getAministradorJuego().getConfiguracionInicial().getTiempoInmunidad();
 		this.nivelCombustible=this.getAministradorJuego().getConfiguracionInicial().getNivelCombustible();
-		this.radar=new Radar(posicion, tamanio, administradorJuego, this);
+		crearRadar(posicion, tamanio, administradorJuego, this);
 		this.radar.addRadarListener(this);
 		
 	}
 
+	/**
+	 * Crea y corrige la posicion del Radar
+	 * @param posicion
+	 * @param tamanio
+	 * @param administradorJuego
+	 * @param nave
+	 */
+	private void crearRadar(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego, Nave nave) {
+		this.radar=new Radar(posicion, tamanio, administradorJuego, this);
 	
+	}
+
+
 //---------------------------------------------------------------
 
 
@@ -58,7 +75,8 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	
 	@Override
 	public void jugar() {
-		
+		uDebugConsola.posicion(this);
+		uDebugConsola.mostrarNombreElemento(this);
 		super.jugar();
 		controlarInmunidad();
 		//tengo escudo		
@@ -105,7 +123,7 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	
 	
 	/**
-	 * Dispara una {@link Municion municion} desde la posicion de la nave 
+	 * Dispara una {@link Misil misil} desde la posicion de la nave 
 	 * @param nave
 	 */
 	public void dispararMisil(Nave nave) {
@@ -187,9 +205,6 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	 * TODO durante una cierta cantidad de tiempo el flag de inmunidad esta en true
 	 */
 	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {
-//		String v = ("/sonido/laser2.wav");
-//		Clip bang = uSonido.cargarSonido(v);
-//		bang.start();
 		bonus.darBeneficio(this);
 		
 	}
@@ -240,7 +255,7 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	 */
 	public void chocarContraBomba(Bomba bomba) {
 		if (bomba.getDuenio()!=this){
-			this.setNivelVida(getNivelVida()-bomba.getDanioBomba());	// TODO Auto-generated method stub
+			this.setNivelVida(getNivelVida()-bomba.getDanioBomba());
 		}
 		
 	}
@@ -260,16 +275,36 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	 * reduzco el nivel de escudo de la nave 
 	 */
 	public void chocarContraNave(Nave nave) {
-		this.girar(90);
+		this.girar(10);
 	}
 
 	
 	@Override
 	public void chocarContraPazadizo(Pasadizo pasadizo) {
-		this.setPosicion(pasadizo.getPasadizoSalida());
+		
+//		Posicion posicionCorrector = pasadizo.getPasadizoSalida();
+//		posicionCorrector.setX(posicionCorrector.getX()+20);
+//		posicionCorrector.setY(posicionCorrector.getY()+20);
+//		this.setPosicion(pasadizo.getPasadizoSalida());
+		this.getPosicion().setX(pasadizo.getPasadizoSalida().getX());
+		this.getPosicion().setY(pasadizo.getPasadizoSalida().getY());
+		
+		avanzarMuchasVeces(9);
+		 
+//		System.out.println(this.getClass().getName());
+//		System.out.println("pasadizo salida X: "+ pasadizo.getPasadizoSalida().getX()+" Y: "+pasadizo.getPasadizoSalida().getY());
+//		
+//		this.setPosicion(posicionCorrector);
 	}
 	
 	
+	private void avanzarMuchasVeces(int i) {
+		for (int j = 0; j < i; j++) {
+			this.avanzar();
+		}
+		
+	}
+
 	@Override
 	public void chocarContraMisil(Misil misil) {
 		if (misil.getDuenio()!= this){

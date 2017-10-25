@@ -15,21 +15,22 @@ public class NaveEcuatorial extends Nave{
 	public NaveEcuatorial(Posicion posicion, Tamanio tamanio, AdministradorJuego escenario) {
 		super(posicion, tamanio, escenario);
 		this.cantidadAvanceVertical=this.getAministradorJuego().getConfiguracionInicial().getCantidadAvanceHaciaArriba();
-		
+		this.setDireccion(90);
 	}
 	
 	@Override
 	public void jugar() {
 		if (chocoPared==true){			
 			avanzar();
-			avanzar();
 			this.turno--;
 			if (turno == 0){
 				chocoPared=false;
 			}
 		}
+		this.getRadar().escanear();
 		this.avanzar();
 		this.getRadar().girar(5);
+//		super.jugar();
 	}
 
 
@@ -43,6 +44,11 @@ public class NaveEcuatorial extends Nave{
 		calcularDesplazamiento();
 	}
 
+	
+	/**
+	 * genera una inteligencia para que aleatoriamente decida
+	 *  si avanza hacia arriba o hacia abajo
+	 */
 	private void calcularDesplazamiento() {
 
 		Random randx = new Random();
@@ -60,20 +66,19 @@ public class NaveEcuatorial extends Nave{
 	public void elementosVistos(ArrayList<Elemento> elementos) {
 //		 Dispara misiles  cuando  detecta  una  nave  en  el  radar.  Si  por  el  contrario  
 //		detecta  a  más  de  3  naves,  dispara​ ​una​ ​bomba.
-		int contadorInternoNave=0;
+		int cant = buscarCantidadNave(elementos);
 		for (int i = 0; i < elementos.size(); i++) {
 			
-			 Elemento e = elementos.get(i);
-			 if (e instanceof Nave){
-				 if (contadorInternoNave<=3) {
-						this.dispararBomba(this);
-					}
+			if (cant>0){
+				if (cant==3){
+					this.dispararBomba(this);
+				}else
 					this.dispararMisil(this);
-					contadorInternoNave++;
-			 }
-			 if ((e instanceof Misil) || (e instanceof Bomba)){
+			}
+			 Elemento e = elementos.get(i);
+
+			 if ((e instanceof Misil) || (e instanceof Bomba) || (e instanceof Nave)){
 					uEstrategia.eludir(this);
-					
 				}
 		}
 		
@@ -82,12 +87,27 @@ public class NaveEcuatorial extends Nave{
 	
 	
 
-	
+	/**
+	 * busca la cantidad de Naves que se han detectado
+	 * @param elementos
+	 * @return
+	 */
+	private int buscarCantidadNave(ArrayList<Elemento> elementos) {
+		int contador=0;
+		
+		for (int i = 0; i < elementos.size(); i++) {
+			 Elemento e = elementos.get(i);
+
+			if (e instanceof Nave){contador++;}
+		}
+		return (contador);
+	}
+
 	@Override
 	public String toString() {
 		return ("ECUATORIAL");
 	}
 
-	
+
 	
 }

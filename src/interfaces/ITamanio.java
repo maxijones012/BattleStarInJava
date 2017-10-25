@@ -19,7 +19,7 @@ public interface ITamanio {
 	/**
 	 * Setea el ancho del elemento
 	 * 
-	 * @param ancho ancho del elemento
+	 * @param ancho del elemento
 	 */
 	public void setAlto(int alto);
 	

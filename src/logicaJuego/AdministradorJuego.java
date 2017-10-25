@@ -26,6 +26,8 @@ public class AdministradorJuego implements IAdministradorJuego{
 	private int ancho;
 	private int alto;
 	private boolean pausa=false;
+	private int tiempo=0;
+	private int duracionJuego=ConfiguracionInicial.DURACION_JUEGO;
 	
 	
 	public AdministradorJuego(ConfiguracionInicial configuracionInicial) {
@@ -38,9 +40,8 @@ public class AdministradorJuego implements IAdministradorJuego{
 	@Override
 	public void iniciarJuego() {
 		crearElementos();
-		espera(600);
 		vTableroJuego vista = new vTableroJuego(this);
-		while (true){
+		while (tiempo<duracionJuego){
 			if (!isPausa()){
 				crearBonus();
 				
@@ -54,7 +55,20 @@ public class AdministradorJuego implements IAdministradorJuego{
 				
 			 	espera(60);
 			}
+			tiempo++;
 		}
+		verificarResultados();
+	}
+
+	
+	/**
+	 * Verifica los resultados de cada uno, muestra la nave ganadora
+	 */
+	private void verificarResultados() {
+		int cant=UAdministradorJuego.buscarNaveVivos(this.getListaElemento());
+		System.out.println("CANTIDAD VIVOS: "+cant);
+		
+		
 	}
 
 	/**
@@ -146,7 +160,7 @@ public class AdministradorJuego implements IAdministradorJuego{
 
 	/**
 	 * añade a una lista todos los elementos que puede visualizar un radar
-	 * @param radar
+	 * @param radar que posee una {@link Nave nave}
 	 * @return lista de elementos
 	 */
 	public ArrayList<Elemento> detectarElementos(Radar radar){
@@ -176,6 +190,14 @@ public class AdministradorJuego implements IAdministradorJuego{
 	 */
 	private void depurarElementos() {
 		UAdministradorJuego.eliminarElementos(this);
+	}
+
+	public int getTiempo() {
+		return tiempo;
+	}
+
+	public void setTiempo(int tiempo) {
+		this.tiempo = tiempo;
 	}
 	
 	

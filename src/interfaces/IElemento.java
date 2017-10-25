@@ -45,13 +45,11 @@ public interface IElemento {
      *Cuando una nave choca contra el bonus se restaura el valor de combustible por defaul
      * y aumenta su nivel de vida en n unidadess
      * @param bonus
-     * @param nave
      */
 	public abstract void chocarContraBonusReparacion (BonusReparacion bonus);
 	/**
 	 * Se otogra un tiempo de inmunidada a la nave 
 	 * @param bonus
-	 * @param nave
 	 */
 	public abstract void chocarContraBonusInmunidad(BonusInmunidad bonus);
 	
@@ -64,10 +62,7 @@ public interface IElemento {
 // 
 	/**
 	 * Verifica  si la nave se superpone con el  bonus 
-	 * TODO EL BONUS EJECUTA SU METODO DESTRUIR 
-	 * TODO LA NAVE RECIBE EL BONUS CON EL QUE CHOCA
 	 * @param nave
-	 * @param bonus
 	 */
 	public abstract void chocarContraNave(Nave nave);
 //	

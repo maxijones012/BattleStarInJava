@@ -14,7 +14,7 @@ public abstract class Bonus extends Estatico{
 	@Override
 	public void jugar(){
 		if (this.getTiempoVida()>0){
-			this.setNivelVida(getNivelVida()-1);
+			this.setTiempoVida(this.getTiempoVida()-1);
 		}
 		else{
 			super.destruir(this);

@@ -11,9 +11,10 @@ import logicaJuego.AdministradorJuego;
 public class ConfiguracionInicial {
 	private AdministradorJuego administradorJuego;
 	
-	private int nivelVida=100000;
+	public static final int DURACION_JUEGO = 1000;
+	private int nivelVida=10000;
 	private int tiempoDeExplosion=150;
-	private int nivelCombustible=800;
+	private int nivelCombustible=100000000; //debe estar en 1000
 	
 	private int anchoNave=70;
 	private int altoNave=70;
@@ -29,7 +30,7 @@ public class ConfiguracionInicial {
 	public static final int POSICION_X_PASADIZO_A=200;
 	public static final int POSICION_Y_PASADIZO_A=200;
 
-	public static final int POSICION_X_PASADIZO_B=530;
+	public static final int POSICION_X_PASADIZO_B=730;
 	public static final int POSICION_Y_PASADIZO_B=430;
 	
 	
@@ -37,8 +38,8 @@ public class ConfiguracionInicial {
 	
 	private int anchoEscenario=900;
 	private int altoEscenario=700;
-	public static final int ALTO_PASADIZO=40;
-	public static final int ANCHO_PASADIZO=40;
+	public static final int ALTO_PASADIZO=30;
+	public static final int ANCHO_PASADIZO=30;
 	
 	public static final int ANCHO_NAVE=50;
 	public static final int ALTO_NAVE=50;
@@ -50,7 +51,7 @@ public class ConfiguracionInicial {
 	public static final int ALTO_OBSTACULO_EXPLOSIVO = 80;
 
 	public static final int VELOCIDAD_MISIL = 35;
-	public static final int VELOCIDAD_BOMBA = 20;
+	public static final int VELOCIDAD_BOMBA = 30;
 
 	public static final int CANTIDAD_MUNICION = 50;
 
@@ -58,6 +59,12 @@ public class ConfiguracionInicial {
 
 	public static final int ANCHO_MISIL = 50;
 	public static final int ALTO_MISIL = 20;
+
+	public static final int ANCHO_BOMBA = 40;
+	public static final int ALTO_BOMBA = 40;
+
+	public static final int DANIO_OBSTACULO_EXPLOSIVO = 80;
+
 		
 	private int nivelDanioBomba=50;
 	private int danioMisil=20;
@@ -83,7 +90,7 @@ public class ConfiguracionInicial {
 	private int quitarNivelCombustible=50;
 	private int tiempoExposicion=10;
 	
-	private int tiempoVidaBonus=10;
+	private int tiempoVidaBonus=50;
 	
 	
 	private boolean arriba;

@@ -10,8 +10,7 @@ import javax.sound.sampled.DataLine;
 
 public class uSonido {
 
-	//TODO DEBERIA SER PRIVATE
-	public static Clip cargarSonido(final String ruta){
+	private static Clip cargarSonido(final String ruta){
 		Clip clip = null;
 		try{
 			InputStream is = ClassLoader.class .getResourceAsStream(ruta);
@@ -27,6 +26,10 @@ public class uSonido {
 		return clip;
 	}
 	
+	/**
+	 * crea y reproduce un sonido con @param ruta
+	 * @param ruta ejemplo de uso "/sonido/bomba.wav"
+	 */
 	public static void reproducir(final String ruta){
 		Clip bang = cargarSonido(ruta);
 		bang.start();

@@ -3,10 +3,10 @@ package util;
 import java.util.ArrayList;
 
 import logicaJuego.Bomba;
+import logicaJuego.Bonus;
 import logicaJuego.Elemento;
 import logicaJuego.Misil;
 import logicaJuego.Nave;
-import logicaJuego.NaveGreenwich;
 
 public class uEstrategia {
 
@@ -29,6 +29,10 @@ public class uEstrategia {
 				if (e != nave){
 					uEstrategia.eludir(nave);
 				}
+			}
+			
+			if (e instanceof Bonus){
+				nave.dispararMisil(nave);
 			}
 		}
 		
@@ -105,5 +109,16 @@ public class uEstrategia {
 		}
 	}
 	
-	
+	public static void inteligenciaDisparar(ArrayList<Elemento> elementos, Nave nave) {
+		for (int i = 0; i < elementos.size(); i++) {
+//			nave.dispararMunicion(nave);
+			Elemento e = elementos.get(i);
+			if (e instanceof Nave){
+				if (e != nave){
+					nave.dispararMisil(nave);
+				}
+			}
+		}
+		
+	};
 }

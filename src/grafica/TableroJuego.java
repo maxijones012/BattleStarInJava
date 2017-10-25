@@ -13,6 +13,7 @@ import java.io.File;
 import java.util.HashMap;
 import javax.imageio.ImageIO;
 
+import com.sun.javafx.tk.FontMetrics;
 import com.sun.prism.paint.Color;
 
 import logicaJuego.AdministradorJuego;
@@ -20,6 +21,8 @@ import logicaJuego.Bomba;
 import logicaJuego.Elemento;
 import logicaJuego.Movible;
 import logicaJuego.Nave;
+import logicaJuego.NaveGreenwich;
+import logicaJuego.ObstaculoExplosivo;
 import util.Controles;
 import util.uGrafica;
 import util.uMovimiento;
@@ -34,7 +37,7 @@ public class TableroJuego extends Canvas implements KeyListener{
 
 	/**
 	 * Constructor de la clase tablero de Juego, donde se  dibujan los elementos 
-	 * 
+	 * @param administradorJuego
 	 */
 	public TableroJuego(AdministradorJuego administradorJuego) {
 		this.administradorJuego=administradorJuego;
@@ -43,7 +46,9 @@ public class TableroJuego extends Canvas implements KeyListener{
 		
 	}
 			
-			
+	/**
+	 * Crea un buffer para eliminar el parpadeo de la pantalla
+	 */
 	public void inicializar() {		
 		//Crea dos buffers para dibujar.
 		this.createBufferStrategy(2);		
@@ -52,6 +57,11 @@ public class TableroJuego extends Canvas implements KeyListener{
 	
 	
 	
+	
+	
+	/**
+	 * Dibuja los {@link Elemento elementos} en el escenario del juego
+	 */
 	private void dibujar(){
 		for (int i=0; i< administradorJuego.getListaElemento().size(); i++){
 			//pinto cada elemento
@@ -68,21 +78,28 @@ public class TableroJuego extends Canvas implements KeyListener{
 				Movible e2 = (Movible) e;				
 				eImagen = rotarImagen(eImagen, e2.getDireccion());
 				if (e2 instanceof Nave){
-					Nave Nave = (Nave) e2;
-					uGrafica.dibujarRadar(this, Nave);
+					Nave nave = (Nave) e2;
+					uGrafica.dibujarRadar(this, nave);
 					String nombre = e2.toString();
 					this.getGrafico2D().drawString(nombre, x, y);
+					
+//					if (nave.getInmunidad()){
+//						eImagen = getImagen(e.getClass().getName()+"Explotando")
+//					}
 				}
 				
-				if (e2 instanceof Bomba){
-					Bomba bomba = (Bomba) e2;
-					if (bomba.isEstaExplotando()==true){
-						uGrafica.dibujarExplosion(this,bomba);
-					}
-				}
-
 			}
-
+			
+			if (e instanceof ObstaculoExplosivo){
+				ObstaculoExplosivo obstaculoExplosivo = (ObstaculoExplosivo) e;
+				if (obstaculoExplosivo.isExplotando()==true){
+//						uGrafica.dibujarExplosion(this,bomba);
+					eImagen = getImagen(e.getClass().getName()+"Explotando");
+				}
+			}
+			
+			dibujarTiempoJuego(this, 40, 40);
+			
 			this.getGrafico2D().drawImage(eImagen, x, y, e.getTamanio().getAncho(), e.getTamanio().getAlto(), null);
 			this.getGrafico2D().dispose();
 		}
@@ -92,6 +109,21 @@ public class TableroJuego extends Canvas implements KeyListener{
 	}
 
 
+	/**
+	 * Dibuja un contador en la pantalla en posicion (x,y)
+	 * @param tableroJuego
+	 * @param posX
+	 * @param posY
+	 */
+	private void dibujarTiempoJuego(TableroJuego tableroJuego, int posX, int posY) {
+		int tiempo = (tableroJuego.getAdministradorJuego().getTiempo());
+		String ctiempo = Integer.toString(tiempo);			
+//		Font fuente = new Font("Monospaced", Font.ITALIC , 90);
+//		this.getGrafico2D().setFont(fuente);
+//		FontMetrics fm =  this.getGrafico2D().FontMetrics();
+//		
+		this.getGrafico2D().drawString(ctiempo, 40, 40);		
+	}
 
 	public Graphics2D getGrafico2D(){		
 		if (this.getBufferStrategy() == null)
@@ -101,6 +133,12 @@ public class TableroJuego extends Canvas implements KeyListener{
 	}
 	
 	
+	
+	/**
+	 * 
+	 * @param key
+	 * @return
+	 */
 	private BufferedImage getImagen(String key){
 		if (listaImagenes == null)
 			listaImagenes = new HashMap<String, BufferedImage>();
@@ -111,6 +149,7 @@ public class TableroJuego extends Canvas implements KeyListener{
 				if (key != "fondo")
 					img = uGrafica.cambiarTamanio(img, getAnchoNave(), getAltoNave());
 				listaImagenes.put(key, img);
+				
 			}
 		}
 		return img;
@@ -125,7 +164,7 @@ public class TableroJuego extends Canvas implements KeyListener{
 	 * Se rota la imagen del elemento y se la devuelve en {@link BufferedImage bufferedImage}
 	 * @param image
 	 * @param angulo
-	 * @return
+	 * @return Imagen rotada
 	 */
 	public BufferedImage rotarImagen(BufferedImage image, int angulo){
 		return (uGrafica.rotar(image, angulo));
@@ -136,11 +175,20 @@ public class TableroJuego extends Canvas implements KeyListener{
 	
 	
 
-
+	/**
+	 * Obtengo el buffer que contiene todas las imagenes del juego
+	 * @return listaImagenes
+	 */
 	public HashMap<String, BufferedImage> getListaImagenes() {
 		return listaImagenes;
 	}
 
+	
+	/**
+	 * Carga las imagenes desde el fichero de sistema
+	 * @param fileName
+	 * @return new FileName or "no se encontro la imagen"
+	 */
 	private BufferedImage cargarImagen(String fileName){
 		try {
 			return ImageIO.read(new File(fileName));

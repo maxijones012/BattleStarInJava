@@ -29,10 +29,9 @@ public class NaveCrazy extends Nave{
 
 
 
-
 	@Override
 	public void chocarContraPared() {
-		super.girar(-90); //TODO CAPAZ QUE HAY QUE CAMBIARLO A 90
+		super.girar(-70); //TODO CAPAZ QUE HAY QUE CAMBIARLO A 90
 		this.dispararMisil(this);
 	}
 
@@ -46,15 +45,6 @@ public class NaveCrazy extends Nave{
 
 	}
 
-
-
-
-
-
-
-
-
-
 	
 	@Override
 	public String toString() {
@@ -63,6 +53,5 @@ public class NaveCrazy extends Nave{
 
 
 
-	
 
 }
