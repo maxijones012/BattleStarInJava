@@ -33,6 +33,7 @@ public class NaveCrazy extends Nave{
 	public void chocarContraPared() {
 		super.girar(-70); //TODO CAPAZ QUE HAY QUE CAMBIARLO A 90
 		this.dispararMisil(this);
+		System.out.println("Nave choco contra pared");
 	}
 
 

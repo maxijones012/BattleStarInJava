@@ -1,6 +1,7 @@
 package util;
 
 import logicaJuego.Elemento;
+import logicaJuego.Nave;
 
 public abstract class uDebugConsola {
 
@@ -15,5 +16,41 @@ public abstract class uDebugConsola {
 		String c = elemento.getClass().getName();
 		c = c.substring(12, c.length());
 		System.out.println(c);
+		System.out.println("|------------------------------------------");
+	};
+
+	
+	
+	public static String retornarNombreElemento(Elemento elemento){
+		String c = elemento.getClass().getName();
+		c = c.substring(12, c.length());
+		return (c);
+	};
+	
+	public static void mostrarColision(Elemento e, Elemento e1){
+		String c = e.getClass().getName();
+		c = c.substring(12, c.length());
+		
+		String c1 = e1.getClass().getName();
+		c1 = c1.substring(12, c1.length());
+		
+		System.out.println("COLISION: ");
+		
+		System.out.println(c +", con: "+ c1);
+		
+	}
+	
+	
+	/**
+	 * Muestra  el estado del elemento, vida, posicion
+	 * @param elemento
+	 * @return
+	 */
+	public static String mostrarEstado(Elemento elemento) {
+		String c=("Vida: "+Integer.toString(elemento.getNivelVida())); 
+		c +=(", X: "+Integer.toString(elemento.getPosicion().getX())); 
+		c += (", Y: "+Integer.toString(elemento.getPosicion().getY()));
+		
+		return c;
 	};
 }

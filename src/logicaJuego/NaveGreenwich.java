@@ -35,6 +35,7 @@ public class NaveGreenwich extends Nave{
 	public void chocarContraPared() {
 		this.girar(90);
 		this.avanzar();
+		System.out.println("Nave choco contra pared");
 	}
 
 	@Override

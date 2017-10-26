@@ -6,7 +6,11 @@ import logicaJuego.Nave;
 
 public class uGrafica {
 
-	
+	/**
+	 * Dibuja el radar de la nave
+	 * @param tableroJuego
+	 * @param nave
+	 */
 	public static void dibujarRadar(TableroJuego tableroJuego, Nave nave) {
 		tableroJuego.getGrafico2D().drawPolygon(nave.getRadar().getAreaCobertura());		
 	}

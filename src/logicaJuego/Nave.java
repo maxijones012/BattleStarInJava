@@ -281,23 +281,16 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	
 	@Override
 	public void chocarContraPazadizo(Pasadizo pasadizo) {
-		
-//		Posicion posicionCorrector = pasadizo.getPasadizoSalida();
-//		posicionCorrector.setX(posicionCorrector.getX()+20);
-//		posicionCorrector.setY(posicionCorrector.getY()+20);
-//		this.setPosicion(pasadizo.getPasadizoSalida());
 		this.getPosicion().setX(pasadizo.getPasadizoSalida().getX());
 		this.getPosicion().setY(pasadizo.getPasadizoSalida().getY());
 		
 		avanzarMuchasVeces(9);
-		 
-//		System.out.println(this.getClass().getName());
-//		System.out.println("pasadizo salida X: "+ pasadizo.getPasadizoSalida().getX()+" Y: "+pasadizo.getPasadizoSalida().getY());
-//		
-//		this.setPosicion(posicionCorrector);
 	}
 	
-	
+	/**
+	 * avanzar tantas veces como el parametro {@linkplain i} , lo indique
+	 * @param i
+	 */
 	private void avanzarMuchasVeces(int i) {
 		for (int j = 0; j < i; j++) {
 			this.avanzar();

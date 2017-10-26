@@ -7,7 +7,7 @@ import sonido.uSonido;
 public class Prueba {
 
 	public static void main(String[] args) {
-		uSonido.reproducir("/sonido/inicio.wav");
+//		uSonido.reproducir("/sonido/inicio.wav");
 		
 		AdministradorJuego administradorJuego = new AdministradorJuego(new ConfiguracionInicial());
 		administradorJuego.iniciarJuego();

@@ -127,6 +127,7 @@ public class Bomba extends Movible{
 	//TODO 
 	public void chocarContraPared() {
 		this.destruir(this);
+		System.out.println("BOMBA CHOCO CONTRA PARED Y MURIO");
 	}
 
 	@Override

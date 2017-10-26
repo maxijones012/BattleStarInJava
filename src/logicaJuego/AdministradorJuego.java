@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import configuracion.ConfiguracionInicial;
+import grafica.BarraEstado;
 import grafica.vTableroJuego;
 import interfaces.IAdministradorJuego;
 import util.UAdministradorJuego;
@@ -41,6 +42,7 @@ public class AdministradorJuego implements IAdministradorJuego{
 	public void iniciarJuego() {
 		crearElementos();
 		vTableroJuego vista = new vTableroJuego(this);
+		BarraEstado barraEstado = new BarraEstado();
 		while (tiempo<duracionJuego){
 			if (!isPausa()){
 				crearBonus();
@@ -54,6 +56,7 @@ public class AdministradorJuego implements IAdministradorJuego{
 				depurarElementos();
 				
 			 	espera(60);
+			 	barraEstado.actualizar(this.getListaElemento());
 			}
 			tiempo++;
 		}

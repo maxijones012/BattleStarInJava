@@ -35,6 +35,8 @@ public class vTableroJuego extends JFrame implements KeyListener{
 		Container contenedor = this.getContentPane(); //PANEL		
 		contenedor.setLayout(new BorderLayout());		
 		
+//		Container contenedorpanel = this.getContentPane();
+//		contenedorpanel.setLayout(new BorderLayout());
 		
 		agregarMenu(contenedor);
 //		agregarPanel(contenedor);
@@ -47,6 +49,8 @@ public class vTableroJuego extends JFrame implements KeyListener{
 		
 	}
 //	
+	
+	
 //	private void agregarPanel(Container contenedor) {
 //		PanelStatus panelStatus = new PanelStatus();
 //		panelStatus.setVisible(true);

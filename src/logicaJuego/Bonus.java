@@ -1,5 +1,6 @@
 package logicaJuego;
 
+import util.uDebugConsola;
 
 public abstract class Bonus extends Estatico{
 	private int tiempoVida;
@@ -13,6 +14,8 @@ public abstract class Bonus extends Estatico{
 
 	@Override
 	public void jugar(){
+		uDebugConsola.posicion(this);
+		uDebugConsola.mostrarNombreElemento(this);
 		if (this.getTiempoVida()>0){
 			this.setTiempoVida(this.getTiempoVida()-1);
 		}

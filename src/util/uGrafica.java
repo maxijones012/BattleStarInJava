@@ -20,7 +20,7 @@ public class uGrafica {
 
 	public static BufferedImage cambiarTamanio(BufferedImage img, int ancho, int alto) {
 		
-//		BufferedImage newImage = new BufferedImage(ancho,alto, BufferedImage.TYPE_INT_RGB); //esto agrega el fondo en los elementos
+//		BufferedImage newImage = new BufferedImage(ancho,alto, BufferedImage.TYPE_BYTE_BINARY); //esto agrega el fondo en los elementos
 		BufferedImage newImage = new BufferedImage(ancho,alto, BufferedImage.TRANSLUCENT);
 
 		Graphics g = newImage.createGraphics();
@@ -61,6 +61,8 @@ public class uGrafica {
 
 		int w = image.getWidth();
 		int h = image.getHeight();		
+
+//		BufferedImage image2 = new BufferedImage(w2, h2, BufferedImage.TYPE_INT_RGB);
 
 		BufferedImage image2 = new BufferedImage(w2, h2, BufferedImage.TRANSLUCENT);
 

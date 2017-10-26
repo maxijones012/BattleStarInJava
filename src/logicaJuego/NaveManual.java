@@ -60,6 +60,7 @@ public class NaveManual extends Nave{
 	public void chocarContraPared() {
 		cambiarDireccion(-180);
 		super.avanzar();
+		System.out.println("Nave choco contra pared");
 
 	}
 

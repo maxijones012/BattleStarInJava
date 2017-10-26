@@ -11,7 +11,7 @@ import logicaJuego.AdministradorJuego;
 public class ConfiguracionInicial {
 	private AdministradorJuego administradorJuego;
 	
-	public static final int DURACION_JUEGO = 1000;
+	public static final int DURACION_JUEGO = 10000;
 	private int nivelVida=10000;
 	private int tiempoDeExplosion=150;
 	private int nivelCombustible=100000000; //debe estar en 1000

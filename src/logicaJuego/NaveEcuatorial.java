@@ -42,6 +42,7 @@ public class NaveEcuatorial extends Nave{
 		this.avanzar();
 		chocoPared=true;		
 		calcularDesplazamiento();
+		System.out.println("Nave choco contra pared");
 	}
 
 	

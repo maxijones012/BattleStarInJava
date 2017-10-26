@@ -169,8 +169,10 @@ public abstract class UAdministradorJuego {
 						e2.getTamanio().getAlto());												
 				
 				if(r1.intersects(r2)){
+					uDebugConsola.mostrarColision(e1, e2);
 					e1.chocarContra(e2);
 					e2.chocarContra(e1);
+
 				}
 			}
 			

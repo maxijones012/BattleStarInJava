@@ -1,27 +1,22 @@
 package grafica;
 
 import java.awt.Canvas;
-import java.awt.Dimension;
+import java.awt.Color;
 import java.awt.Font;
-import java.awt.Graphics;
+import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.geom.AffineTransform;
+import java.awt.font.FontRenderContext;
+import java.awt.font.TextLayout;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.HashMap;
 import javax.imageio.ImageIO;
-
-import com.sun.javafx.tk.FontMetrics;
-import com.sun.prism.paint.Color;
-
 import logicaJuego.AdministradorJuego;
-import logicaJuego.Bomba;
 import logicaJuego.Elemento;
 import logicaJuego.Movible;
 import logicaJuego.Nave;
-import logicaJuego.NaveGreenwich;
 import logicaJuego.ObstaculoExplosivo;
 import util.Controles;
 import util.uGrafica;
@@ -118,13 +113,24 @@ public class TableroJuego extends Canvas implements KeyListener{
 	private void dibujarTiempoJuego(TableroJuego tableroJuego, int posX, int posY) {
 		int tiempo = (tableroJuego.getAdministradorJuego().getTiempo());
 		String ctiempo = Integer.toString(tiempo);			
-//		Font fuente = new Font("Monospaced", Font.ITALIC , 90);
-//		this.getGrafico2D().setFont(fuente);
-//		FontMetrics fm =  this.getGrafico2D().FontMetrics();
-//		
-		this.getGrafico2D().drawString(ctiempo, 40, 40);		
+		Font fuente = new Font("Monospaced", Font.BOLD , 70);
+
+		FontRenderContext frc = this.getGrafico2D().getFontRenderContext();
+		
+        TextLayout t = new TextLayout(ctiempo, fuente, frc);
+        this.getGrafico2D().setColor(Color.pink);
+        t.draw(this.getGrafico2D(), 70, 80);
+
+        
+		this.getGrafico2D().drawString(ctiempo, 40, 40);
 	}
 
+	
+	
+	/**
+	 * obtiene el buffer de imagenes
+	 * @return
+	 */
 	public Graphics2D getGrafico2D(){		
 		if (this.getBufferStrategy() == null)
 			return (Graphics2D) this.getGraphics();
@@ -236,13 +242,18 @@ public class TableroJuego extends Canvas implements KeyListener{
 	}
 
 
+	/**
+	 * Actualiza la pantalla
+	 */
 	public void actualizar() {
 		limpiar();
  		dibujar(); 	
 	}
 
 
-	
+	/**
+	 * Limpia la pantalla o ventana de juego
+	 */
 	private void limpiar(){
 		this.getGrafico2D().drawImage(getImagen("fondo"), 0, 0, getWidth(), getHeight(), null);
 		this.getGrafico2D().dispose();

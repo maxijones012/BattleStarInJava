@@ -96,6 +96,7 @@ public class Misil extends Movible{
 	 */
 	public void chocarContraPared() {
 		this.destruir(this);
+		System.out.println("MISIL CHOCO CONTRA PARED Y MURIO");
 	}
 
 
