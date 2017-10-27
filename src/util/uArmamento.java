@@ -84,6 +84,35 @@ public abstract class uArmamento {
 	}
 
 
+	public static void dispararBomba(Nave nave, int dir) {
+		if (nave.getCantidadBomba() > 0){	
+			int ancho = ConfiguracionInicial.ANCHO_BOMBA;
+			int alto = ConfiguracionInicial.ALTO_BOMBA;
+			
+			Bomba b = new Bomba(nave, new Posicion(nave.getPosicion().getX(), nave.getPosicion().getY()), new Tamanio(ancho,alto),nave.getAdministradorJuego());
+			b.setDireccion(dir);
+			b.setDuenio(nave);
+			nave.setCantidadBomba(nave.getCantidadBomba()-1);
+			nave.getAdministradorJuego().addElemento(b);
+		}
+		
+	}
+
+
+	public static void dispararMisil(Nave nave, int dir) {
+		int ancho=ConfiguracionInicial.ANCHO_MISIL;
+		int alto = ConfiguracionInicial.ALTO_MISIL;
+		if (nave.getCantidadMunicion() > 0){
+			Misil misil = new Misil(nave, new Posicion(nave.getPosicion().getX(), nave.getPosicion().getY()), new Tamanio(ancho,alto),nave.getAdministradorJuego());
+			misil.setDireccion(dir);
+			misil.setDuenio(nave);
+			nave.setCantidadMunicion(nave.getCantidadMunicion()-1);	
+			nave.getAdministradorJuego().addElemento(misil);
+		}
+		
+	}
+
+
 	
 	
 	//TODO se podria hacer un 

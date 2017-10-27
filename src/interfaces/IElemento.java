@@ -75,4 +75,6 @@ public interface IElemento {
 	
 	
 	public abstract void chocarContraObstaculoExplosivo(ObstaculoExplosivo obstaculoExplosivo);
+	
+	
 }

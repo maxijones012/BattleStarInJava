@@ -16,14 +16,15 @@ public class NaveGreenwich extends Nave{
  */
 	public NaveGreenwich(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
 		super(posicion, tamanio, administradorJuego);
-		this.setDireccion(Constante.UP);
+		this.setDireccion(Constante.DOWN);
 	}
 	
 	@Override
 	public void jugar() {
-		avanzar();
-		this.getRadar().escanear();
 		this.getRadar().girar(1);
+		super.jugar();
+		avanzar();
+//		this.getRadar().escanear();
 	}
 
 
@@ -37,6 +38,12 @@ public class NaveGreenwich extends Nave{
 		this.avanzar();
 		System.out.println("Nave choco contra pared");
 	}
+	
+	
+	
+	
+	
+	
 
 	@Override
 	public void elementosVistos(ArrayList<Elemento> elementos) {
@@ -46,7 +53,12 @@ public class NaveGreenwich extends Nave{
 		 * IF (LA DISTANCIA ES OPTIMA){
 		 * }
 		 * */
-		uEstrategia.inteligenciaGreenwich(elementos, this);
+		if (getNivelCombustible()>0){
+			uEstrategia.inteligenciaGreenwich(elementos, this);
+		}else{
+			uEstrategia.buscarCombustible(elementos, this);
+		}
+		
 	}
 	
 	

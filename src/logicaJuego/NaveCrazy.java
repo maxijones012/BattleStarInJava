@@ -17,11 +17,13 @@ public class NaveCrazy extends Nave{
 	 */
 	public NaveCrazy(Posicion posicion, Tamanio tamanio, AdministradorJuego escenario) {
 		super(posicion, tamanio, escenario);
+		this.getRadar().setAnguloApertura(20);
 	}
 	
 	@Override
 	public void jugar() {		
 		super.jugar();
+		uEstrategia.girarCorrectorRadar(this, 10, 0, 1);
 		super.avanzar();
 	}
 
@@ -31,7 +33,7 @@ public class NaveCrazy extends Nave{
 
 	@Override
 	public void chocarContraPared() {
-		super.girar(-70); //TODO CAPAZ QUE HAY QUE CAMBIARLO A 90
+		super.girar(70); //TODO CAPAZ QUE HAY QUE CAMBIARLO A 90
 		this.dispararMisil(this);
 		System.out.println("Nave choco contra pared");
 	}
@@ -52,7 +54,7 @@ public class NaveCrazy extends Nave{
 		return ("CRAZY");
 	}
 
-
+	
 
 
 }

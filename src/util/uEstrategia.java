@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import logicaJuego.Bomba;
 import logicaJuego.Bonus;
+import logicaJuego.BonusReparacion;
 import logicaJuego.Elemento;
 import logicaJuego.Misil;
 import logicaJuego.Nave;
@@ -70,7 +71,7 @@ public class uEstrategia {
 			Elemento e = elementos.get(i);
 			if (e instanceof Nave){
 				if (e != nave){
-					nave.dispararMisil(nave);
+					nave.dispararMisil(nave, nave.getRadar().getDireccion());
 				}
 			}
 		}
@@ -118,6 +119,20 @@ public class uEstrategia {
 					nave.dispararMisil(nave);
 				}
 			}
+		}
+		
+	}
+
+	public static void buscarCombustible(ArrayList<Elemento> elementos, Nave nave) {
+		for (int i = 0; i < elementos.size(); i++) {
+			Elemento e = elementos.get(i);
+			
+			if (e instanceof BonusReparacion) {
+				int dir = nave.getRadar().getDireccion()-90;
+				nave.dispararMisil(nave, dir);
+			}
+			
+			
 		}
 		
 	};

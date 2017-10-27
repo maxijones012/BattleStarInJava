@@ -75,6 +75,7 @@ public class TableroJuego extends Canvas implements KeyListener{
 				if (e2 instanceof Nave){
 					Nave nave = (Nave) e2;
 					uGrafica.dibujarRadar(this, nave);
+					this.getGrafico2D().setColor(Color.RED);
 					String nombre = e2.toString();
 					this.getGrafico2D().drawString(nombre, x, y);
 					
@@ -113,7 +114,7 @@ public class TableroJuego extends Canvas implements KeyListener{
 	private void dibujarTiempoJuego(TableroJuego tableroJuego, int posX, int posY) {
 		int tiempo = (tableroJuego.getAdministradorJuego().getTiempo());
 		String ctiempo = Integer.toString(tiempo);			
-		Font fuente = new Font("Monospaced", Font.BOLD , 70);
+		Font fuente = new Font("Monospaced", Font.ITALIC , 70);
 
 		FontRenderContext frc = this.getGrafico2D().getFontRenderContext();
 		

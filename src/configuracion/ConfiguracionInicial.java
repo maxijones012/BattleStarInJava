@@ -14,7 +14,7 @@ public class ConfiguracionInicial {
 	public static final int DURACION_JUEGO = 10000;
 	private int nivelVida=10000;
 	private int tiempoDeExplosion=150;
-	private int nivelCombustible=100000000; //debe estar en 1000
+	private int nivelCombustible=600; //debe estar en 1000
 	
 	private int anchoNave=70;
 	private int altoNave=70;
@@ -38,8 +38,8 @@ public class ConfiguracionInicial {
 	
 	private int anchoEscenario=900;
 	private int altoEscenario=700;
-	public static final int ALTO_PASADIZO=30;
-	public static final int ANCHO_PASADIZO=30;
+	public static final int ALTO_PASADIZO=50;
+	public static final int ANCHO_PASADIZO=50;
 	
 	public static final int ANCHO_NAVE=50;
 	public static final int ALTO_NAVE=50;
@@ -53,15 +53,15 @@ public class ConfiguracionInicial {
 	public static final int VELOCIDAD_MISIL = 35;
 	public static final int VELOCIDAD_BOMBA = 30;
 
-	public static final int CANTIDAD_MUNICION = 50;
+	public static final int CANTIDAD_MUNICION = 35;
 
-	public static final int CANTIDAD_BOMBA = 50;
+	public static final int CANTIDAD_BOMBA = 70;
 
 	public static final int ANCHO_MISIL = 50;
-	public static final int ALTO_MISIL = 20;
+	public static final int ALTO_MISIL = 40;
 
-	public static final int ANCHO_BOMBA = 40;
-	public static final int ALTO_BOMBA = 40;
+	public static final int ANCHO_BOMBA = 50;
+	public static final int ALTO_BOMBA = 50;
 
 	public static final int DANIO_OBSTACULO_EXPLOSIVO = 80;
 

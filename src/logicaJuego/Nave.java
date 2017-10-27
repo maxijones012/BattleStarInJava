@@ -81,7 +81,7 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 		controlarInmunidad();
 		//tengo escudo		
 		if (this.getNivelVida()>=0){
-			uEstrategia.girarCorrectorRadar(this, 10, 0, 1);
+//			uEstrategia.girarCorrectorRadar(this, 10, 0, 1);
    			avanzar();
 			this.getRadar().escanear();
 
@@ -131,6 +131,16 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	}
 
 	
+	
+	
+	/**
+	 * Dispara una {@link Misil misil} desde la posicion de la nave 
+	 * @param nave
+	 */
+	public void dispararMisil(Nave nave,int dir) {
+		uArmamento.dispararMisil(nave,dir);
+	}
+
 
 	/**
 	 * Dispara una {@link Bomba bomba} desde la posicion de la nave 
@@ -141,6 +151,15 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	}
 
 
+	/**
+	 * Dispara una {@link Bomba bomba} desde la posicion de la nave 
+	 * @param nave
+	 */
+	public void dispararBomba(Nave nave, int dir) {
+		uArmamento.dispararBomba(nave, dir);
+	}
+
+	
 	public int getCantidadMunicion() {
 		return cantidadMunicion;
 	}
@@ -275,14 +294,14 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	 * reduzco el nivel de escudo de la nave 
 	 */
 	public void chocarContraNave(Nave nave) {
-		this.girar(10);
+		this.girar(90);
 	}
 
 	
 	@Override
 	public void chocarContraPazadizo(Pasadizo pasadizo) {
-		this.getPosicion().setX(pasadizo.getPasadizoSalida().getX());
-		this.getPosicion().setY(pasadizo.getPasadizoSalida().getY());
+		this.getPosicion().setX(pasadizo.getPasadizoSalida().getX()+1);
+		this.getPosicion().setY(pasadizo.getPasadizoSalida().getY()+1);
 		
 		avanzarMuchasVeces(9);
 	}

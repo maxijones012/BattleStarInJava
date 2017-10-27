@@ -1,5 +1,7 @@
 package logicaJuego;
 
+import configuracion.ConfiguracionInicial;
+
 /**
  * clase de bonus reparacion
  * @author Maxi Jones
@@ -22,7 +24,7 @@ public class BonusReparacion extends Bonus{
 
 	@Override
 	public void chocarContra(Elemento elemento) {
-		elemento.chocarContra(this);
+		elemento.chocarContraBonusReparacion(this);
 		
 	}
 
@@ -51,13 +53,17 @@ public class BonusReparacion extends Bonus{
 	
 	private void darBonusReparacion(Misil misil) {
 		Nave nave=misil.getDuenio(); 
-		
 		nave.setNivelVida(nave.getNivelVida()+valorReparacion);
+		nave.setNivelCombustible(nave.getAdministradorJuego().getConfiguracionInicial().getNivelCombustible());
+
 		
 	}
 
 	private void darBonusReparacion(Nave nave) {
-		nave.setNivelVida(nave.getNivelVida()+valorReparacion);
+		if (nave != null){
+			nave.setNivelVida(nave.getNivelVida()+valorReparacion);		
+			nave.setNivelCombustible(nave.getAdministradorJuego().getConfiguracionInicial().getNivelCombustible());
+		}
 	}
 
 

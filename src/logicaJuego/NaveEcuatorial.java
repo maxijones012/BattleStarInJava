@@ -3,34 +3,31 @@ package logicaJuego;
 import java.util.ArrayList;
 import java.util.Random;
 
-import util.uArmamento;
-import util.uEstrategia;
-
 public class NaveEcuatorial extends Nave{
 	private int cantidadAvanceVertical;
-	private int turno=10;
+	private int turno=1;
 	private boolean chocoPared=true;
 	
 	
 	public NaveEcuatorial(Posicion posicion, Tamanio tamanio, AdministradorJuego escenario) {
 		super(posicion, tamanio, escenario);
 		this.cantidadAvanceVertical=this.getAministradorJuego().getConfiguracionInicial().getCantidadAvanceHaciaArriba();
-		this.setDireccion(90);
+		this.setDireccion(0);
 	}
 	
 	@Override
 	public void jugar() {
-		if (chocoPared==true){			
-			avanzar();
-			this.turno--;
-			if (turno == 0){
-				chocoPared=false;
-			}
-		}
+//		this.setDireccion(0);
+//		if (chocoPared==true){			
+////			avanzar();
+////			this.turno--;
+////			if (turno == 0){
+////				chocoPared=false;
+////			}
+//		}
 		this.getRadar().escanear();
 		this.avanzar();
-		this.getRadar().girar(5);
-//		super.jugar();
+		this.getRadar().girar(4);
 	}
 
 
@@ -38,9 +35,9 @@ public class NaveEcuatorial extends Nave{
 
 	@Override
 	public void chocarContraPared() {
-		this.girar(90);
-		this.avanzar();
-		chocoPared=true;		
+		super.girar(-180);
+		chocoPared=true;	
+		avanzarMuchasVeces(5);
 		calcularDesplazamiento();
 		System.out.println("Nave choco contra pared");
 	}
@@ -69,23 +66,32 @@ public class NaveEcuatorial extends Nave{
 //		detecta  a  más  de  3  naves,  dispara​ ​una​ ​bomba.
 		int cant = buscarCantidadNave(elementos);
 		for (int i = 0; i < elementos.size(); i++) {
+			int dir=0;
 			
 			if (cant>0){
 				if (cant==3){
-					this.dispararBomba(this);
+					int dir1 = this.getRadar().getDireccion();
+					this.dispararBomba(this,dir1);
 				}else
-					this.dispararMisil(this);
+					dir = this.getRadar().getDireccion();
+					this.dispararMisil(this, dir);
 			}
-			 Elemento e = elementos.get(i);
+//			 Elemento e = elementos.get(i);
 
-			 if ((e instanceof Misil) || (e instanceof Bomba) || (e instanceof Nave)){
-					uEstrategia.eludir(this);
-				}
 		}
 		
 	}
 
-	
+	/**
+	 * avanzar tantas veces como el parametro {@linkplain i} , lo indique
+	 * @param i
+	 */
+	private void avanzarMuchasVeces(int i) {
+		for (int j = 0; j < i; j++) {
+			this.avanzar();
+		}
+		
+	}
 	
 
 	/**

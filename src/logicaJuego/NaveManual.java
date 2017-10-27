@@ -53,7 +53,9 @@ public class NaveManual extends Nave{
 	}
 	@Override
 	public void elementosVistos(ArrayList<Elemento> elementos) {
-//		uEstrategia.inteligenciaDisparar(elementos, this);
+//		if (elementos.size()>1){
+//			uSonido.reproducir("/sonido/radarDetected.wav");
+//		}
 	}
 
 	@Override

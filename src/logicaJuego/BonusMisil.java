@@ -31,6 +31,7 @@ public class BonusMisil extends Bonus{
 	}
 	@Override
 	public void darBeneficio(Nave nave) {
+		this.darBonusMisil(nave);
 		this.destruir(this);
 	}
 

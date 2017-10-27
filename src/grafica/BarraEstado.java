@@ -3,29 +3,26 @@ package grafica;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
-import java.awt.TextArea;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
-import logicaJuego.AdministradorJuego;
 import logicaJuego.Elemento;
-import logicaJuego.Nave;
 import logicaJuego.NaveCrazy;
 import logicaJuego.NaveEcuatorial;
 import logicaJuego.NaveGreenwich;
 import logicaJuego.NaveManual;
-import sun.security.jca.GetInstance.Instance;
 import util.uDebugConsola;
 
+@SuppressWarnings("serial")
 public class BarraEstado extends JFrame{
 	JTextArea texto = new JTextArea();
 	
 	public BarraEstado() {
 		texto.setText("NAVE");
 		this.setVisible(true);
-		this.setBounds(902, 50, 250, 300);
+		this.setBounds(902, 50, 450, 300);
 		this.setBackground(Color.GREEN);
 		this.setLayout(new FlowLayout());
 		

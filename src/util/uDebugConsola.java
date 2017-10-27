@@ -50,6 +50,10 @@ public abstract class uDebugConsola {
 		String c=("Vida: "+Integer.toString(elemento.getNivelVida())); 
 		c +=(", X: "+Integer.toString(elemento.getPosicion().getX())); 
 		c += (", Y: "+Integer.toString(elemento.getPosicion().getY()));
+		Nave nave = (Nave) elemento;
+		c += (", Municion: "+Integer.toString(nave.getCantidadMunicion()));
+		c += (", Bomba: "+Integer.toString(nave.getCantidadBomba()));
+		c += (", Combustible: "+Integer.toString(nave.getNivelCombustible()));
 		
 		return c;
 	};
