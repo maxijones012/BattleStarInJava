@@ -17,14 +17,6 @@ public class NaveEcuatorial extends Nave{
 	
 	@Override
 	public void jugar() {
-//		this.setDireccion(0);
-//		if (chocoPared==true){			
-////			avanzar();
-////			this.turno--;
-////			if (turno == 0){
-////				chocoPared=false;
-////			}
-//		}
 		this.getRadar().escanear();
 		this.avanzar();
 		this.getRadar().girar(4);
@@ -35,7 +27,7 @@ public class NaveEcuatorial extends Nave{
 
 	@Override
 	public void chocarContraPared() {
-		super.girar(-180);
+		super.girar(90);
 		chocoPared=true;	
 		avanzarMuchasVeces(5);
 		calcularDesplazamiento();

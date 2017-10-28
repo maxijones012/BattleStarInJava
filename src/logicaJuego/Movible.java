@@ -3,6 +3,11 @@ package logicaJuego;
 import interfaces.IMovible;
 import util.uMovimiento;
 
+/**
+ * Clase abstracta Movible de la cual, las subclases deberan redefinir los metodos
+ * @author Maxi Jones
+ *
+ */
 public abstract class Movible extends Elemento implements IMovible {
 	private int direccion; 
 	private int velocidadAvance; 

@@ -123,13 +123,30 @@ public class uEstrategia {
 		
 	}
 
+	
+	
+	/**
+	 * la {@link Nave nave} busca con su radar un {@link BonusReparacion bonusReparacion},
+	 * 		si lo encuentra dispara un {@link Misil misil}, en caso de no poseer misiles, dispara una 
+	 * 		{@link Bomba bomba}
+	 * @param elementos
+	 * @param nave
+	 */
 	public static void buscarCombustible(ArrayList<Elemento> elementos, Nave nave) {
 		for (int i = 0; i < elementos.size(); i++) {
 			Elemento e = elementos.get(i);
 			
 			if (e instanceof BonusReparacion) {
-				int dir = nave.getRadar().getDireccion()-90;
-				nave.dispararMisil(nave, dir);
+				//si tene municion que misil
+				if (nave.getCantidadMunicion()>0){
+					
+					int dir = nave.getRadar().getDireccion();
+					dir += nave.getDireccion();
+					nave.dispararMisil(nave, dir);					
+				}else{ //que dispare una bomb
+					int dir = nave.getRadar().getDireccion()-90;
+					nave.dispararBomba(nave, dir);
+				}
 			}
 			
 			

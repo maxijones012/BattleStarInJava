@@ -1,5 +1,7 @@
 package logicaJuego;
 
+import java.util.Random;
+
 import javax.sound.sampled.Clip;
 
 import configuracion.ConfiguracionInicial;
@@ -31,11 +33,11 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	 * @param administradorJuego
 	 */
 	public Nave(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
-		super(posicion, new Tamanio(administradorJuego.getConfiguracionInicial().getAnchoNave(), administradorJuego.getConfiguracionInicial().getAltoNave()),administradorJuego);
-		this.nivelVida=this.getAministradorJuego().getConfiguracionInicial().getNivelVida();
-		this.cantidadMunicion=this.getAdministradorJuego().getConfiguracionInicial().getCantidadMunicionNave();
+		super(posicion, new Tamanio(ConfiguracionInicial.ANCHO_NAVE, ConfiguracionInicial.ALTO_NAVE), administradorJuego);
+		this.nivelVida=ConfiguracionInicial.NIVEL_VIDA;
+		this.cantidadMunicion=ConfiguracionInicial.CANTIDAD_MUNICION;
 		this.tiempoInmunidad=this.getAministradorJuego().getConfiguracionInicial().getTiempoInmunidad();
-		this.nivelCombustible=this.getAministradorJuego().getConfiguracionInicial().getNivelCombustible();
+		this.nivelCombustible=ConfiguracionInicial.NIVEL_COMBUSTIBLE;
 		crearRadar(posicion, tamanio, administradorJuego, this);
 		this.radar.addRadarListener(this);
 		
@@ -49,6 +51,7 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	 * @param nave
 	 */
 	private void crearRadar(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego, Nave nave) {
+		
 		this.radar=new Radar(posicion, tamanio, administradorJuego, this);
 	
 	}
@@ -64,7 +67,11 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	public void avanzar() {
 		if (this.getNivelCombustible()>=0){
 			this.setNivelCombustible(this.getNivelCombustible()-1);
-			super.avanzar();
+			if (NivelVidaMayor70()){
+				super.avanzar();
+			}else{
+				reducirAvance(this);
+			}
 		}else{
 			uEstrategia.girarCorrectorRadar(this,360, 90, 1);
 		}
@@ -72,7 +79,35 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 		
 	}
 	
+	/**
+	 * Cuaando la nave este por debajo del 70% de nivel de vida
+	 * 	reducira su velocidad
+	 * @param nave
+	 */
+	private void reducirAvance(Nave nave) {
+		Random randx = new Random();
+		
+		if (randx.nextBoolean()){
+			this.avanzar();
+		}
+	}
+
 	
+	
+	
+	
+	private boolean NivelVidaMayor70() {
+		int porcientoFijo = (int) ( ConfiguracionInicial.NIVEL_VIDA*0.7/0.100);
+		
+		if (this.getNivelVida() >porcientoFijo){
+			return false;
+		}else{
+			return true;
+		}
+		
+		
+	}
+
 	@Override
 	public void jugar() {
 		uDebugConsola.posicion(this);
@@ -295,6 +330,7 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	 */
 	public void chocarContraNave(Nave nave) {
 		this.girar(90);
+		uMovimiento.avanzarMuchasVeces(this, 5);
 	}
 
 	
@@ -303,19 +339,10 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 		this.getPosicion().setX(pasadizo.getPasadizoSalida().getX()+1);
 		this.getPosicion().setY(pasadizo.getPasadizoSalida().getY()+1);
 		
-		avanzarMuchasVeces(9);
+		uMovimiento.avanzarMuchasVeces(this, 9);
 	}
 	
-	/**
-	 * avanzar tantas veces como el parametro {@linkplain i} , lo indique
-	 * @param i
-	 */
-	private void avanzarMuchasVeces(int i) {
-		for (int j = 0; j < i; j++) {
-			this.avanzar();
-		}
-		
-	}
+
 
 	@Override
 	public void chocarContraMisil(Misil misil) {

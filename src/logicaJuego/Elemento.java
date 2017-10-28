@@ -1,8 +1,9 @@
 package logicaJuego;
 
 
+import configuracion.ConfiguracionInicial;
 import interfaces.IElemento;
-import util.uDebugConsola;
+import util.uMovimiento;
 
 public abstract class Elemento implements IElemento{
 	private int nivelVida; 
@@ -16,9 +17,11 @@ public abstract class Elemento implements IElemento{
 //	constructor
 	public Elemento(Posicion posicion, Tamanio tamanio, AdministradorJuego adminstradorJuego) {
 		this.posicion=posicion;
+		posicion = uMovimiento.getCentro(tamanio, posicion);
 		this.tamanio=tamanio;
 		this.administradorJuego= adminstradorJuego;
-		this.nivelVida=adminstradorJuego.getConfiguracionInicial().getNivelVida();
+		this.nivelVida=ConfiguracionInicial.NIVEL_VIDA;
+		
 	}
 
 
@@ -40,7 +43,6 @@ public abstract class Elemento implements IElemento{
 	 */
 	public void destruir(Elemento elemento){
 		this.getAministradorJuego().removeElemento(elemento);
-		this.getAdministradorJuego().removeElemento(elemento);
 		this.setEstaVivo(false);
 	};
 	

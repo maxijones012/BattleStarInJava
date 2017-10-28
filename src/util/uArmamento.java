@@ -5,7 +5,6 @@ import configuracion.ConfiguracionInicial;
 import logicaJuego.Bomba;
 import logicaJuego.Misil;
 import logicaJuego.Nave;
-import logicaJuego.NaveCrazy;
 import logicaJuego.Posicion;
 import logicaJuego.Tamanio;
 

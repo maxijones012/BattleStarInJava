@@ -1,6 +1,10 @@
 package util;
 
 import logicaJuego.Movible;
+import logicaJuego.Nave;
+import logicaJuego.Posicion;
+import logicaJuego.Tamanio;
+
 import java.util.Random;
 import logicaJuego.Elemento;
 
@@ -81,6 +85,38 @@ public abstract class uMovimiento{
 	}
 	
 	
+	public static final Posicion getCentro(Elemento elemento){
+		
+		int x = elemento.getTamanio().getAncho()/2 + elemento.getPosicion().getX();
+		int y = elemento.getTamanio().getAlto()/2  + elemento.getPosicion().getY();
+		
+		return new Posicion(x, y);		
+	}
+	
 
+	
+	public static final Posicion getCentro(Tamanio tamanio ,Posicion posicion){
+		
+		int x = tamanio.getAncho()/2 + posicion.getX();
+		int y = tamanio.getAlto()/2  + posicion.getY();
+		
+		return new Posicion(x, y);		
+	}
 
+	
+	
+	
+	
+	/**
+	 * avanzar tantas veces como el parametro {@linkplain i} , lo indique
+	 * @param nave 
+	 * @param i
+	 */
+	public static void avanzarMuchasVeces(Nave nave, int i) {
+		for (int j = 0; j < i; j++) {
+			nave.avanzar();
+		}
+		
+	}
+	
 }

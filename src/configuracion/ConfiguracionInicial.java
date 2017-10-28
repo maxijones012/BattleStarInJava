@@ -12,13 +12,11 @@ public class ConfiguracionInicial {
 	private AdministradorJuego administradorJuego;
 	
 	public static final int DURACION_JUEGO = 10000;
-	private int nivelVida=10000;
-	private int tiempoDeExplosion=150;
-	private int nivelCombustible=600; //debe estar en 1000
+	public static final int NIVEL_VIDA =10000;
+	public static final int TIEMPO_DE_EXPLOSION=150;
+	public static final int NIVEL_COMBUSTIBLE=800;
 	
-	private int anchoNave=70;
-	private int altoNave=70;
-	
+
 	
 	
 	private int posicionXNave=20;
@@ -31,18 +29,16 @@ public class ConfiguracionInicial {
 	public static final int POSICION_Y_PASADIZO_A=200;
 
 	public static final int POSICION_X_PASADIZO_B=730;
-	public static final int POSICION_Y_PASADIZO_B=430;
+	public static final int POSICION_Y_PASADIZO_B=600;
 	
-	
-	private int cantidadMunicionNave=20;
 	
 	private int anchoEscenario=900;
 	private int altoEscenario=700;
 	public static final int ALTO_PASADIZO=50;
 	public static final int ANCHO_PASADIZO=50;
 	
-	public static final int ANCHO_NAVE=50;
-	public static final int ALTO_NAVE=50;
+	public static final int ANCHO_NAVE=60;
+	public static final int ALTO_NAVE=60;
 
 	public static final int POSICION_X_OBSTACULO_EXPLOSIVO = 800;
 	public static final int POSICION_Y_OBSTACULO_EXPLOSIVO = 200;
@@ -66,8 +62,8 @@ public class ConfiguracionInicial {
 	public static final int DANIO_OBSTACULO_EXPLOSIVO = 80;
 
 		
-	private int nivelDanioBomba=50;
-	private int danioMisil=20;
+	private int nivelDanioBomba=150;
+	private int danioMisil=80;
 	
 	private int cantidadAvanceHaciaArriba=380;
 	
@@ -151,12 +147,7 @@ public class ConfiguracionInicial {
 	public void setDerecha(boolean derecha) {
 		this.derecha = derecha;
 	}
-	public int getAnchoNave() {
-		return anchoNave;
-	}
-	public int getAltoNave() {
-		return altoNave;
-	}
+
 	public int getPosicionXNave() {
 		return posicionXNave;
 	}
@@ -171,12 +162,7 @@ public class ConfiguracionInicial {
 		return danioMisil;
 	}
 
-	public int getNivelCombustible() {
-		return nivelCombustible;
-	}
-	public int getTiempoDeExplosion() {
-		return tiempoDeExplosion;
-	}
+
 	public void setEscenario(AdministradorJuego escenario) {
 		this.administradorJuego = escenario;
 	}
@@ -199,15 +185,10 @@ public class ConfiguracionInicial {
 		return administradorJuego;
 	}
 
-	public int getNivelVida() {
-		return nivelVida;
-	}
 	public int getNivelDanioMisil() {
 		return nivelDanioMisil;
 	}
-	public int getCantidadMunicionNave() {
-		return cantidadMunicionNave;
-	}
+
 	public int getTiempoInmunidad() {
 		return tiempoInmunidad;
 	}

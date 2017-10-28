@@ -40,21 +40,23 @@ public class BonusReparacion extends Bonus{
 	@Override
 	public void darBeneficio(Nave nave) {
 		darBonusReparacion(nave);
-		this.destruir(this);
 	}
 
 	
 	public void darBeneficio(Misil misil) {
 		darBonusReparacion(misil);
-		this.destruir(this);
-		
 	}
 	
 	
+	
+	/**
+	 * le da el beneficio de combustible y vida al dueño del misil
+	 * @param misil
+	 */
 	private void darBonusReparacion(Misil misil) {
 		Nave nave=misil.getDuenio(); 
 		nave.setNivelVida(nave.getNivelVida()+valorReparacion);
-		nave.setNivelCombustible(nave.getAdministradorJuego().getConfiguracionInicial().getNivelCombustible());
+		nave.setNivelCombustible(ConfiguracionInicial.NIVEL_COMBUSTIBLE);
 
 		
 	}
@@ -62,7 +64,7 @@ public class BonusReparacion extends Bonus{
 	private void darBonusReparacion(Nave nave) {
 		if (nave != null){
 			nave.setNivelVida(nave.getNivelVida()+valorReparacion);		
-			nave.setNivelCombustible(nave.getAdministradorJuego().getConfiguracionInicial().getNivelCombustible());
+			nave.setNivelCombustible(ConfiguracionInicial.NIVEL_COMBUSTIBLE);
 		}
 	}
 
@@ -80,6 +82,7 @@ public class BonusReparacion extends Bonus{
 	@Override
 	public void chocarContraBomba(Bomba bomba) {
 		darBeneficio(bomba.getDuenio());
+		this.destruir(this);
 	}
 
 
@@ -90,10 +93,7 @@ public class BonusReparacion extends Bonus{
 
 
 	@Override
-	public void chocarContraPazadizo(Pasadizo pasadizo) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void chocarContraPazadizo(Pasadizo pasadizo) {}
 
 
 	@Override

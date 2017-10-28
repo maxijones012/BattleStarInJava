@@ -21,10 +21,13 @@ public class NaveCrazy extends Nave{
 	}
 	
 	@Override
-	public void jugar() {		
+	public void jugar() {
+		if (this.getNivelCombustible()>0){
+			super.jugar();
+			uEstrategia.girarCorrectorRadar(this, 10, 0, 1);
+			super.avanzar();			
+		}
 		super.jugar();
-		uEstrategia.girarCorrectorRadar(this, 10, 0, 1);
-		super.avanzar();
 	}
 
 
@@ -44,7 +47,15 @@ public class NaveCrazy extends Nave{
 	@Override
 	public void elementosVistos(ArrayList<Elemento> elementos) {
 		// TODO preguntar que deberia hacer
-		uEstrategia.inteligencia(elementos, this);
+		
+		if (this.getNivelCombustible()>0){
+			uEstrategia.inteligencia(elementos, this);
+		}else{
+			uEstrategia.buscarCombustible(elementos, this);
+			this.getRadar().girar(3);
+		}
+		
+		
 
 	}
 

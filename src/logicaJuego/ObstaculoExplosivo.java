@@ -11,7 +11,7 @@ public class ObstaculoExplosivo extends Estatico{
 	
 	public ObstaculoExplosivo(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
 		super(posicion, tamanio, administradorJuego);
-		this.tiempoDeExplosion=this.getAdministradorJuego().getConfiguracionInicial().getTiempoDeExplosion();
+		this.tiempoDeExplosion=ConfiguracionInicial.TIEMPO_DE_EXPLOSION;
 	}
 
 	@Override

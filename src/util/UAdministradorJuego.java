@@ -13,6 +13,7 @@ import logicaJuego.BonusReparacion;
 import logicaJuego.Elemento;
 import logicaJuego.Nave;
 import logicaJuego.AdministradorJuego;
+import logicaJuego.Bomba;
 import logicaJuego.NaveCrazy;
 import logicaJuego.NaveEcuatorial;
 import logicaJuego.NaveGreenwich;
@@ -158,6 +159,13 @@ public abstract class UAdministradorJuego {
 			if (e1 instanceof Pasadizo) {
 				r1.setSize(1,1);
 			}
+			if (e1 instanceof Bomba) {
+				Bomba bomb = (Bomba) e1;
+				if (bomb.isEstaExplotando()){
+					r1.setSize(ConfiguracionInicial.ANCHO_BOMBA*2, ConfiguracionInicial.ALTO_BOMBA*2);
+				}
+			}
+			
 			
 			for(int j=i+1; j<administradorJuego.getListaElemento().size(); j++){
 				
@@ -172,6 +180,13 @@ public abstract class UAdministradorJuego {
 				if (e2 instanceof Pasadizo) {
 					r2.setSize(1,1);
 
+				}
+				
+				if (e2 instanceof Bomba) {
+					Bomba bomb = (Bomba) e2;
+					if (bomb.isEstaExplotando()){
+						r2.setSize(ConfiguracionInicial.ANCHO_BOMBA*2, ConfiguracionInicial.ALTO_BOMBA*2);
+					}
 				}
 
 				if(r1.intersects(r2)){

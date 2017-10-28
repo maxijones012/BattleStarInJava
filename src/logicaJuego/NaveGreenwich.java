@@ -1,10 +1,7 @@
 package logicaJuego;
 
 import java.util.ArrayList;
-import java.util.Random;
-
 import configuracion.Constante;
-import util.uArmamento;
 import util.uEstrategia;
 
 public class NaveGreenwich extends Nave{
@@ -24,7 +21,6 @@ public class NaveGreenwich extends Nave{
 		this.getRadar().girar(1);
 		super.jugar();
 		avanzar();
-//		this.getRadar().escanear();
 	}
 
 

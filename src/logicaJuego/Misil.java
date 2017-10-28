@@ -63,6 +63,7 @@ public class Misil extends Movible{
 	 *@param bonus
 	 */
 	public void chocarContraBonusReparacion(BonusReparacion bonus) {
+		bonus.darBeneficio(this);
 		this.destruir(this);
 	}
 

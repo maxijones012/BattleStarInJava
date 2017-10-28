@@ -13,6 +13,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.HashMap;
 import javax.imageio.ImageIO;
+
+import configuracion.ConfiguracionInicial;
 import logicaJuego.AdministradorJuego;
 import logicaJuego.Elemento;
 import logicaJuego.Movible;
@@ -36,8 +38,8 @@ public class TableroJuego extends Canvas implements KeyListener{
 	 */
 	public TableroJuego(AdministradorJuego administradorJuego) {
 		this.administradorJuego=administradorJuego;
-		this.altoNave=this.getAdministradorJuego().getConfiguracionInicial().getAltoNave();
-		this.anchoNave=this.getAdministradorJuego().getConfiguracionInicial().getAnchoNave();
+		this.altoNave=ConfiguracionInicial.ALTO_NAVE;
+		this.anchoNave=ConfiguracionInicial.ANCHO_NAVE;
 		
 	}
 			
