@@ -51,7 +51,6 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	 * @param nave
 	 */
 	private void crearRadar(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego, Nave nave) {
-		
 		this.radar=new Radar(posicion, tamanio, administradorJuego, this);
 	
 	}
@@ -95,7 +94,12 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	
 	
 	
-	
+	/**
+	 * Controla el nivel de vida de una nave
+	 * @return (true=Si el nivel de vida >=70) o
+	 * 
+	 *  (false = nivel de vida < 70)
+	 */
 	private boolean NivelVidaMayor70() {
 		int porcientoFijo = (int) ( ConfiguracionInicial.NIVEL_VIDA*0.7/0.100);
 		
@@ -110,7 +114,7 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 
 	@Override
 	public void jugar() {
-		uDebugConsola.posicion(this);
+		uDebugConsola.mostrarPosicion(this);
 		uDebugConsola.mostrarNombreElemento(this);
 		super.jugar();
 		controlarInmunidad();
@@ -165,9 +169,6 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 		uArmamento.dispararMisil(nave);
 	}
 
-	
-	
-	
 	/**
 	 * Dispara una {@link Misil misil} desde la posicion de la nave 
 	 * @param nave
@@ -234,11 +235,9 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 		this.nivelEscudo = nivelEscudo;
 	}
 
-
 	public Boolean getRadarOn() {
 		return RadarOn;
 	}
-
 
 	public void setRadarOn(Boolean radarOn) {
 		RadarOn = radarOn;

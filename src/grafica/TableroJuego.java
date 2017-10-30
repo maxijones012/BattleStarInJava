@@ -3,7 +3,6 @@ package grafica;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -20,7 +19,7 @@ import logicaJuego.Elemento;
 import logicaJuego.Movible;
 import logicaJuego.Nave;
 import logicaJuego.ObstaculoExplosivo;
-import util.Controles;
+import util.uControles;
 import util.uGrafica;
 import util.uMovimiento;
 
@@ -116,7 +115,7 @@ public class TableroJuego extends Canvas implements KeyListener{
 	private void dibujarTiempoJuego(TableroJuego tableroJuego, int posX, int posY) {
 		int tiempo = (tableroJuego.getAdministradorJuego().getTiempo());
 		String ctiempo = Integer.toString(tiempo);			
-		Font fuente = new Font("Monospaced", Font.ITALIC , 70);
+		Font fuente = new Font("Monospaced", Font.ITALIC , 50);
 
 		FontRenderContext frc = this.getGrafico2D().getFontRenderContext();
 		
@@ -125,7 +124,7 @@ public class TableroJuego extends Canvas implements KeyListener{
         t.draw(this.getGrafico2D(), 70, 80);
 
         
-		this.getGrafico2D().drawString(ctiempo, 40, 40);
+//		this.getGrafico2D().drawString(ctiempo, 40, 40);
 	}
 
 	
@@ -144,7 +143,7 @@ public class TableroJuego extends Canvas implements KeyListener{
 	
 	
 	/**
-	 * 
+	 * Obtien el patch, o la ruta de la imagen dentro del proyecto
 	 * @param key
 	 * @return
 	 */
@@ -219,7 +218,7 @@ public class TableroJuego extends Canvas implements KeyListener{
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		Controles.controlTeclado(this, e, getAdministradorJuego().getConfiguracionInicial());
+		uControles.controlTeclado(this, e, getAdministradorJuego().getConfiguracionInicial());
 		
 	}
 

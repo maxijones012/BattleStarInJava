@@ -2,7 +2,6 @@ package grafica;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -12,16 +11,12 @@ import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.JFrame;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 
 import configuracion.ConfiguracionInicial;
 import logicaJuego.AdministradorJuego;
 import logicaJuego.Elemento;
 
+@SuppressWarnings("serial")
 public class vTableroJuego extends JFrame implements KeyListener{
 	private TableroJuego tableroJuego;
 	private ConfiguracionInicial configuracionInicial= new ConfiguracionInicial();
@@ -42,7 +37,7 @@ public class vTableroJuego extends JFrame implements KeyListener{
 //		agregarPanel(contenedor);
 		
 		contenedor.add(tableroJuego, null);		 
-		this.setSize(configuracionInicial.getAnchoEscenario(),configuracionInicial.getAltoEscenario());			
+		this.setSize(ConfiguracionInicial.ANCHO_ESCENARIO,ConfiguracionInicial.ALTO_ESCENARIO);			
 		this.setVisible(true);
 		tableroJuego.inicializar();
 		

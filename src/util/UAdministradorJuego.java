@@ -23,7 +23,7 @@ import logicaJuego.Pasadizo;
 import logicaJuego.Posicion;
 import logicaJuego.Tamanio;
 
-public abstract class UAdministradorJuego {
+public abstract class uAdministradorJuego {
 	/**
 	 * da los turno a cada elemento del juego 
 	 * @param administradorJuego
@@ -51,7 +51,10 @@ public abstract class UAdministradorJuego {
 	}
 
 
-	//TODO HACER LOS CREAR ELEMENTOS
+	/**
+	 * Se crean todos los elementos que estan dentro del juego
+	 * @param administradorJuego
+	 */
 	public static void crearElementos(AdministradorJuego administradorJuego) {
 		Tamanio tamanioNave = new Tamanio(ConfiguracionInicial.ANCHO_NAVE,ConfiguracionInicial.ALTO_NAVE);
 		
@@ -96,7 +99,10 @@ public abstract class UAdministradorJuego {
 	}
 	
 	/**
-	 * Crea bonus aleatorios y de distintos tipos
+	 * Genera bonus con {@link Posicion posion} aleatorias, y de los tipos 
+	 * {@link BonusReparacion bonusReparacion}
+	 * {@link BonusMisil bonusMisil}
+	 * {@link BonusInmunidad bonusInmunidad}
 	 * @param administradorJuego
 	 */
 	public static void crearBonus(AdministradorJuego administradorJuego) {
@@ -111,8 +117,8 @@ public abstract class UAdministradorJuego {
 		  Random tipoRandom = new Random();
 		  int tipoBonus = (int)(tipoRandom.nextDouble()*3+1);
 		  if(administradorJuego.getBonusAleatorio()==true){				  
-			  int x = (int) (uMovimiento.posicionAleatoriaX()*administradorJuego.getConfiguracionInicial().getAnchoEscenario());
-			  int y = (int) (uMovimiento.posicionAleatoriaY()*administradorJuego.getConfiguracionInicial().getAltoEscenario());
+			  int x = (int) (uMovimiento.posicionAleatoriaX()*ConfiguracionInicial.ANCHO_ESCENARIO);
+			  int y = (int) (uMovimiento.posicionAleatoriaY()*ConfiguracionInicial.ALTO_ESCENARIO);
 			switch (tipoBonus) {
 				case 1:	
 						bonus = new BonusMisil(new Posicion(x,y),new Tamanio(administradorJuego.getConfiguracionInicial().getAnchoBonus(), administradorJuego.getConfiguracionInicial().getAltoBonus()),administradorJuego, null); 
@@ -141,7 +147,7 @@ public abstract class UAdministradorJuego {
 	
 	
 	/**
-	 * controla si un elemento se choco con otro elemento dentro del escenario
+	 * controla si un {@link Elemento elemento} se choco con otro elemento dentro del escenario
 	 */
 	public static void verficarChoques(AdministradorJuego administradorJuego) {
 		
@@ -205,7 +211,7 @@ public abstract class UAdministradorJuego {
 			int correctorVentana=100;
 			coord1 = coord1 + correctorVentana;
 			coord2 = coord2 + correctorVentana;
-			boolean estaContenidoDentro = ( (coord1 >= administradorJuego.getConfiguracionInicial().getAnchoEscenario()) || (coord2 >= administradorJuego.getConfiguracionInicial().getAltoEscenario()) );
+			boolean estaContenidoDentro = ( (coord1 >= ConfiguracionInicial.ANCHO_ESCENARIO) || (coord2 >= ConfiguracionInicial.ALTO_ESCENARIO) );
 
 			//controlamos la posicion de abajo
 			coord1 = coord1 - correctorVentana;
@@ -239,7 +245,7 @@ public abstract class UAdministradorJuego {
 
 	
 	/**
-	 * Muestra el nombre de las nave ganadoras
+	 * Muestra el nombre de la nave
 	 * @param nave
 	 */
 	private static void mostrarNave(Nave nave) {

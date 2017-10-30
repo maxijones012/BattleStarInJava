@@ -4,11 +4,23 @@ import java.lang.Override;
 
 import configuracion.ConfiguracionInicial;
 
+/**
+ * Clase Obstaculo Explosivo 
+ * @author Maxi Jones
+ *
+ */
 public class ObstaculoExplosivo extends Estatico{
 	private int tiempoDeExplosion;
 	private int nivelDanio=ConfiguracionInicial.DANIO_OBSTACULO_EXPLOSIVO;
 	private boolean explotando=false;
 	
+	
+	/**
+	 * Constructor de la clase Obstaculo Explosivo
+	 * @param posicion
+	 * @param tamanio
+	 * @param administradorJuego
+	 */
 	public ObstaculoExplosivo(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
 		super(posicion, tamanio, administradorJuego);
 		this.tiempoDeExplosion=ConfiguracionInicial.TIEMPO_DE_EXPLOSION;

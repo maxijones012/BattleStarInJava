@@ -5,8 +5,11 @@ import logicaJuego.Nave;
 
 public abstract class uDebugConsola {
 
-	
-	public static void posicion(Elemento elemento){
+	/**
+	 * Muestra la posicion del elemento en {@linkplain (X,Y)}
+	 * @param elemento
+	 */
+	public static void mostrarPosicion(Elemento elemento){
 		int x= elemento.getPosicion().getX();
 		int y= elemento.getPosicion().getY();
 		System.out.println("X:"+x+"Y: "+y);
@@ -27,6 +30,12 @@ public abstract class uDebugConsola {
 		return (c);
 	};
 	
+	
+	/**
+	 * Muestra la colision entre dos {@link Elemento elementos} 
+	 * @param e
+	 * @param e1
+	 */
 	public static void mostrarColision(Elemento e, Elemento e1){
 		String c = e.getClass().getName();
 		c = c.substring(12, c.length());

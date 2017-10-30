@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 import configuracion.ConfiguracionInicial;
 import grafica.TableroJuego;
 
-public class Controles {
+public class uControles {
 
 	
 	public static void controlTeclado(TableroJuego obj ,KeyEvent e,ConfiguracionInicial configuracionInicial){

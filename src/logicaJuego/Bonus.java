@@ -14,7 +14,7 @@ public abstract class Bonus extends Estatico{
 
 	@Override
 	public void jugar(){
-		uDebugConsola.posicion(this);
+		uDebugConsola.mostrarPosicion(this);
 		uDebugConsola.mostrarNombreElemento(this);
 		if (this.getTiempoVida()>0){
 			this.setTiempoVida(this.getTiempoVida()-1);

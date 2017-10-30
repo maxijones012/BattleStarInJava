@@ -9,7 +9,7 @@ import configuracion.ConfiguracionInicial;
 import grafica.BarraEstado;
 import grafica.vTableroJuego;
 import interfaces.IAdministradorJuego;
-import util.UAdministradorJuego;
+import util.uAdministradorJuego;
 
 
 /**
@@ -34,8 +34,8 @@ public class AdministradorJuego implements IAdministradorJuego{
 	public AdministradorJuego(ConfiguracionInicial configuracionInicial) {
 		this.configuracionInicial=configuracionInicial;
 		this.tamanio= new Tamanio(ancho, alto);
-		this.ancho=this.getConfiguracionInicial().getAnchoEscenario();
-		this.alto=this.getConfiguracionInicial().getAltoEscenario();
+		this.ancho=ConfiguracionInicial.ANCHO_ESCENARIO;
+		this.alto=ConfiguracionInicial.ALTO_ESCENARIO;
 	}
 	
 	@Override
@@ -68,7 +68,7 @@ public class AdministradorJuego implements IAdministradorJuego{
 	 * Verifica los resultados de cada uno, muestra la nave ganadora
 	 */
 	private void verificarResultados() {
-		int cant=UAdministradorJuego.buscarNaveVivos(this.getListaElemento());
+		int cant=uAdministradorJuego.buscarNaveVivos(this.getListaElemento());
 		System.out.println("CANTIDAD VIVOS: "+cant);
 		
 		
@@ -78,14 +78,14 @@ public class AdministradorJuego implements IAdministradorJuego{
 	 * TODO verificar si los poligonos de los elmentos que chocan estan superpuestos
 	 */
 	private void verificarChoques() {
-		UAdministradorJuego.verficarChoques(this);
+		uAdministradorJuego.verficarChoques(this);
 		
 	}
 
 	private void crearBonus() {
 		Random rand = new Random();
 		if (rand.nextBoolean()==true){
-			UAdministradorJuego.crearBonus(this);
+			uAdministradorJuego.crearBonus(this);
 		}
 		
 	}
@@ -98,7 +98,7 @@ public class AdministradorJuego implements IAdministradorJuego{
 
 	@Override
 	public void crearElementos() {
-		UAdministradorJuego.crearElementos(this);
+		uAdministradorJuego.crearElementos(this);
 		
 	}
 
@@ -192,7 +192,7 @@ public class AdministradorJuego implements IAdministradorJuego{
 	 * 
 	 */
 	private void depurarElementos() {
-		UAdministradorJuego.eliminarElementos(this);
+		uAdministradorJuego.eliminarElementos(this);
 	}
 
 	public int getTiempo() {

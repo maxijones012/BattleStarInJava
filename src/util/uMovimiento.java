@@ -85,6 +85,11 @@ public abstract class uMovimiento{
 	}
 	
 	
+	/**
+	 * Realiza una correcion de los {@link Elemento elementos}, centrando la posicion hacia su centro
+	 * @param elemento
+	 * @return
+	 */
 	public static final Posicion getCentro(Elemento elemento){
 		
 		int x = elemento.getTamanio().getAncho()/2 + elemento.getPosicion().getX();

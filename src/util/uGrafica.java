@@ -52,7 +52,12 @@ public class uGrafica {
 	}
 	
 
-
+	/**
+	 * Toma la imagen y la rota o gira angulo 
+	 * @param image
+	 * @param angulo
+	 * @return
+	 */
 	public static BufferedImage rotar(BufferedImage image, int angulo) {
 		Dimension dim = calcularDimension(image, angulo);
 

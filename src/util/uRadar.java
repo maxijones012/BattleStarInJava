@@ -7,6 +7,12 @@ import logicaJuego.Radar;
 
 public abstract class uRadar {
 
+	
+	/**
+	 * Devuelve el area de cobertura del radar
+	 * @param radar
+	 * @return
+	 */
 	public static Polygon getAreaCobertura(Radar radar) {
 
 		   	Polygon areaCobertura = new Polygon();

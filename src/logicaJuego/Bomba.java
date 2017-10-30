@@ -19,7 +19,7 @@ public class Bomba extends Movible{
 		super(posicion, tamanio, administradorJuego);
 		this.duenio= duenio;
 		this.setVelocidadAvance(ConfiguracionInicial.VELOCIDAD_BOMBA);
-		this.danioBomba=this.getAministradorJuego().getConfiguracionInicial().getNivelDanioBomba();
+		this.danioBomba=ConfiguracionInicial.NIVEL_DANIO_BOMBA;
 		this.tiempoDeExposicion=this.getAdministradorJuego().getConfiguracionInicial().getTiempoExposicion();
 
 		

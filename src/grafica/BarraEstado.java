@@ -40,7 +40,14 @@ public class BarraEstado extends JFrame{
 //	}
 
 	
-
+	/**
+	 * Actualiza el estado de las {@link Nave naves}
+	 * 
+	 * @see nivelDeVida
+	 * @see nombreNave
+	 * 
+	 * @param listaElemento
+	 */
 	public void actualizar(ArrayList<Elemento> listaElemento) {
 		String estado="";
 		for (int i = 0; i < listaElemento.size(); i++) {

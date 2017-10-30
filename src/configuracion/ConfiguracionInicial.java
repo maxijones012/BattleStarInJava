@@ -16,11 +16,6 @@ public class ConfiguracionInicial {
 	public static final int TIEMPO_DE_EXPLOSION=150;
 	public static final int NIVEL_COMBUSTIBLE=800;
 	
-
-	
-	
-	private int posicionXNave=20;
-	private int posicionYNave=20;
 	
 	public static final int POSICION_X_NAVE_MANUAL=250;
 	public static final int POSICION_Y_NAVE_MANUAL=850;
@@ -32,8 +27,9 @@ public class ConfiguracionInicial {
 	public static final int POSICION_Y_PASADIZO_B=600;
 	
 	
-	private int anchoEscenario=900;
-	private int altoEscenario=700;
+	public static final int ANCHO_ESCENARIO=900;
+	public static final int ALTO_ESCENARIO=900;
+	
 	public static final int ALTO_PASADIZO=50;
 	public static final int ANCHO_PASADIZO=50;
 	
@@ -61,8 +57,7 @@ public class ConfiguracionInicial {
 
 	public static final int DANIO_OBSTACULO_EXPLOSIVO = 80;
 
-		
-	private int nivelDanioBomba=150;
+	public static final int NIVEL_DANIO_BOMBA=150;
 	private int danioMisil=80;
 	
 	private int cantidadAvanceHaciaArriba=380;
@@ -70,7 +65,7 @@ public class ConfiguracionInicial {
 	private int anchoBonus=30;
 	private int altoBonus=30;
 	
-	private int direccionMovible=10;
+	public static int DIRECCION_MOVIBLE=10;
 
 	
 	private int nivelDanioMisil=30;
@@ -148,16 +143,6 @@ public class ConfiguracionInicial {
 		this.derecha = derecha;
 	}
 
-	public int getPosicionXNave() {
-		return posicionXNave;
-	}
-	public int getPosicionYNave() {
-		return posicionYNave;
-	}
-	
-	public int getNivelDanioBomba() {
-		return nivelDanioBomba;
-	}
 	public int getDanioMisil() {
 		return danioMisil;
 	}
@@ -169,12 +154,7 @@ public class ConfiguracionInicial {
 	public int getCantidadAvanceHaciaArriba() {
 		return cantidadAvanceHaciaArriba;
 	}
-	public int getAnchoEscenario() {
-		return anchoEscenario;
-	}
-	public int getAltoEscenario() {
-		return altoEscenario;
-	}
+
 	public int getAnchoBonus() {
 		return anchoBonus;
 	}
@@ -203,9 +183,6 @@ public class ConfiguracionInicial {
 	}
 	public int getVelocidadAvanceMovible() {
 		return velocidadAvanceMovible;
-	}
-	public int getDireccionMovible() {
-		return direccionMovible;
 	}
 	public int getQuitarNivelCombustible() {
 		return quitarNivelCombustible;

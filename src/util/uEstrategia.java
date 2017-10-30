@@ -20,6 +20,16 @@ public class uEstrategia {
 		nave.setDireccion(nave.getDireccion()-90);
 	}
 
+	
+	
+	/**
+	 * Esquiva todos los elementos del juego como {@link Misil misil} {@link Bomba bomba} {@link Nave nave},
+	 * 
+	 * 
+	 * Y SI ENCUENTRA UN {@link Bonus bonus} dispara 
+ 	 * @param elementos
+	 * @param nave
+	 */
 	public static void inteligencia(ArrayList<Elemento> elementos, Nave nave) {
 		for (int i = 0; i < elementos.size(); i++) {
 			Elemento e = elementos.get(i);
@@ -64,7 +74,12 @@ public class uEstrategia {
 	}
 	
 	
-	
+	/**
+	 * Cuando la {@link NaveGreenwich  naveGreenwich} encuentra un elemento
+	 * que sea una {@link Nave nave} dispara
+	 * @param elementos
+	 * @param nave
+	 */
 	public static void inteligenciaGreenwich(ArrayList<Elemento> elementos, Nave nave) {
 		for (int i = 0; i < elementos.size(); i++) {
 //			nave.dispararMunicion(nave);
@@ -110,7 +125,12 @@ public class uEstrategia {
 		}
 	}
 	
-	public static void inteligenciaDisparar(ArrayList<Elemento> elementos, Nave nave) {
+	/**
+	 * Cuando la {@link Nave nave} detecta otra {@link Nave nave} dispara un misil 
+	 * @param elementos
+	 * @param nave
+	 */
+	public static void inteligenciaDispararNave(ArrayList<Elemento> elementos, Nave nave) {
 		for (int i = 0; i < elementos.size(); i++) {
 //			nave.dispararMunicion(nave);
 			Elemento e = elementos.get(i);
