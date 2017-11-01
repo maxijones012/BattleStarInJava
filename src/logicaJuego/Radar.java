@@ -78,7 +78,7 @@ public class Radar extends Movible implements IRadar{
 	public void avanzar() {
 		uMovimiento.avanzarX(duenio);
 		uMovimiento.avanzarY(duenio);
-		super.avanzar();
+//		super.avanzar();
 	}
 
 
@@ -175,7 +175,6 @@ public class Radar extends Movible implements IRadar{
 
 	@Override
 	public void chocarContraPazadizo(Pasadizo pasadizo) {
-		// TODO Auto-generated method stub
 		
 	}
 

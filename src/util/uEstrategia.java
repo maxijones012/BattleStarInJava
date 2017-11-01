@@ -8,6 +8,7 @@ import logicaJuego.BonusReparacion;
 import logicaJuego.Elemento;
 import logicaJuego.Misil;
 import logicaJuego.Nave;
+import logicaJuego.NaveEcuatorial;
 
 public class uEstrategia {
 
@@ -48,11 +49,6 @@ public class uEstrategia {
 		}
 		
 	};
-	
-
-	
-	
-	
 	
 	
 	
@@ -172,5 +168,44 @@ public class uEstrategia {
 			
 		}
 		
+	}
+
+
+
+	public static void inteligenciaEcuatorial(ArrayList<Elemento> elementos, NaveEcuatorial naveEcuatorial) {
+		int cant = buscarCantidadNave(elementos);
+		for (int i = 0; i < elementos.size(); i++) {
+			int dir=0;
+			
+			if (cant>0){
+				if (cant==3){
+					int dir1 = naveEcuatorial.getRadar().getDireccion();
+					naveEcuatorial.dispararBomba(naveEcuatorial,dir1);
+				}else
+					dir = naveEcuatorial.getRadar().getDireccion();
+					naveEcuatorial.dispararMisil(naveEcuatorial, dir);
+			}
+//			 Elemento e = elementos.get(i);
+
+		}		
 	};
+	
+	
+	
+	
+	/**
+	 * busca la cantidad de Naves que se han detectado
+	 * @param elementos
+	 * @return
+	 */
+	private static int buscarCantidadNave(ArrayList<Elemento> elementos) {
+		int contador=0;
+		
+		for (int i = 0; i < elementos.size(); i++) {
+			 Elemento e = elementos.get(i);
+
+			if (e instanceof Nave){contador++;}
+		}
+		return (contador);
+	}
 }

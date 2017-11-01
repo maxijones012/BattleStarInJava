@@ -3,6 +3,8 @@ package logicaJuego;
 import java.util.ArrayList;
 import java.util.Random;
 
+import util.uEstrategia;
+
 public class NaveEcuatorial extends Nave{
 	private int cantidadAvanceVertical;
 	private int turno=1;
@@ -27,7 +29,7 @@ public class NaveEcuatorial extends Nave{
 
 	@Override
 	public void chocarContraPared() {
-		super.girar(90);
+		super.girar(180);
 		chocoPared=true;	
 		avanzarMuchasVeces(5);
 		calcularDesplazamiento();
@@ -56,21 +58,16 @@ public class NaveEcuatorial extends Nave{
 	public void elementosVistos(ArrayList<Elemento> elementos) {
 //		 Dispara misiles  cuando  detecta  una  nave  en  el  radar.  Si  por  el  contrario  
 //		detecta  a  más  de  3  naves,  dispara​ ​una​ ​bomba.
-		int cant = buscarCantidadNave(elementos);
-		for (int i = 0; i < elementos.size(); i++) {
-			int dir=0;
-			
-			if (cant>0){
-				if (cant==3){
-					int dir1 = this.getRadar().getDireccion();
-					this.dispararBomba(this,dir1);
-				}else
-					dir = this.getRadar().getDireccion();
-					this.dispararMisil(this, dir);
-			}
-//			 Elemento e = elementos.get(i);
+		
+		if (this.getNivelCombustible()>0){
+			uEstrategia.inteligenciaEcuatorial(elementos, this);
 
+		}else{
+			uEstrategia.buscarCombustible(elementos, this);
+			this.getRadar().girar(3);
 		}
+		
+
 		
 	}
 
@@ -86,21 +83,7 @@ public class NaveEcuatorial extends Nave{
 	}
 	
 
-	/**
-	 * busca la cantidad de Naves que se han detectado
-	 * @param elementos
-	 * @return
-	 */
-	private int buscarCantidadNave(ArrayList<Elemento> elementos) {
-		int contador=0;
-		
-		for (int i = 0; i < elementos.size(); i++) {
-			 Elemento e = elementos.get(i);
 
-			if (e instanceof Nave){contador++;}
-		}
-		return (contador);
-	}
 
 	@Override
 	public String toString() {

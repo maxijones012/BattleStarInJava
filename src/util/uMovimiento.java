@@ -88,7 +88,7 @@ public abstract class uMovimiento{
 	/**
 	 * Realiza una correcion de los {@link Elemento elementos}, centrando la posicion hacia su centro
 	 * @param elemento
-	 * @return
+	 * @return Posicion centrada en (X,Y)
 	 */
 	public static final Posicion getCentro(Elemento elemento){
 		
@@ -123,5 +123,15 @@ public abstract class uMovimiento{
 		}
 		
 	}
+	
+	public static void espera(int c){
+		if (c==0){ c=150;} //valor por defecto
+	 	try {
+			Thread.sleep(c); //aca va un 1000
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	};
+	
 	
 }

@@ -3,6 +3,7 @@ package util;
 import java.awt.Polygon;
 
 import logicaJuego.Nave;
+import logicaJuego.Posicion;
 import logicaJuego.Radar;
 
 public abstract class uRadar {
@@ -17,10 +18,12 @@ public abstract class uRadar {
 
 		   	Polygon areaCobertura = new Polygon();
 
-		   	
-			int duenioX= (int)radar.getDuenio().getPosicion().getX()+10; 
-			int duenioY= (int)radar.getDuenio().getPosicion().getY()+10;
-			
+			Posicion auxPosicion = uMovimiento.getCentro(radar.getDuenio());
+
+			//corregimos la posicion del robot para que el radar salga desde el centro
+			int duenioX= auxPosicion.getX(); 
+			int duenioY= auxPosicion.getY();
+
 			int direccion = radar.getDireccion();	
 			
 			//APUNTA CON LA MISMA DIRECCION DEL ROBOT

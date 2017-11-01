@@ -2,7 +2,7 @@ package logicaJuego;
 
 import util.uDebugConsola;
 
-public abstract class Bonus extends Estatico{
+public abstract class Bonus extends Elemento{
 	private int tiempoVida;
 	private Nave duenio;
 //	constructor

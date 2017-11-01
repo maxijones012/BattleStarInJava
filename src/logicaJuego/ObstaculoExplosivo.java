@@ -9,7 +9,7 @@ import configuracion.ConfiguracionInicial;
  * @author Maxi Jones
  *
  */
-public class ObstaculoExplosivo extends Estatico{
+public class ObstaculoExplosivo extends Elemento{
 	private int tiempoDeExplosion;
 	private int nivelDanio=ConfiguracionInicial.DANIO_OBSTACULO_EXPLOSIVO;
 	private boolean explotando=false;

@@ -1,6 +1,7 @@
 package configuracion;
 
 import logicaJuego.AdministradorJuego;
+import sonido.uSonido;
 
 /**
  * Contiene todos los datos del juego
@@ -23,24 +24,24 @@ public class ConfiguracionInicial {
 	public static final int POSICION_X_PASADIZO_A=200;
 	public static final int POSICION_Y_PASADIZO_A=200;
 
-	public static final int POSICION_X_PASADIZO_B=730;
-	public static final int POSICION_Y_PASADIZO_B=600;
+	public static final int POSICION_X_PASADIZO_B=630;
+	public static final int POSICION_Y_PASADIZO_B=500;
 	
 	
 	public static final int ANCHO_ESCENARIO=900;
-	public static final int ALTO_ESCENARIO=900;
+	public static final int ALTO_ESCENARIO=750;
 	
 	public static final int ALTO_PASADIZO=50;
 	public static final int ANCHO_PASADIZO=50;
 	
-	public static final int ANCHO_NAVE=60;
-	public static final int ALTO_NAVE=60;
+	public static final int ANCHO_NAVE=70;
+	public static final int ALTO_NAVE=70;
 
-	public static final int POSICION_X_OBSTACULO_EXPLOSIVO = 800;
+	public static final int POSICION_X_OBSTACULO_EXPLOSIVO = 600;
 	public static final int POSICION_Y_OBSTACULO_EXPLOSIVO = 200;
 	
-	public static final int ANCHO_OBSTACULO_EXPLOSIVO = 40;
-	public static final int ALTO_OBSTACULO_EXPLOSIVO = 80;
+	public static final int ANCHO_OBSTACULO_EXPLOSIVO = 50;
+	public static final int ALTO_OBSTACULO_EXPLOSIVO = 90;
 
 	public static final int VELOCIDAD_MISIL = 35;
 	public static final int VELOCIDAD_BOMBA = 30;
@@ -62,8 +63,8 @@ public class ConfiguracionInicial {
 	
 	private int cantidadAvanceHaciaArriba=380;
 	
-	private int anchoBonus=30;
-	private int altoBonus=30;
+	private int anchoBonus=40;
+	private int altoBonus=40;
 	
 	public static int DIRECCION_MOVIBLE=10;
 
@@ -199,9 +200,12 @@ public class ConfiguracionInicial {
 	public int getTiempoVidaBonus() {
 		return tiempoVidaBonus;
 	}
-	
-	
-	
+	public void apagarBotones() {
+		this.setAbajo(false);
+		this.setArriba(false);
+		this.setDerecha(false);
+		this.setIzquierda(false);
+	}
 	
 	
 	

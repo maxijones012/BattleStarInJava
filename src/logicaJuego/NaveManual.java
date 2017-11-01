@@ -2,7 +2,11 @@ package logicaJuego;
 
 
 import java.util.ArrayList;
+
+import configuracion.ConfiguracionInicial;
 import sonido.uSonido;
+import util.uControles;
+import util.uEstrategia;
 
 /**
  * Clase de la Nave Manua, controlado por Teclado
@@ -11,6 +15,13 @@ import sonido.uSonido;
  */
 public class NaveManual extends Nave{
 
+	
+	/**
+	 * Constructor de la clase nave Manual
+	 * @param posicion
+	 * @param tamanio
+	 * @param administradorJuego
+	 */
 	public NaveManual(Posicion posicion, Tamanio tamanio, AdministradorJuego administradorJuego) {
 		super(posicion, tamanio, administradorJuego);
 	}
@@ -20,6 +31,24 @@ public class NaveManual extends Nave{
 	@Override
 	public void jugar() {
 		this.getRadar().escanear();
+	
+		controlarTeclaPulsada();
+
+		this.avanzar();
+	}
+	
+	
+	
+	
+	
+	
+	/**
+	 * Verifica la tecla que pulso el usuario (ARRIBA,ABAJO,DERECHA,IZQUIERDA,B,BARRA_ESPARCIADORA)
+	 */
+	private void controlarTeclaPulsada() {
+		
+//		String tecla = uControles.verficarTecla(this);
+		
  		if(this.getAdministradorJuego().getConfiguracionInicial().isDisMunicion()){			
 			this.dispararMisil(this);
 			this.getAdministradorJuego().getConfiguracionInicial().setDisMunicion(false);
@@ -32,30 +61,32 @@ public class NaveManual extends Nave{
 		}
 		if (this.getAdministradorJuego().getConfiguracionInicial().isDerecha()){
 			this.setDireccion(0);		
-			this.avanzar();
 		}
 		else{
 			if (this.getAdministradorJuego().getConfiguracionInicial().isIzquierda()){
 				this.setDireccion(180);
-				this.avanzar();
 			}
 			else{
 				if (this.getAdministradorJuego().getConfiguracionInicial().isArriba()){
 					this.setDireccion(270);
-					this.avanzar();
 				}
 				else{
 					this.setDireccion(90); 
-					this.avanzar();
 				}
 			}
-		}				
+		}
 	}
+
+
+
 	@Override
 	public void elementosVistos(ArrayList<Elemento> elementos) {
-//		if (elementos.size()>1){
-//			uSonido.reproducir("/sonido/radarDetected.wav");
-//		}
+		if (this.getNivelCombustible()>0){
+			uEstrategia.inteligenciaDispararNave(elementos, this);
+		}else{
+			uEstrategia.buscarCombustible(elementos, this);
+			this.getRadar().girar(3);
+		}
 	}
 
 	@Override
@@ -66,7 +97,9 @@ public class NaveManual extends Nave{
 
 	}
 
-
+	@Override
+	public void chocarContraNave(Nave nave) {
+	}
 	
 	@Override
 	public String toString() {

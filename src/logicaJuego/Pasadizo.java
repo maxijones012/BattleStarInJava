@@ -6,7 +6,7 @@ package logicaJuego;
  * @author Maxi Jones
  *
  */
-public class Pasadizo extends Estatico{
+public class Pasadizo extends Elemento{
 	private Posicion pasadizoSalida;
 	private int quitarNivelCombustible;
 		

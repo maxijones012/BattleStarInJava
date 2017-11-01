@@ -164,6 +164,8 @@ public abstract class uAdministradorJuego {
 
 			if (e1 instanceof Pasadizo) {
 				r1.setSize(1,1);
+				Posicion pos = uMovimiento.getCentro(e1);
+				r1.setLocation(pos.getX(), pos.getY());
 			}
 			if (e1 instanceof Bomba) {
 				Bomba bomb = (Bomba) e1;
@@ -224,6 +226,9 @@ public abstract class uAdministradorJuego {
 
 
 	}
+
+
+
 
 	/**
 	 * Busca todas las naves vivas que quedaon al finalizar el juego, y las muestra
