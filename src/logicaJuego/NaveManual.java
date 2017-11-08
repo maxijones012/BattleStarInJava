@@ -4,6 +4,7 @@ package logicaJuego;
 import java.util.ArrayList;
 
 import configuracion.ConfiguracionInicial;
+import configuracion.Constante;
 import sonido.uSonido;
 import util.uControles;
 import util.uEstrategia;
@@ -30,15 +31,13 @@ public class NaveManual extends Nave{
 	
 	@Override
 	public void jugar() {
+//		uControles.apagarTeclas(this);
 		this.getRadar().escanear();
 	
 		controlarTeclaPulsada();
 
-		this.avanzar();
+		
 	}
-	
-	
-	
 	
 	
 	
@@ -47,34 +46,57 @@ public class NaveManual extends Nave{
 	 */
 	private void controlarTeclaPulsada() {
 		
-//		String tecla = uControles.verficarTecla(this);
+		String tecla = uControles.verficarTecla(this);
+		System.out.println(tecla);
 		
- 		if(this.getAdministradorJuego().getConfiguracionInicial().isDisMunicion()){			
-			this.dispararMisil(this);
-			this.getAdministradorJuego().getConfiguracionInicial().setDisMunicion(false);
-			uSonido.reproducir("/sonido/misil2.wav");
-		}
-		if(this.getAdministradorJuego().getConfiguracionInicial().isDisBomba()){
-			this.dispararBomba(this);
-			this.getAdministradorJuego().getConfiguracionInicial().setDisBomba(false);
-			uSonido.reproducir("/sonido/laser2.wav");
-		}
-		if (this.getAdministradorJuego().getConfiguracionInicial().isDerecha()){
-			this.setDireccion(0);		
-		}
-		else{
-			if (this.getAdministradorJuego().getConfiguracionInicial().isIzquierda()){
-				this.setDireccion(180);
+		switch (tecla) {
+		
+		case Constante.TECLA_BARRA_ESPACIADORA:
+			if (this.getCantidadMunicion()>0){
+				this.dispararMisil(this);
+				this.getAdministradorJuego().getConfiguracionInicial().setDisMunicion(false);
+				uSonido.reproducir("/sonido/misil2.wav");
+				this.avanzar();
+				break;
+			}else{ //bug encontrado
+				this.avanzar();
+				break;
 			}
-			else{
-				if (this.getAdministradorJuego().getConfiguracionInicial().isArriba()){
-					this.setDireccion(270);
-				}
-				else{
-					this.setDireccion(90); 
-				}
+			
+		case Constante.TECLA_B:
+			if (this.getCantidadBomba()>0){
+				this.dispararBomba(this);
+				uSonido.reproducir("/sonido/laser2.wav");
+				this.avanzar();
+				break;
+			}else{
+				break;
 			}
+			
+		case Constante.TECLA_DERECHA:
+				this.setDireccion(0);	
+				super.avanzar();
+			break;
+			
+		case Constante.TECLA_IZQUIERDA:
+			this.setDireccion(180);
+			super.avanzar();
+			break;
+			
+		case Constante.TECLA_ARRIBA:
+			this.setDireccion(270);
+			super.avanzar();
+			break;
+
+		case Constante.TECLA_ABAJO:
+			this.setDireccion(90); 
+			super.avanzar();
+			break;
+	
+		default:
+			break;
 		}
+		uControles.apagarTeclas(this);
 	}
 
 
@@ -92,7 +114,6 @@ public class NaveManual extends Nave{
 	@Override
 	public void chocarContraPared() {
 		cambiarDireccion(-180);
-		super.avanzar();
 		System.out.println("Nave choco contra pared");
 
 	}

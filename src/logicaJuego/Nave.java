@@ -335,6 +335,7 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	
 	@Override
 	public void chocarContraPazadizo(Pasadizo pasadizo) {
+		uSonido.reproducir("/sonido/pasadizo.wav");
 		this.getPosicion().setX(pasadizo.getPasadizoSalida().getX()+1);
 		this.getPosicion().setY(pasadizo.getPasadizoSalida().getY()+1);
 		

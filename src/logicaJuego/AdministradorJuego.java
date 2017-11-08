@@ -29,10 +29,15 @@ public class AdministradorJuego implements IAdministradorJuego{
 	private boolean pausa=false;
 	private int tiempo=0;
 	private int duracionJuego=ConfiguracionInicial.DURACION_JUEGO;
+	private static AdministradorJuego instancia = new AdministradorJuego();
 	
 	
-	public AdministradorJuego(ConfiguracionInicial configuracionInicial) {
-		this.configuracionInicial=configuracionInicial;
+	public static AdministradorJuego getInstancia() {
+		return instancia;
+	}
+
+	private AdministradorJuego() {
+		this.configuracionInicial= new ConfiguracionInicial();
 		this.tamanio= new Tamanio(ancho, alto);
 		this.ancho=ConfiguracionInicial.ANCHO_ESCENARIO;
 		this.alto=ConfiguracionInicial.ALTO_ESCENARIO;

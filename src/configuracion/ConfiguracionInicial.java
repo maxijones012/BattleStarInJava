@@ -51,7 +51,7 @@ public class ConfiguracionInicial {
 	public static final int CANTIDAD_BOMBA = 70;
 
 	public static final int ANCHO_MISIL = 50;
-	public static final int ALTO_MISIL = 40;
+	public static final int ALTO_MISIL = 50;
 
 	public static final int ANCHO_BOMBA = 50;
 	public static final int ALTO_BOMBA = 50;
@@ -76,7 +76,7 @@ public class ConfiguracionInicial {
 	
 	private int tiempoInmunidad=25;
 	private int alcanceRadar=250;
-	private int anguloAperturaRadar=15;
+	private int anguloAperturaRadar=25;
 	
 	
 	private int quitarNivelCombustible=50;
@@ -199,12 +199,6 @@ public class ConfiguracionInicial {
 	}
 	public int getTiempoVidaBonus() {
 		return tiempoVidaBonus;
-	}
-	public void apagarBotones() {
-		this.setAbajo(false);
-		this.setArriba(false);
-		this.setDerecha(false);
-		this.setIzquierda(false);
 	}
 	
 	

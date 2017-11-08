@@ -160,7 +160,8 @@ public class uEstrategia {
 					dir += nave.getDireccion();
 					nave.dispararMisil(nave, dir);					
 				}else{ //que dispare una bomb
-					int dir = nave.getRadar().getDireccion()-90;
+					int dir = nave.getRadar().getDireccion();
+					dir += nave.getDireccion();
 					nave.dispararBomba(nave, dir);
 				}
 			}

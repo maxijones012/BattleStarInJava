@@ -220,6 +220,7 @@ public class TableroJuego extends Canvas implements KeyListener{
 	public void keyPressed(KeyEvent e) {
 		uControles.controlTeclado(this, e, getAdministradorJuego().getConfiguracionInicial());
 		
+		
 	}
 
 
