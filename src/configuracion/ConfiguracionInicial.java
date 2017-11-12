@@ -1,7 +1,6 @@
 package configuracion;
 
 import logicaJuego.AdministradorJuego;
-import sonido.uSonido;
 
 /**
  * Contiene todos los datos del juego
@@ -59,7 +58,8 @@ public class ConfiguracionInicial {
 	public static final int DANIO_OBSTACULO_EXPLOSIVO = 80;
 
 	public static final int NIVEL_DANIO_BOMBA=150;
-	private int danioMisil=80;
+	
+	public static final int DANIO_MISIL=80;
 	
 	private int cantidadAvanceHaciaArriba=380;
 	
@@ -144,9 +144,6 @@ public class ConfiguracionInicial {
 		this.derecha = derecha;
 	}
 
-	public int getDanioMisil() {
-		return danioMisil;
-	}
 
 
 	public void setEscenario(AdministradorJuego escenario) {

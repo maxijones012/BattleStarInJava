@@ -3,7 +3,6 @@ package logicaJuego;
 
 import java.util.ArrayList;
 
-import configuracion.ConfiguracionInicial;
 import configuracion.Constante;
 import sonido.uSonido;
 import util.uControles;
@@ -104,7 +103,7 @@ public class NaveManual extends Nave{
 	@Override
 	public void elementosVistos(ArrayList<Elemento> elementos) {
 		if (this.getNivelCombustible()>0){
-			uEstrategia.inteligenciaDispararNave(elementos, this);
+//			uEstrategia.inteligenciaDispararNave(elementos, this);
 		}else{
 			uEstrategia.buscarCombustible(elementos, this);
 			this.getRadar().girar(3);

@@ -3,7 +3,7 @@ package logicaJuego;
 import configuracion.ConfiguracionInicial;
 
 public class Misil extends Movible{
-	private int nivelDanioMisil;
+	private int nivelDanioMisil=ConfiguracionInicial.DANIO_MISIL;
 	private Nave duenio;
 	
 	/**

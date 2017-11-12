@@ -1,6 +1,6 @@
 package aircraftWar;
 
-import configuracion.ConfiguracionInicial;
+import grafica.ingresoDatos.PantallaDatosUsuario;
 import grafica.pantallaCarga.PantallaCargandoMain;
 import logicaJuego.AdministradorJuego;
 import sonido.uSonido;
@@ -10,8 +10,10 @@ public class Prueba {
 
 	public static void main(String[] args) {
 //		uSonido.reproducir("/sonido/inicio.wav");
+		pantallaIngresoDatos();
 
 //		pantallaCarga();
+		
 		
 		AdministradorJuego administradorJuego = AdministradorJuego.getInstancia();
 		administradorJuego.iniciarJuego();
@@ -20,8 +22,14 @@ public class Prueba {
 	}
 
 	
-	
-	
+
+	private static void pantallaIngresoDatos() {
+		PantallaDatosUsuario pantalla = new PantallaDatosUsuario();
+		pantalla.main(null);
+	}
+
+
+
 	/**
 	 * Crea la pantalla de carga
 	 */

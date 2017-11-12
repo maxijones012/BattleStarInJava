@@ -25,6 +25,7 @@ public class vTableroJuego extends JFrame implements KeyListener{
 	
 	public vTableroJuego(AdministradorJuego administradorJuego) {
 		this.administradorJuego=administradorJuego;
+		this.setTitle("JUEGO FINAL 2017 JONES MAXI, CARLOS IRIGOYEN");
 		this.tableroJuego = new TableroJuego(administradorJuego);
 
 		Container contenedor = this.getContentPane(); //PANEL		

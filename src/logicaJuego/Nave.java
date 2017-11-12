@@ -2,7 +2,6 @@ package logicaJuego;
 
 import java.util.Random;
 
-import javax.sound.sampled.Clip;
 
 import configuracion.ConfiguracionInicial;
 import interfaces.INave;
