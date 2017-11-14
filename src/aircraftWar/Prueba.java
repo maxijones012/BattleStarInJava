@@ -9,10 +9,10 @@ import util.uMovimiento;
 public class Prueba {
 
 	public static void main(String[] args) {
-//		uSonido.reproducir("/sonido/inicio.wav");
+		uSonido.reproducir("/sonido/inicio.wav");
 		pantallaIngresoDatos();
 
-//		pantallaCarga();
+		pantallaCarga();
 		
 		
 		AdministradorJuego administradorJuego = AdministradorJuego.getInstancia();
