@@ -16,7 +16,13 @@ public class uGrafica {
 	}
 
 
-
+	/**
+	 * Cambia el tamaño de la imagen
+	 * @param img
+	 * @param ancho
+	 * @param alto
+	 * @return
+	 */
 	public static BufferedImage cambiarTamanio(BufferedImage img, int ancho, int alto) {
 		
 		BufferedImage newImage = new BufferedImage(ancho,alto, BufferedImage.TYPE_INT_RGB);

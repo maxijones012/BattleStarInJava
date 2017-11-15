@@ -1,7 +1,5 @@
 package grafica.pantallaCarga;
 
-
-
 /**
  * 
  * I M P O R T A N T E
@@ -17,23 +15,22 @@ import javax.swing.ImageIcon;
 
 public class PantallaCargandoMain {
 
-  PantallaCargando screen;
+	PantallaCargando screen;
 
-  public PantallaCargandoMain() {
-    inicioPantalla();
-	screen.velocidadDeCarga();
-  }
+	public PantallaCargandoMain() {
+		inicioPantalla();
+		screen.velocidadDeCarga();
+	}
 
-  private void inicioPantalla() {
-    ImageIcon myImage = new ImageIcon("imagen/java.gif");
-    screen = new PantallaCargando(myImage);
-    screen.setLocationRelativeTo(null);
-    screen.setProgresoMax(100);
-    screen.setVisible(true);
-  }
+	private void inicioPantalla() {
+		ImageIcon myImage = new ImageIcon("imagen/java.gif");
+		screen = new PantallaCargando(myImage);
+		screen.setLocationRelativeTo(null);
+		screen.setProgresoMax(100);
+		screen.setVisible(true);
+	}
 
-  public static void main(String[] args)
-  {
-    new PantallaCargandoMain();
-  }
+	public static void main(String[] args) {
+		new PantallaCargandoMain();
+	}
 }

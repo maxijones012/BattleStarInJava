@@ -92,23 +92,11 @@ public class Bomba extends Movible{
 	}
 
 	@Override
-	/**
-	 * TODO CUANDO SE SUPERPONE UNA BOMBA CON EL BONUS ESTE SE DESTRUYE
-	 *
-	 */
 	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {
 		this.destruir(this);
 	}
 
 	@Override
-	/**
-	 * TODO CUANDO SE SUPERPONE UNA BOMBA CON EL BONUS ESTE SE DESTRUYE
-	 
-	 *
-	 *
-	 *
-	 *
-	 */
 	public void chocarContraBonusMisil(BonusMisil bonus) {
 		this.destruir(this);
 		
@@ -131,9 +119,6 @@ public class Bomba extends Movible{
 	}
 
 	@Override
-	/**
-	 * TODO DESTRUIR LAS BOMBAS
-	 */
 	public void chocarContraBomba(Bomba bomba) {
 		if (bomba.getDuenio()!= this.getDuenio()){
 			this.destruir(this);
@@ -152,7 +137,7 @@ public class Bomba extends Movible{
 	
 
 	/**
-	 * TODO revisar esta parte 
+	 *	Genera un radio de explosion
 	 */
 	public void explotar(){
 		uArmamento.explotar(this);

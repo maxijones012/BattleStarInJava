@@ -11,28 +11,16 @@ public class uControles {
 	public static void controlTeclado(TableroJuego obj ,KeyEvent e,ConfiguracionInicial configuracionInicial){
 
 		if (e.getKeyCode() == KeyEvent.VK_DOWN){
-			configuracionInicial.setAbajo(true);
-			configuracionInicial.setArriba(false);
-			configuracionInicial.setIzquierda(false);
-			configuracionInicial.setDerecha(false);
+			teclaAbajo(configuracionInicial);
 		}
 		if (e.getKeyCode() == KeyEvent.VK_UP){
-			configuracionInicial.setAbajo(false);
-			configuracionInicial.setArriba(true);
-			configuracionInicial.setIzquierda(false);
-			configuracionInicial.setDerecha(false);
+			teclaArriba(configuracionInicial);
 		}
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT){
-			configuracionInicial.setAbajo(false);
-			configuracionInicial.setArriba(false);
-			configuracionInicial.setIzquierda(false);
-			configuracionInicial.setDerecha(true);	
+			teclaDerecha(configuracionInicial);	
 		}
 		if (e.getKeyCode() == KeyEvent.VK_LEFT){
-			configuracionInicial.setAbajo(false);
-			configuracionInicial.setArriba(false);
-			configuracionInicial.setIzquierda(true);
-			configuracionInicial.setDerecha(false);	
+			teclaIzquierda(configuracionInicial);	
 		}
 		if (e.getKeyCode() == KeyEvent.VK_SPACE ){
 			configuracionInicial.setDisMunicion(true);
@@ -40,6 +28,34 @@ public class uControles {
 		if (e.getKeyCode() == KeyEvent.VK_B){
 			configuracionInicial.setDisBomba(true);
 		}
+	}
+
+	private static void teclaIzquierda(ConfiguracionInicial configuracionInicial) {
+		configuracionInicial.setAbajo(false);
+		configuracionInicial.setArriba(false);
+		configuracionInicial.setIzquierda(true);
+		configuracionInicial.setDerecha(false);
+	}
+
+	private static void teclaDerecha(ConfiguracionInicial configuracionInicial) {
+		configuracionInicial.setAbajo(false);
+		configuracionInicial.setArriba(false);
+		configuracionInicial.setIzquierda(false);
+		configuracionInicial.setDerecha(true);
+	}
+
+	private static void teclaArriba(ConfiguracionInicial configuracionInicial) {
+		configuracionInicial.setAbajo(false);
+		configuracionInicial.setArriba(true);
+		configuracionInicial.setIzquierda(false);
+		configuracionInicial.setDerecha(false);
+	}
+
+	private static void teclaAbajo(ConfiguracionInicial configuracionInicial) {
+		configuracionInicial.setAbajo(true);
+		configuracionInicial.setArriba(false);
+		configuracionInicial.setIzquierda(false);
+		configuracionInicial.setDerecha(false);
 	}
 
 	public static String verficarTecla(NaveManual naveManual) {

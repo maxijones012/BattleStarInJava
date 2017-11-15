@@ -113,18 +113,31 @@ public class PantallaDatosUsuario extends JFrame implements KeyListener {
 				System.out.println(TextArea.getText());
 				if ((JOptionPane.showInputDialog("Confirma ingresar jugador?", aux) != null)&&(!aux.isEmpty())){
 					listaJugadores.add(aux);
+					guardarDatos(aux);
 				}else
 					System.err.println("WARNING! ERROR CADENA INGRESADA VACIA");
 			}
+
 		});
 		panel.add(TextArea);
 		TextArea.setColumns(15);
 		
 	}
 
+	private void guardarDatos(String aux) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	/**
+	 * panel donde muestra un mensaje 
+	 * @param panel
+	 */
 	private void panelIngresoNombre(JPanel panel) {
 		txtIngreseSuNombre = new JTextField();
-		txtIngreseSuNombre.setBackground(Color.ORANGE);
+		txtIngreseSuNombre.setForeground(Color.green);
+		txtIngreseSuNombre.setBackground(Color.black);
 		panel.add(txtIngreseSuNombre);
 		txtIngreseSuNombre.setFont(new Font("n", Font.ROMAN_BASELINE, 16));
 		txtIngreseSuNombre.setText("Ingrese su nombre");

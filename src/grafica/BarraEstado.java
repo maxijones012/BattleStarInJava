@@ -3,10 +3,13 @@ package grafica;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
+
+import com.sun.javafx.tk.FontMetrics;
 
 import logicaJuego.Elemento;
 import logicaJuego.NaveCrazy;
@@ -21,13 +24,25 @@ public class BarraEstado extends JFrame{
 	
 	public BarraEstado() {
 		texto.setText("NAVE");
+		Font fuente = new Font("font", Font.BOLD, 12);
+		texto.setFont(fuente);
+		texto.setForeground(Color.green);
+		texto.setBackground(Color.black);
+		this.getContentPane().setBackground(Color.black);
 		this.setVisible(true);
+		this.setBackground(Color.BLACK);
+		this.setTitle("PANEL DE ESTADO");
 		this.setBounds(902, 50, 450, 300);
-		this.setBackground(Color.GREEN);
+		this.setBackground(Color.black);
 		this.setLayout(new FlowLayout());
 		
 	}
 
+	
+	/**
+	 * agrega un texto a la barra de estado
+	 * @param c
+	 */
 	private void agregarTexto(String c) {
 		texto.setText(c);
 		this.add(texto);

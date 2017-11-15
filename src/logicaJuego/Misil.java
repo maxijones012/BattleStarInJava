@@ -2,6 +2,12 @@ package logicaJuego;
 
 import configuracion.ConfiguracionInicial;
 
+
+/**
+ * clase Misil
+ * @author Maxi
+ *
+ */
 public class Misil extends Movible{
 	private int nivelDanioMisil=ConfiguracionInicial.DANIO_MISIL;
 	private Nave duenio;

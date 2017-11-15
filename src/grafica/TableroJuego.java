@@ -36,6 +36,7 @@ public class TableroJuego extends Canvas implements KeyListener{
 	 * @param administradorJuego
 	 */
 	public TableroJuego(AdministradorJuego administradorJuego) {
+		
 		this.administradorJuego=administradorJuego;
 		this.altoNave=ConfiguracionInicial.ALTO_NAVE;
 		this.anchoNave=ConfiguracionInicial.ANCHO_NAVE;
@@ -73,17 +74,8 @@ public class TableroJuego extends Canvas implements KeyListener{
 			if (e instanceof Movible){
 				Movible e2 = (Movible) e;				
 				eImagen = rotarImagen(eImagen, e2.getDireccion());
-				if (e2 instanceof Nave){
-					Nave nave = (Nave) e2;
-					uGrafica.dibujarRadar(this, nave);
-					this.getGrafico2D().setColor(Color.RED);
-					String nombre = e2.toString();
-					this.getGrafico2D().drawString(nombre, x, y);
-					
-//					if (nave.getInmunidad()){
-//						eImagen = getImagen(e.getClass().getName()+"Explotando")
-//					}
-				}
+				dibujarNave(x, y, e2);
+				
 				
 			}
 			
@@ -103,6 +95,28 @@ public class TableroJuego extends Canvas implements KeyListener{
 		
 		this.getBufferStrategy().show();
 
+	}
+
+	
+	/**
+	 * Dibujamos la nave con su correspondiente radar
+	 * @param x
+	 * @param y
+	 * @param e2
+	 */
+	private void dibujarNave(int x, int y, Movible e2) {
+		if (e2 instanceof Nave){
+			Nave nave = (Nave) e2;
+			uGrafica.dibujarRadar(this, nave);
+			this.getGrafico2D().setColor(Color.RED);
+			String nombre = e2.toString();
+			this.getGrafico2D().drawString(nombre, x, y);
+			
+			
+//					if (nave.getInmunidad()){
+//						eImagen = getImagen(e.getClass().getName()+"Explotando")
+//					}
+		}
 	}
 
 

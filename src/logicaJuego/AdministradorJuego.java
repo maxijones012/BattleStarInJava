@@ -36,6 +36,10 @@ public class AdministradorJuego implements IAdministradorJuego{
 		return instancia;
 	}
 
+	
+	/**
+	 * Constructor de la clase Administrador de juego
+	 */
 	private AdministradorJuego() {
 		this.configuracionInicial= new ConfiguracionInicial();
 		this.tamanio= new Tamanio(ancho, alto);
@@ -61,9 +65,12 @@ public class AdministradorJuego implements IAdministradorJuego{
 				depurarElementos();
 				
 			 	espera(60);
+			 	
 			 	barraEstado.actualizar(this.getListaElemento());
-			}
 			tiempo++;
+			}else{
+				espera(60); //le doy una pqueña espera para poder cambiar el boton
+			}
 		}
 		verificarResultados();
 	}
@@ -179,16 +186,28 @@ public class AdministradorJuego implements IAdministradorJuego{
 		for(int i= 0; i< this.getListaElemento().size();i++){
 			Elemento elemento = this.getListaElemento().get(i);
 			
-			Rectangle areaElemento = new Rectangle((int)elemento.getPosicion().getX(),
-												   (int)elemento.getPosicion().getY(),
-												    elemento.getTamanio().getAncho(),
-												    elemento.getTamanio().getAlto()); 			
+			Rectangle areaElemento = dibujarRectangulo(elemento); 			
 			
 			if (areaRadar.intersects(areaElemento)){				
 				elementosVistos.add(elemento);	
 			}			
 		}
 		return elementosVistos;
+	}
+
+
+	
+	/**
+	 * dibujamos el rectangulo del {@link Elemento elemento}
+	 * @param elemento
+	 * @return
+	 */
+	private Rectangle dibujarRectangulo(Elemento elemento) {
+		Rectangle areaElemento = new Rectangle((int)elemento.getPosicion().getX(),
+											   (int)elemento.getPosicion().getY(),
+											    elemento.getTamanio().getAncho(),
+											    elemento.getTamanio().getAlto());
+		return areaElemento;
 	}
 	
 	/**
