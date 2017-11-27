@@ -9,11 +9,15 @@ import logicaJuego.Misil;
 import logicaJuego.Nave;
 import logicaJuego.ObstaculoExplosivo;
 import logicaJuego.Pasadizo;
-
+/**
+ * Interfaz implementada por los elementos dentro del juego 
+ * @author carlos
+ *
+ */
 public interface IElemento {
 	
 	/**
-	 * 
+	 * METODO ABSTRACTO TODOS LOS ELEMENTOS QUE IMPLEMENTAN LA INTERFAZ DEBEN DE REDIFINIR ESTE METODO  
 	 */
 	public abstract void jugar();
 	
@@ -54,8 +58,8 @@ public interface IElemento {
 	public abstract void chocarContraBonusInmunidad(BonusInmunidad bonus);
 	
 	/**
-	 * TODO SE  VERIFICA SI EL MISIL Y EL BONUS SE SUPERPONEN
-	 * TODO EL BONUS SE OTORGA A LA NAVE Y EL MISIL EJECUTA SU METODO DESTRUIR 
+	 * SE  VERIFICA SI EL MISIL Y EL BONUS SE SUPERPONEN
+	 *  EL BONUS SE OTORGA A LA NAVE Y EL MISIL EJECUTA SU METODO DESTRUIR 
 	 * @param bonus
 	 */
 	public abstract void chocarContraBonusMisil(BonusMisil bonus);
@@ -67,13 +71,22 @@ public interface IElemento {
 	public abstract void chocarContraNave(Nave nave);
 //	
 //		
-	
+	/**
+	 * cuando un elemento choca contra el pasadizo ejecuta  su metodo chocarContraPazadizo
+	 * @param pasadizo
+	 */
 	public abstract void chocarContraPazadizo(Pasadizo pasadizo);
 	
-	
+	/**
+	 *  verifica si el misil se superpone con algun elemento dentro del juego 
+	 * @param misil
+	 */
 	public abstract void chocarContraMisil(Misil misil);
 	
-	
+	/**
+	 * verifica si un elemento dentro del juego choca o se superpone con el  obstaculo explosivo 
+	 * @param obstaculoExplosivo
+	 */
 	public abstract void chocarContraObstaculoExplosivo(ObstaculoExplosivo obstaculoExplosivo);
 	
 	

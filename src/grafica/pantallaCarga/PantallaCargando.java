@@ -12,12 +12,17 @@ public class PantallaCargando extends JWindow {
 	FlowLayout southPanelFlowLayout = new FlowLayout();
 	JProgressBar progressBar = new JProgressBar();
 	ImageIcon imageIcon;
-
+/**
+ * Pantalla de inicio del juego 
+ * @param imageIcon
+ */
 	public PantallaCargando(ImageIcon imageIcon) {
 		this.imageIcon = imageIcon;
 		dibujaVentana();
 	}
-
+/**
+ * Dibuja la pantalla en el JFrame 
+ */
 	public void dibujaVentana() {
 		imageLabel.setIcon(imageIcon);
 		this.getContentPane().setLayout(borderLayout1);

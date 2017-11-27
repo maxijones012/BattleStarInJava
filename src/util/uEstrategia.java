@@ -172,7 +172,7 @@ public class uEstrategia {
 	}
 
 
-
+	//TODO [CORREGIR] La nave ecuatorial no dispara cuando se cruza con otras naves
 	public static void inteligenciaEcuatorial(ArrayList<Elemento> elementos, NaveEcuatorial naveEcuatorial) {
 		int cant = buscarCantidadNave(elementos);
 		for (int i = 0; i < elementos.size(); i++) {

@@ -7,9 +7,17 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.DataLine;
-
+/**
+ * Clase Sonido carga los sonidos del juego dentro del path 
+ * @author carlos
+ *
+ */
 public class uSonido {
-
+	/**
+	 * Cargo un clip de sonido de la ruta especificada 
+	 * @param ruta
+	 * @return
+	 */
 	private static Clip cargarSonido(final String ruta){
 		Clip clip = null;
 		try{

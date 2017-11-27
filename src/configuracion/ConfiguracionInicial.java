@@ -82,7 +82,7 @@ public class ConfiguracionInicial {
 	private int quitarNivelCombustible=50;
 	private int tiempoExposicion=10;
 	
-	private int tiempoVidaBonus=50;
+	private int tiempoVidaBonus=150;
 	
 	
 	private boolean arriba;

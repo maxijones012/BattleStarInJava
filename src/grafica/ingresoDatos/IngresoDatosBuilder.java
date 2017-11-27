@@ -9,7 +9,11 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.BoxLayout;
 import javax.swing.JTextField;
 import java.awt.Color;
-
+/**
+ * JFRAME  CREA EL PANEL DE INGRESO DE DATOS DEL USUARIO 
+ * @author carlos
+ *
+ */
 public class IngresoDatosBuilder extends JFrame {
 
 	private JPanel contentPane;
@@ -17,7 +21,7 @@ public class IngresoDatosBuilder extends JFrame {
 	private JTextField textField_1;
 
 	/**
-	 * Launch the application.
+	 * INICIA LA APLICACION
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {

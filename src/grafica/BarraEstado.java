@@ -19,6 +19,11 @@ import logicaJuego.NaveManual;
 import util.uDebugConsola;
 
 @SuppressWarnings("serial")
+/**
+ * text area donde se muestran los datos referentes a la nave 
+ * @author carlos
+ *
+ */
 public class BarraEstado extends JFrame{
 	JTextArea texto = new JTextArea();
 	

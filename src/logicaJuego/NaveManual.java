@@ -99,7 +99,7 @@ public class NaveManual extends Nave{
 	}
 
 
-
+	//TODO [MEJORA] Cuando detecta una nave y tiene combustible no hace nada?
 	@Override
 	public void elementosVistos(ArrayList<Elemento> elementos) {
 		if (this.getNivelCombustible()>0){

@@ -17,7 +17,7 @@ public class BonusMisil extends Bonus{
 
 	@Override
 	/**
-	 * 
+	 * ejeuctual el metodo chocarContraBonusMisil del elemento enviado por parametro 
 	 */
 	public void chocarContra(Elemento elemento) {
 		elemento.chocarContraBonusMisil(this);
@@ -26,10 +26,17 @@ public class BonusMisil extends Bonus{
 
 
 	@Override
+	/**
+	 * Metodo Vacio
+	 */
 	public void chocarContraBonusMisil(BonusMisil bonus) {
 //		darBeneficio(bonus.getDuenio());
 	}
 	@Override
+	/**
+	 * otorgo el bonus de misil a la nave duenia del misil 
+	 * ejecuto el metodo destruir del bonus 
+	 */
 	public void darBeneficio(Nave nave) {
 		this.darBonusMisil(nave);
 		this.destruir(this);
@@ -37,7 +44,10 @@ public class BonusMisil extends Bonus{
 
 	
 	
-	
+	/**
+	 * TODO VERFICAR QUE LA INSTANCIA DE NAVE NO SEA NULL
+	 * @param nave
+	 */
 	private void darBonusMisil(Nave nave) { //TODO VERFICIAR QUE TOME LA MITAD
 		if (nave!=null){
 			nave.setCantidadMunicion(nave.getCantidadMunicion()+(nave.getCantidadMunicion()/2));

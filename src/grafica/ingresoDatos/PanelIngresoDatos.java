@@ -7,7 +7,11 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
+/**
+ * JFRAME DEL PANEL DE INGRESO DE DATOS 
+ * @author carlos
+ *
+ */
 public class PanelIngresoDatos extends  JFrame{
 
 	public PanelIngresoDatos() {
@@ -23,8 +27,6 @@ public class PanelIngresoDatos extends  JFrame{
 		
 	}
 
-	
-	
 	
 	
 	private void ingresorDatos(Container contenedor) {

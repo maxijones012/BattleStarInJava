@@ -12,6 +12,12 @@ import util.uDebugConsola;
 import util.uEstrategia;
 import util.uMovimiento;
 
+/**
+ * Clase abstracta Nave las subclases que extienden de Nave deben de redefinir sus metodos 
+ * y deben de implementar las interfaces INave,IRadarListener
+ * @author carlos
+ *
+ */ 
 public abstract class Nave extends Movible implements INave,IRadarListener{
 	private Boolean RadarOn=true;
 	private Boolean inmunidad=false;
@@ -112,6 +118,9 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	}
 
 	@Override
+	/**
+	 * Nave Redefine el metodo jugar de Movible 
+	 */
 	public void jugar() {
 		uDebugConsola.mostrarPosicion(this);
 		uDebugConsola.mostrarNombreElemento(this);
@@ -135,7 +144,9 @@ public abstract class Nave extends Movible implements INave,IRadarListener{
 	
 	
 	
-	
+	/**
+	 * Incremento el contador de inmunidad 
+	 */
 	private void controlarInmunidad() {
 		this.setContadorInumidad(this.getContadorInumidad()+1);
 		

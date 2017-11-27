@@ -26,6 +26,9 @@ public abstract class Movible extends Elemento implements IMovible {
 	}
 
 	@Override
+	/**
+	 * LOS MOVIBLES AVANZAN POR EL ESCENARIO 
+	 */
 	public void avanzar() {
 		uMovimiento.avanzarX(this);
 		uMovimiento.avanzarY(this);

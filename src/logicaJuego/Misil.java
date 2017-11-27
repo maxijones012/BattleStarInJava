@@ -6,6 +6,11 @@ import configuracion.ConfiguracionInicial;
 /**
  * clase Misil
  * @author Maxi
+=======
+/**
+ * Clase misil 
+ * @author carlos
+>>>>>>> 6e7d4ce53ccf88826b50abf489bffed50a4b3cf0
  *
  */
 public class Misil extends Movible{
@@ -27,13 +32,17 @@ public class Misil extends Movible{
 	}
 
 	@Override
+	/**
+	 * JUGAR DE MISIL REDEFINE EL METODO JUGAR DE ELEMENTO 
+	 */
 	public void jugar() {
 		if (this.getVelocidadAvance()>0){
 			super.avanzar();
-			this.setVelocidadAvance(this.getVelocidadAvance()-1); 
+			this.setVelocidadAvance(this.getVelocidadAvance()-1); // SI LA VELOCIDAD DE AVANCE ES MAYOR A 0
+																 // LA DECREMENTO EN UNA UNIDAD
 		}
 		else{
-			super.destruir(this);
+			super.destruir(this); // CUANDO LLEGA A CERO DESTRUYO EL MISIL 
 		}
 		
 	}
@@ -129,6 +138,9 @@ public class Misil extends Movible{
 	}
 
 	@Override
+	/**
+	 * Destruyo el misil 
+	 */
 	public void chocarContraPazadizo(Pasadizo pasadizo) {
 		this.destruir(this);
 		
@@ -137,6 +149,9 @@ public class Misil extends Movible{
 
 
 	@Override
+	/**
+	 *  SI  EL MISIL CHOCA CONTRA UN MISIL DE OTRA NAVE  ESTE PRIMERO SE DESTRUYE	
+	 */
 	public void chocarContraMisil(Misil misil) {
 		if (misil.getDuenio()!= this.getDuenio()){
 			this.destruir(this);
@@ -144,6 +159,9 @@ public class Misil extends Movible{
 	}
 
 	@Override
+	/**
+	 * CUANDO CHOCO CONTRA UN OBSTACULO EXPLOSIVO EL MISIL LO DESTRUYO 
+	 */
 	public void chocarContraObstaculoExplosivo(ObstaculoExplosivo obstaculoExplosivo) {
 		this.destruir(this);
 	}

@@ -21,6 +21,9 @@ public class NaveCrazy extends Nave{
 	}
 	
 	@Override
+	/**
+	 * Nave Crazy Redefine el metodo jugar de Nave
+	 */
 	public void jugar() {
 		if (this.getNivelCombustible()>0){
 			super.jugar();
@@ -35,6 +38,9 @@ public class NaveCrazy extends Nave{
 
 
 	@Override
+	/**
+	 * cuando choco contra una pared disparo el misl 
+	 */
 	public void chocarContraPared() {
 		super.girar(70); //TODO CAPAZ QUE HAY QUE CAMBIARLO A 90
 		this.dispararMisil(this);
@@ -45,12 +51,15 @@ public class NaveCrazy extends Nave{
 
 
 	@Override
+	/**
+	 * ArrayList De elelemtos detectados por el radar de NaveCrazy
+	 */
 	public void elementosVistos(ArrayList<Elemento> elementos) {
 		// TODO preguntar que deberia hacer
 		
 		if (this.getNivelCombustible()>0){
 			uEstrategia.inteligencia(elementos, this);
-		}else{
+		}else{	// si la nave se queda sin combustible entonces escanea el esecenario en busqueda de  un bonus de combustible 
 			uEstrategia.buscarCombustible(elementos, this);
 			this.getRadar().girar(3);
 		}
@@ -61,6 +70,9 @@ public class NaveCrazy extends Nave{
 
 	
 	@Override
+	/**
+	 * Nombre De La Nave 
+	 */
 	public String toString() {
 		return ("CRAZY");
 	}

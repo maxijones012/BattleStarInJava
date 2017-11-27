@@ -2,6 +2,10 @@ package logicaJuego;
 
 
 import configuracion.ConfiguracionInicial;
+/**
+ * Clase abstracta Elemento las subclases que extienden de Elemento deben de redefinir sus metodos
+ * e implementar IElemento
+ */
 import interfaces.IElemento;
 import util.uMovimiento;
 
@@ -14,7 +18,13 @@ public abstract class Elemento implements IElemento{
 	private boolean pausa=false;
 	
 	
-//	constructor
+/**
+ * Constructor Clase Elemento 
+ * @param posicion
+ * @param tamanio
+ * @param adminstradorJuego
+ */
+	
 	public Elemento(Posicion posicion, Tamanio tamanio, AdministradorJuego adminstradorJuego) {
 		this.posicion=posicion;
 		posicion = uMovimiento.getCentro(tamanio, posicion);
@@ -26,6 +36,9 @@ public abstract class Elemento implements IElemento{
 
 
 	@Override
+	/**
+	 * Metodo jugar generico de de los elementos 
+	 */
 	public void jugar(){
 		if (getNivelVida()>0){
 			

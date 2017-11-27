@@ -1,5 +1,10 @@
 package logicaJuego;
-
+/**
+ * Cuando una nave obtiene este bonus, permanece inmune (no
+	se​ ​destruye)​ ​por​ ​un​ ​tiempo​ ​determinado.
+ * @author carlos
+ *
+ */
 public class BonusInmunidad extends Bonus{
 
 	/**
@@ -15,7 +20,7 @@ public class BonusInmunidad extends Bonus{
 
 	@Override
 	/**
-	 * llamao al metod del elemento que chocaContraBonusInmunidad ()
+	 * llamO al metodo del elemento que chocaContraBonusInmunidad ()
 	 * @param elemento
 	 */
 	 
@@ -54,7 +59,10 @@ public class BonusInmunidad extends Bonus{
 
 	
 	
-	
+	/**
+	 * TODO VERIFICO QUE LA INSTANCIA DE NAVE NO SEA NULL
+	 * @param nave
+	 */
 	private void darBonusInmunidad(Nave nave) {
 		if (nave != null){
 			nave.setInmunidad(true);			
@@ -62,22 +70,35 @@ public class BonusInmunidad extends Bonus{
 	}
 
 	@Override
+	/**
+	 * METODO VACIO NO HAGO NADA 
+	 */
 	public void chocarContraPared() {}
 
 	@Override
+	/**
+	 * ejecuto el metodo destruir de bonus de inmunidad  
+	 */
 	public void chocarContraBomba(Bomba bomba) {
 		this.destruir(this);
 	}
 
 	@Override
+	
 	public void chocarContraNave(Nave nave) {
 		this.destruir(this);
 	}
 
 	@Override
-	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {} //TODO VER SI ESTO ESTA BIEN
+	/**
+	 * Cuando choco contra otro bonus no hago nada 
+	 */
+	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {}
 
 	@Override
+	/**
+	 * cuando choco  contra un pasadizo no hago nada 
+	 */
 	public void chocarContraPazadizo(Pasadizo pasadizo) {
 		// TODO Auto-generated method stub
 		

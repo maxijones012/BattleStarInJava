@@ -28,7 +28,8 @@ public abstract class uAdministradorJuego {
 	 * da los turno a cada elemento del juego 
 	 * @param administradorJuego
 	 */
-	public static void darTurno(AdministradorJuego administradorJuego){
+	public static void darTurno(){
+		AdministradorJuego administradorJuego = AdministradorJuego.getInstancia();
 		for(int i=0; i<administradorJuego.getListaElemento().size(); i++){
 			Elemento elemento = administradorJuego.getListaElemento().get(i);			
 			elemento.jugar();
@@ -40,8 +41,8 @@ public abstract class uAdministradorJuego {
 	 * Elimina los elementos de la lista
 	 * @param administradorJuego
 	 */
-	public static void eliminarElementos(AdministradorJuego administradorJuego){
-		
+	public static void eliminarElementos(){
+		AdministradorJuego administradorJuego = AdministradorJuego.getInstancia();
 		for(int i=0; i<administradorJuego.getListaElemento().size();i++){
 			if (!administradorJuego.getListaElemento().get(i).getEstaVivo())
 				administradorJuego.getListaElemento().remove(i);
@@ -55,7 +56,8 @@ public abstract class uAdministradorJuego {
 	 * Se crean todos los elementos que estan dentro del juego
 	 * @param administradorJuego
 	 */
-	public static void crearElementos(AdministradorJuego administradorJuego) {
+	public static void crearElementos() {
+		AdministradorJuego administradorJuego = AdministradorJuego.getInstancia();
 		Tamanio tamanioNave = new Tamanio(ConfiguracionInicial.ANCHO_NAVE,ConfiguracionInicial.ALTO_NAVE);
 		
 		NaveCrazy naveCrazy = new NaveCrazy(new Posicion(607, 100), tamanioNave, administradorJuego);
@@ -105,7 +107,9 @@ public abstract class uAdministradorJuego {
 	 * {@link BonusInmunidad bonusInmunidad}
 	 * @param administradorJuego
 	 */
-	public static void crearBonus(AdministradorJuego administradorJuego) {
+	//TODO[MEJORAR] Aumenten el tiempo de vida de los bonus para una mejor experiencia, o aumenten la velocidad de la nave. Es muy dificil llegar a un bonus sin que muera.
+	public static void crearBonus() {
+		AdministradorJuego administradorJuego = AdministradorJuego.getInstancia();
 		  Random timeRandom = new Random();
 		  int tiempoRandom = (int)(timeRandom.nextDouble()*10);  //3000
 		  administradorJuego.setBonusContador(administradorJuego.getBonusContador()+1);
@@ -149,7 +153,8 @@ public abstract class uAdministradorJuego {
 	/**
 	 * controla si un {@link Elemento elemento} se choco con otro elemento dentro del escenario
 	 */
-	public static void verficarChoques(AdministradorJuego administradorJuego) {
+	public static void verficarChoques() {
+		AdministradorJuego administradorJuego = AdministradorJuego.getInstancia();
 		
 		for(int i=0; i<administradorJuego.getListaElemento().size();i++){
 			
@@ -193,6 +198,7 @@ public abstract class uAdministradorJuego {
 				if (e2 instanceof Bomba) {
 					Bomba bomb = (Bomba) e2;
 					if (bomb.isEstaExplotando()){
+//						uArmamento.explotar(bomb);
 						r2.setSize(ConfiguracionInicial.ANCHO_BOMBA*2, ConfiguracionInicial.ALTO_BOMBA*2);
 					}
 				}

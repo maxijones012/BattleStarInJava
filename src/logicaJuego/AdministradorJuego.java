@@ -15,7 +15,7 @@ import util.uAdministradorJuego;
 /**
  * Clase administrador de juego, es la encargada de crear, controlar, y mostrar todo lo relacionado al 
  * 	juego
- * @author Maxi Jones
+ * @author carlos
  *
  */
 public class AdministradorJuego implements IAdministradorJuego{
@@ -31,7 +31,10 @@ public class AdministradorJuego implements IAdministradorJuego{
 	private int duracionJuego=ConfiguracionInicial.DURACION_JUEGO;
 	private static AdministradorJuego instancia = new AdministradorJuego();
 	
-	
+	/**
+	 * devuelve la instancia de AdministradorJuego
+	 * @return
+	 */
 	public static AdministradorJuego getInstancia() {
 		return instancia;
 	}
@@ -48,6 +51,10 @@ public class AdministradorJuego implements IAdministradorJuego{
 	}
 	
 	@Override
+	/**
+	 * Inicia el juego 
+	 *Crea los bonus y da el turno a los elementos dentro del escenario 
+	 */
 	public void iniciarJuego() {
 		crearElementos();
 		vTableroJuego vista = new vTableroJuego(this);
@@ -90,14 +97,15 @@ public class AdministradorJuego implements IAdministradorJuego{
 	 * TODO verificar si los poligonos de los elmentos que chocan estan superpuestos
 	 */
 	private void verificarChoques() {
-		uAdministradorJuego.verficarChoques(this);
+		uAdministradorJuego.verficarChoques();
 		
 	}
 
 	private void crearBonus() {
 		Random rand = new Random();
 		if (rand.nextBoolean()==true){
-			uAdministradorJuego.crearBonus(this);
+			//TODO[CORREGIR] Al implementar SIngleton, no se debe pasar el admin del juego como parametro
+			uAdministradorJuego.crearBonus();
 		}
 		
 	}
@@ -110,7 +118,7 @@ public class AdministradorJuego implements IAdministradorJuego{
 
 	@Override
 	public void crearElementos() {
-		uAdministradorJuego.crearElementos(this);
+		uAdministradorJuego.crearElementos();
 		
 	}
 
@@ -215,8 +223,9 @@ public class AdministradorJuego implements IAdministradorJuego{
 	 * en caso de que un elemento no este vivo es retirado del juego.
 	 * 
 	 */
+	//TODO[CORREGIR] quedan sin eliminar algunas naves con vida negativa 
 	private void depurarElementos() {
-		uAdministradorJuego.eliminarElementos(this);
+		uAdministradorJuego.eliminarElementos();
 	}
 
 	public int getTiempo() {

@@ -1,4 +1,9 @@
 package configuracion;
+/**
+ * contiene las constantes dentro del juego 
+ * @author carlos
+ *
+ */
 
 public class Constante {
 

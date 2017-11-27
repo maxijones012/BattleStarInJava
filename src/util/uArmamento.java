@@ -69,6 +69,7 @@ public abstract class uArmamento {
 	 * area de cobertura
 	 * @param bomba
 	 */
+	//TODO [MEJORA] Muestren esta animación de alguna manera en la interfaz. Ej que la bomba aumente de tamaño
 	public static void explotar(Bomba bomba){
 		//TODO mejorar y controla que haga bien el circulo
 		if (bomba!= null){

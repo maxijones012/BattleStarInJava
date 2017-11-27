@@ -37,20 +37,20 @@ public class Bomba extends Movible{
 			super.avanzar();
 			verificarExplosion();
 			this.setVelocidadAvance(this.getVelocidadAvance()-1); //TODO verificar que anda
-			if (this.getVelocidadAvance()<8){
+			if (this.getVelocidadAvance()<8){ //la nave esta explotando	
 				this.setEstaExplotando(true);
 			}
 		}
 		else{
 			
-			super.destruir(this);
+			super.destruir(this); // ya exploto por lo tanto debo de destruir la nave 
 		}
 		
 	}
 
 	
 	/**
-		TODO Verifica si la bomba esta explotando
+		Verifica si la bomba esta explotando
 	 */
 	private void verificarExplosion() {
 		if (isEstaExplotando()){
@@ -84,7 +84,7 @@ public class Bomba extends Movible{
 
 	@Override
 	/**
-	 * TODO CUANDO SE SUPERPONE UN MOVIBLE CON EL BONUS ESTE SE DESTRUYE
+	 *  CUANDO SE SUPERPONE UN MOVIBLE CON EL BONUS ESTE SE DESTRUYE
 	 */
 	public void chocarContraBonusReparacion(BonusReparacion bonus) {
 		this.destruir(this);
@@ -92,11 +92,21 @@ public class Bomba extends Movible{
 	}
 
 	@Override
+	/**
+	 * CUANDO SE SUPERPONE UNA BOMBA CON EL BONUS ESTE SE DESTRUYE
+	 */
 	public void chocarContraBonusInmunidad(BonusInmunidad bonus) {
 		this.destruir(this);
 	}
 
 	@Override
+	/**
+	 *  CUANDO SE SUPERPONE UNA BOMBA CON EL BONUS ESTE SE DESTRUYE
+	 *
+	 *
+	 *
+	 *
+	 */
 	public void chocarContraBonusMisil(BonusMisil bonus) {
 		this.destruir(this);
 		
@@ -112,13 +122,18 @@ public class Bomba extends Movible{
 
 
 	@Override
-	//TODO 
+	/**
+	 * Se destruye la bomba 
+	 */
 	public void chocarContraPared() {
 		this.destruir(this);
 		System.out.println("BOMBA CHOCO CONTRA PARED Y MURIO");
 	}
 
 	@Override
+	/**
+	 * DESTRUIR LAS BOMBAS
+	 */
 	public void chocarContraBomba(Bomba bomba) {
 		if (bomba.getDuenio()!= this.getDuenio()){
 			this.destruir(this);
@@ -158,7 +173,10 @@ public class Bomba extends Movible{
 	public void setEstaExplotando(boolean estaExplotando) {
 		this.estaExplotando = estaExplotando;
 	}
-
+/**
+ * Cuando la bomba cohoca con alguno de los elmentos  pasados por parametro en los metodos de abajo la bomba
+ * tiene que ejecutar su metodo destruir 
+ */
 	@Override
 	public void chocarContraPazadizo(Pasadizo pasadizo) {
 		this.destruir(this);

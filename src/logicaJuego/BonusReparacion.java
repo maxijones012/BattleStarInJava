@@ -23,6 +23,9 @@ public class BonusReparacion extends Bonus{
 
 
 	@Override
+	/**
+	 * EJECUTA EL METODO chocarContraBonusReparacion del  elemento 
+	 */
 	public void chocarContra(Elemento elemento) {
 		elemento.chocarContraBonusReparacion(this);
 		
@@ -30,6 +33,9 @@ public class BonusReparacion extends Bonus{
 
 
 	@Override
+	/**
+	 * TODO ver que hago si se superponen dos bonus
+	 */
 	public void chocarContraBonusMisil(BonusMisil bonus) {
 		darBeneficio(bonus.getDuenio());
 	}
@@ -38,11 +44,17 @@ public class BonusReparacion extends Bonus{
 
 
 	@Override
+	/**
+	 * Otorogo el bonus de reparacion a la naves 
+	 */
 	public void darBeneficio(Nave nave) {
 		darBonusReparacion(nave);
 	}
 
-	
+	/**
+	 * otorgo el bonus de reparacion a la nave duenia del misil 
+	 * @param misil
+	 */
 	public void darBeneficio(Misil misil) {
 		darBonusReparacion(misil);
 	}
@@ -80,6 +92,10 @@ public class BonusReparacion extends Bonus{
 
 
 	@Override
+	/**
+	 * la nave duenia de la bomba enviada por parametro recive el bonus 
+	 * el bonus reparacion se destruye
+	 */
 	public void chocarContraBomba(Bomba bomba) {
 		darBeneficio(bomba.getDuenio());
 		this.destruir(this);
@@ -87,16 +103,25 @@ public class BonusReparacion extends Bonus{
 
 
 	@Override
+	/**
+	 * El bonus se destruye	
+	 */
 	public void chocarContraNave(Nave nave) {
 		this.destruir(this);
 	}
 
 
 	@Override
+	/**
+	 * Metodo vacion si el bonus choca contra un pasazido no hago nada 
+	 */
 	public void chocarContraPazadizo(Pasadizo pasadizo) {}
 
 
 	@Override
+	/**
+	 * el bonus se destruye 
+	 */
 	public void chocarContraMisil(Misil misil) {
 		this.destruir(this);
 	}

@@ -15,6 +15,7 @@ import javax.imageio.ImageIO;
 
 import configuracion.ConfiguracionInicial;
 import logicaJuego.AdministradorJuego;
+import logicaJuego.Bomba;
 import logicaJuego.Elemento;
 import logicaJuego.Movible;
 import logicaJuego.Nave;
@@ -86,7 +87,14 @@ public class TableroJuego extends Canvas implements KeyListener{
 					eImagen = getImagen(e.getClass().getName()+"Explotando");
 				}
 			}
-			
+
+			if (e instanceof Bomba){
+				Bomba bomba = (Bomba) e;
+				if (bomba.isEstaExplotando()==true){
+						uGrafica.dibujarExplosion(this,bomba);
+					eImagen = getImagen(e.getClass().getName()+"Explotando");
+				}
+			}
 			dibujarTiempoJuego(this, 40, 40);
 			
 			this.getGrafico2D().drawImage(eImagen, x, y, e.getTamanio().getAncho(), e.getTamanio().getAlto(), null);
